@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.5.30)  1 JUN 2023 14:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.5.30)  1 JUN 2023 14:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1044,56 +1044,56 @@ pdftex: bookmark at 9: {1.2} {\numberline{1.2}Motivation} {section.1.2}{1}{toc}
 
 Package hyperref Info: Reference (cite) `cite.Lorena2022' on input line 10.
 Package hyperref Info: Reference (cite) `cite.Lorena2022' on input line 10.
-Package hyperref Info: Reference (cite) `cite.Munoz2018' on input line 12.
-Package hyperref Info: Reference (cite) `cite.Munoz2018' on input line 12.
-Package hyperref Info: Reference (cite) `cite.Lorena2022' on input line 12.
-Package hyperref Info: Reference (cite) `cite.Lorena2022' on input line 12.
-Package hyperref Info: Reference (cite) `cite.Goodfellow2014' on input line 14.
+Package hyperref Info: Reference (cite) `cite.Munoz2018' on input line 14.
+Package hyperref Info: Reference (cite) `cite.Munoz2018' on input line 14.
+Package hyperref Info: Reference (cite) `cite.Lorena2022' on input line 14.
+Package hyperref Info: Reference (cite) `cite.Lorena2022' on input line 14.
+Package hyperref Info: Reference (cite) `cite.Goodfellow2014' on input line 16.
 
-Package hyperref Info: Reference (cite) `cite.Goodfellow2014' on input line 14.
+Package hyperref Info: Reference (cite) `cite.Goodfellow2014' on input line 16.
 
-Package hyperref Info: Anchor `section.1.3' on input line 31.
-pdftex: bookmark at 31: {1.3} {\numberline{1.3}Outline of this work} {section.1
+Package hyperref Info: Anchor `section.1.3' on input line 33.
+pdftex: bookmark at 33: {1.3} {\numberline{1.3}Outline of this work} {section.1
 .3}{1}{toc}
-Package hyperref Info: Anchor `subsection.1.3.1' on input line 32.
-pdftex: bookmark at 32: {1.3.1} {\numberline{1.3.1}Sub-organização} {subsecti
+Package hyperref Info: Anchor `subsection.1.3.1' on input line 34.
+pdftex: bookmark at 34: {1.3.1} {\numberline{1.3.1}Sub-organização} {subsecti
 on.1.3.1}{2}{toc}
-Package hyperref Info: Anchor `page.13' on input line 34.
+Package hyperref Info: Anchor `page.13' on input line 36.
 [13
 
 
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}
 Package `hyperref' Info: End of reference (cite) `cite.Lorena2022', line 10.
 Package `hyperref' Info: End of reference (cite) `cite.Lorena2022', line 10.
-Package `hyperref' Info: End of reference (cite) `cite.Munoz2018', line 12.
-Package `hyperref' Info: End of reference (cite) `cite.Munoz2018', line 12.
-Package `hyperref' Info: End of reference (cite) `cite.Lorena2022', line 12.
-Package `hyperref' Info: End of reference (cite) `cite.Lorena2022', line 12.
-Package `hyperref' Info: End of reference (cite) `cite.Goodfellow2014', line 14
+Package `hyperref' Info: End of reference (cite) `cite.Munoz2018', line 14.
+Package `hyperref' Info: End of reference (cite) `cite.Munoz2018', line 14.
+Package `hyperref' Info: End of reference (cite) `cite.Lorena2022', line 14.
+Package `hyperref' Info: End of reference (cite) `cite.Lorena2022', line 14.
+Package `hyperref' Info: End of reference (cite) `cite.Goodfellow2014', line 16
 .
-Package `hyperref' Info: End of reference (cite) `cite.Goodfellow2014', line 14
+Package `hyperref' Info: End of reference (cite) `cite.Goodfellow2014', line 16
 .
 ]
-Package hyperref Info: Anchor `subsubsection.1.3.1.1' on input line 35.
+Package hyperref Info: Anchor `subsubsection.1.3.1.1' on input line 37.
 
-pdftex: bookmark at 35: {1.3.1.1} {\numberline{1.3.1.1}SubSub-organização} {s
+pdftex: bookmark at 37: {1.3.1.1} {\numberline{1.3.1.1}SubSub-organização} {s
 ubsubsection.1.3.1.1}{3}{toc}
-Package hyperref Info: Anchor `subsubsection.1.3.1.2' on input line 39.
-pdftex: bookmark at 39: {1.3.1.2} {\numberline{1.3.1.2}Outra subsub-organizacao
+Package hyperref Info: Anchor `subsubsection.1.3.1.2' on input line 41.
+pdftex: bookmark at 41: {1.3.1.2} {\numberline{1.3.1.2}Outra subsub-organizacao
 } {subsubsection.1.3.1.2}{3}{toc}
-Package hyperref Info: Reference (cite) `cite.Furmento1995' on input line 52.
-Package hyperref Info: Reference (cite) `cite.Furmento1995' on input line 52.
-Package hyperref Info: Reference (cite) `cite.Morgado2003' on input line 52.
-Package hyperref Info: Reference (cite) `cite.Morgado2003' on input line 52.
+Package hyperref Info: Reference (cite) `cite.Furmento1995' on input line 54.
+Package hyperref Info: Reference (cite) `cite.Furmento1995' on input line 54.
+Package hyperref Info: Reference (cite) `cite.Morgado2003' on input line 54.
+Package hyperref Info: Reference (cite) `cite.Morgado2003' on input line 54.
 )
 Package hyperref Info: Anchor `page.14' on input line 145.
  [14]
 Package hyperref Info: Anchor `page.15' on input line 145.
  [15
-Package `hyperref' Info: End of reference (cite) `cite.Furmento1995', line 52.
-Package `hyperref' Info: End of reference (cite) `cite.Furmento1995', line 52.
-Package `hyperref' Info: End of reference (cite) `cite.Morgado2003', line 52.
-Package `hyperref' Info: End of reference (cite) `cite.Morgado2003', line 52.
+Package `hyperref' Info: End of reference (cite) `cite.Furmento1995', line 54.
+Package `hyperref' Info: End of reference (cite) `cite.Furmento1995', line 54.
+Package `hyperref' Info: End of reference (cite) `cite.Morgado2003', line 54.
+Package `hyperref' Info: End of reference (cite) `cite.Morgado2003', line 54.
 ]
 Package hyperref Info: Anchor `chapter.2' on input line 145.
 
@@ -1318,7 +1318,7 @@ fonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8
 re/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/
 fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf-dist/fonts/type1/pub
 lic/cm-super/sfrm1200.pfb>
-Output written on tese.pdf (24 pages, 421584 bytes).
+Output written on tese.pdf (24 pages, 421817 bytes).
 PDF statistics:
  427 PDF objects out of 1000 (max. 8388607)
  354 compressed objects within 4 object streams
