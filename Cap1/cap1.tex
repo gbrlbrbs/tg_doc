@@ -1,9 +1,5 @@
 \section{Objective}
-O objetivo deste projeto de mestrado é desenvolver técnicas de controle subótimo das juntas passivas (não atuadas) de um robô subatuado, incluindo o estudo teórico do tema, proposição de um método de controle e sua verificação
-experimental em um manipulador de três graus de liberdade \cite{Nascimento1970}.
 
-O teste e validação das técnicas de controle propostas foram realizados em um ambiente de simulação e no manipulador
-experimental, adquirido através do projeto FAPESP $N^{\circ}$ 98/00649-5, que se encontra em funcionamento no Laboratório de Sistemas Inteligentes (LASI) do Departamento de Engenharia Elétrica da USP em São Carlos. Pode-se citar \cite{Lorena2022}:
 \begin{itemize}
 \item Isso;
 \item Aquilo; e
@@ -11,45 +7,28 @@ experimental, adquirido através do projeto FAPESP $N^{\circ}$ 98/00649-5, que s
 \end{itemize}
 
 \section{Motivation}
-Manipuladores mecânicos vêm sendo utilizados há várias décadas para a automação de tarefas
-repetitivas em ambientes industriais, ambientes estes de fácil acesso tanto em termos físicos quanto em termos de baixo
-risco à saúde humana. Nos últimos anos, verifica-se uma utilização cada vez maior de manipuladores em
-ambientes de difícil acesso ou inóspitos, como no interior de usinas nucleares, no fundo dos oceanos e no
-espaço. A localização dos manipuladores nesta nova gama de aplicações faz com que sua manutenção,
-Dpós uma falha mecânica ou elétrica, seja custosa e demorada, portanto estes mecanismos requerem sofisticadas
-metodologias de controle tolerante a falhas .
+Often in a problem being tackled with Machine Learning techniques the most important part of the solving process is the algorithm selection. Each one has a specific bias which makes it more suitable for some classes of problems than others \cite{Lorena2022}. It is desirable, then, that we may have a way of measuring the relationship of the performance of a given algorithm in a problem with the problem's characteristics.
 
-Após a ocorrência de uma falha em um de seus atuadores, o manipulador torna-se um sistema subatuado. Um sistema também pode se tornar subatuado quando é projetado  dessa maneira, ou quando o operador deliberadamente mantém um ou mais atuadores disponíveis inoperantes durante uma tarefa. Reduzindo o número de atuadores sem reduzir o número de graus de
-liberdade e ajustando-se o sistema de controle adequado, pode-se obter um mecanismo cujo consumo de energia é menor, mas cujas propriedades são mantidas .
+In \cite{Munoz2018} we have been introduced to a novel way of performance evaluation in classifiers mapping the statistical properties of an instance (an entire dataset) into how difficult the instance is for the classification algorithm to perform. Further, in \cite{Lorena2022}, the methodology has been modified to have a more fine-grained analysis, with the instance being reduced to an individual observation.
 
-\begin{figure}[ht]
-\centering
-\includegraphics[width=0.5\textwidth]{Cap1/cupim}
-\caption{Proibido estacionar cupins. Legenda grande, com o objetivo de demonstrar a indentação na lista de figuras.}
-\label{cupim}
-\end{figure}
+Given this, we can map each observation into a hardness metric and have another variable that depends upon the observation. We may feed this data into a new model and get new information of the original model. One type of model that may give us new information is a Generative Adversarial Network (GAN) architecture as defined by \cite{Goodfellow2014}. Using this, we can create data with specific hardness metrics and set a difficulty of classification for an entire dataset.
 
-Controle do manipulador após uma falha é fundamental do ponto de vista de operação, principalmente nos casos descritos acima, em que a localização do manipulador impede sua manutenção de forma fácil. Recentemente tem havido a combinação
-de algorítmos de detecção e isolação de falhas com os de controle pós-falha em um método unificado. Uma extensão desse trabalho, que vê o problema de controle tolerante a falhas através de uma perspectiva integrada, foi proposta por
-{marcel4}. Os autores apresentam um ambiente híbrido consistindo de três unidades básicas que garantem a compleição de tarefas na presença de qualquer número de juntas falhas (Figura \ref{cupim}). A primeira unidade é um esquema de detecção
-e isolação de falhas que continuamente monitora o manipulador para detectar e identificar possíveis falhas nas juntas. A segunda unidade é responsável pela reconfiguração do controle. A terceira unidade é composta de algorítmos de
-controle apropriados para cada tipo de configuração do robô, baseado na informação da unidade de reconfiguração \cite{COFFEE2000}.
+%\begin{figure}[ht]
+%\centering
+%\includegraphics[width=0.5\textwidth]{Cap1/cupim}
+%\caption{Proibido estacionar cupins. Legenda grande, com o objetivo de demonstrar a indentação na lista de figuras.}
+%\label{cupim}
+%\end{figure}
 
-No presente trabalho nos concentramos na unidade de algorítmo de controle, e mais especificamente no problema de controle da posição  angular de uma junta falha para qualquer posição desejada de uma maneira subótima, quando dispomos
-de redundância de atuação para a realização dessa tarefa. O termo subótimo se deve ao fato de que não há garantias de otimalidade em vista das não-linearidades inerentes ao sistema e de outros fatores que serão abordados nos capítulos posteriores. Ao longo do texto, para simplificação, usaremos tanto o termo subótimo como ótimo para nos referirmos à metodologia utilizada.
 
-Segundo, o critério de otimização utilizado será o acoplamento entre as juntas do
-manipulador e neste caso, temos um sistema redundante quando ocorre falha de uma das juntas do manipulador de três juntas, e seu posicionamento é controlado pelas duas restantes. Nossa solução para o problema é baseada na formulação
-de redundância local, extensivamente estudada no contexto de cinemática inversa ({nakamura}). A principal contribuição deste trabalho é a extensão deste método usando as equações dinâmicas de manipuladores subatuados e a utilização do índice de acoplamento como um critério para a minimização do torque e da energia gasta pelo sistema durante o controle das juntas falhas.
+%\begin{figure}[ht!]
+%\centering
+%\includegraphics[width=1\textwidth]{Cap1/cupimconcreto}
+%\caption{Exemplo real de cupim frente ao seu dilema.}
+%\label{FDII}
+%\end{figure}
 
-\begin{figure}[ht!]
-\centering
-\includegraphics[width=1\textwidth]{Cap1/cupimconcreto}
-\caption{Exemplo real de cupim frente ao seu dilema.}
-\label{FDII}
-\end{figure}
-
-\section{Organização do trabalho}
+\section{Outline of this work}
 \subsection{Sub-organização}
 O capítulo 1 contém a introdução do trabalho, onde são expostos o objetivo, a motivação do mesmo, a descrição do sistema e a formulação do problema com a nomenclatura utilizada; além de uma revisão bibliográfica da literatura relacionada ao tema do trabalho.
 

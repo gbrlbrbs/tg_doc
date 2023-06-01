@@ -5,45 +5,44 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{1.45.2.1 }
 
-\bibitem[]{Nascimento1970}
-\abntrefinfo{nada}{NADA}{a}
-{Dissertation (Mestrado).}
-
-\bibitem[]{Lorena2022}
-\abntrefinfo{nada}{NADA}{b}
-{}
-
-\bibitem[]{COFFEE2000}
-\abntrefinfo{nada}{NADA}{c}
-{}
-
 \bibitem[]{Furmento1995}
-\abntrefinfo{nada}{NADA}{d}
+\abntrefinfo{nada}{NADA}{a}
 {[\textit{S.l.}].}
 
 \bibitem[]{Morgado2003}
-\abntrefinfo{nada}{NADA}{e}
+\abntrefinfo{nada}{NADA}{b}
 {}
 
 \bibitem[]{Sbornian2004}
-\abntrefinfo{nada}{NADA}{f}
+\abntrefinfo{nada}{NADA}{c}
 {Thesis (Doutorado).}
 
 \bibitem[]{Joea2003}
-\abntrefinfo{nada}{NADA}{g}
+\abntrefinfo{nada}{NADA}{d}
 {\textit{In}:  . \textbf{Proceedings}~[...]. [\textit{S.l.: s.n.}].}
 
 \bibitem[]{Assenmacher1993}
-\abntrefinfo{nada}{NADA}{h}
+\abntrefinfo{nada}{NADA}{e}
 {\textit{In}:  . \textbf{Proceedings}~[...]. [\textit{S.l.: s.n.}].}
 
 \bibitem[]{Silberschatz1991}
-\abntrefinfo{nada}{NADA}{i}
+\abntrefinfo{nada}{NADA}{f}
 {[\textit{S.l.: s.n.}].}
 
 \bibitem[]{Callaghan1995}
-\abntrefinfo{nada}{NADA}{j}
+\abntrefinfo{nada}{NADA}{g}
 {[\textit{S.l.}].}
+
+\bibitem[Goodfellow \textit{et al.} 2014]{Goodfellow2014}
+\abntrefinfo{Goodfellow \textit{et al.}}{GOODFELLOW \textit{et al.}}{2014}
+{GOODFELLOW, I.; POUGET-ABADIE, J.; MIRZA, M.; XU, B.; WARDE-FARLEY, D.; OZAIR,
+  S.; COURVILLE, A.; BENGIO, Y. Generative adversarial nets. \textit{In}:
+  GHAHRAMANI, Z.; WELLING, M.; CORTES, C.; LAWRENCE, N.; WEINBERGER, K. (Ed.).
+  \textbf{Advances in Neural Information Processing Systems}.
+  \textbf{Proceedings}~[...]. Curran Associates, Inc., 2014. v.~27. Available
+  at: $ $https:\-/\-/proceedings\-.neurips\-.cc\-/paper\underline{\
+  }files\-/paper\-/2014\-/file\-/5ca3e9b122f61f8f06494c97b1afccf3-Paper\-.pdf$
+  $.}
 
 \bibitem[Mu{\~{n}}oz \textit{et al.} 2018]{Munoz2018}
 \abntrefinfo{Mu{\~{n}}oz \textit{et al.}}{MU{\~{N}}OZ \textit{et al.}}{2018}
@@ -52,5 +51,14 @@
 \textbf{Machine Learning}, v.~107, n.~1, p. 109--147, Jan 2018.
 ISSN 1573-0565.
 Available at: $ $https:\-/\-/doi\-.org\-/10\-.1007\-/s10994-017-5629-5$ $.}
+
+\bibitem[Paiva \textit{et al.} 2022]{Lorena2022}
+\abntrefinfo{Paiva \textit{et al.}}{PAIVA \textit{et al.}}{2022}
+{PAIVA, P. Y.~A.; MORENO, C.~C.; SMITH-MILES, K.; VALERIANO, M.~G.; LORENA,
+  A.~C. Relating instance hardness to classification performance in a dataset:
+  a visual approach.
+\textbf{Machine Learning}, v.~111, n.~8, p. 3085--3123, Aug 2022.
+ISSN 1573-0565.
+Available at: $ $https:\-/\-/doi\-.org\-/10\-.1007\-/s10994-022-06205-9$ $.}
 
 \end{thebibliography}

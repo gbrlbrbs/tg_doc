@@ -37,71 +37,63 @@ You're missing a field name---line 65 of file Referencias/referencias.bib
  : %  title = {{NFS} version 3 protocol specification},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 94 of file Referencias/referencias.bib
- : 
- : author={Paiva, Pedro Yuri Arbs
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-You're missing a field name---line 113 of file Referencias/referencias.bib
+You're missing a field name---line 125 of file Referencias/referencias.bib
  : 
  : %  author = {John Gi Joea and Joe Gi John},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 121 of file Referencias/referencias.bib
+You're missing a field name---line 133 of file Referencias/referencias.bib
  : 
  : %  author = {Nathalie Furmento and Yves Roudier and G{\"u}nther Siegel},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 134 of file Referencias/referencias.bib
+You're missing a field name---line 146 of file Referencias/referencias.bib
  : 
  : %  title = {ITALUS},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 142 of file Referencias/referencias.bib
+You're missing a field name---line 154 of file Referencias/referencias.bib
  : 
  : %  title = {CISCO SYSTEMS},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 152 of file Referencias/referencias.bib
+You're missing a field name---line 164 of file Referencias/referencias.bib
  : 
  : %  author = {Morgado, M. L. C.},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 162 of file Referencias/referencias.bib
+You're missing a field name---line 174 of file Referencias/referencias.bib
  : 
  : %  author = {Jackson Patagonios},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 172 of file Referencias/referencias.bib
+You're missing a field name---line 184 of file Referencias/referencias.bib
  : 
  : %  author = {Edson Arantes do Nascimento},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 184 of file Referencias/referencias.bib
+You're missing a field name---line 196 of file Referencias/referencias.bib
  : 
  : %  author = {Wilson Sbornian},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 198 of file Referencias/referencias.bib
+You're missing a field name---line 210 of file Referencias/referencias.bib
  : 
  : %  author = {Sbornian, Wilson},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 210 of file Referencias/referencias.bib
+You're missing a field name---line 222 of file Referencias/referencias.bib
  : 
  : %  title = {Operating system concepts},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 221 of file Referencias/referencias.bib
+You're missing a field name---line 233 of file Referencias/referencias.bib
  : 
  : %    author = {A. Accettura},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
 Reallocated wiz_functions (elt_size=8) to 9000 items from 6000.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
-Warning--para ordenar, precisa dos campos author, organization, editor, title ou key in Nascimento1970
-Warning--para ordenar, precisa dos campos author, organization, editor, title ou key in Lorena2022
-Warning--para ordenar, precisa dos campos author, organization, editor, title ou key in COFFEE2000
 Warning--para ordenar, precisa dos campos author, organization, editor, title ou key in Furmento1995
 Warning--para ordenar, precisa dos campos author, organization, editor, title ou key in Morgado2003
 Warning--para ordenar, precisa dos campos author, organization, editor, title ou key in Sbornian2004
@@ -112,18 +104,6 @@ Warning--para ordenar, precisa dos campos author, organization, editor, title ou
 Reallocated glb_str_ptr (elt_size=8) to 20 items from 10.
 Reallocated global_strs (elt_size=200001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=8) to 20 items from 10.
-Warning--campo author vazio em Nascimento1970
-`title' is a missing field, not a string, for entry Nascimento1970
-while executing---line 2161 of file abnt/abnt-alf.bst
-Warning--campo title vazio em Nascimento1970
-Warning--faltando school em Nascimento1970
-Warning--campo year vazio em Nascimento1970
-`title' is a missing field, not a string, for entry Lorena2022
-while executing---line 2161 of file abnt/abnt-alf.bst
-Warning--campo title vazio em Lorena2022
-`title' is a missing field, not a string, for entry COFFEE2000
-while executing---line 2161 of file abnt/abnt-alf.bst
-Warning--campo title vazio em COFFEE2000
 `title' is a missing field, not a string, for entry Furmento1995
 while executing---line 2161 of file abnt/abnt-alf.bst
 Warning--campo title vazio em Furmento1995
@@ -161,45 +141,45 @@ Warning--campo title vazio em Callaghan1995
 | Em caso de d�vidas ou problemas com este estilo procure |
 | http://abntex.codigolivre.org.br                        |
 +---------------------------------------------------------+
-You've used 16 entries,
+You've used 15 entries,
             6496 wiz_defined-function locations,
-            1198 strings with 9867 characters,
-and the built_in function-call counts, 8364 in all, are:
-= -- 869
-> -- 53
-< -- 49
-+ -- 133
-- -- 17
-* -- 405
-:= -- 843
-add.period$ -- 19
-call.type$ -- 18
-change.case$ -- 61
-chr.to.int$ -- 17
-cite$ -- 43
-duplicate$ -- 542
-empty$ -- 833
-format.name$ -- 75
-if$ -- 2212
-int.to.chr$ -- 14
+            1212 strings with 10558 characters,
+and the built_in function-call counts, 14362 in all, are:
+= -- 1851
+> -- 193
+< -- 200
++ -- 331
+- -- 55
+* -- 725
+:= -- 1363
+add.period$ -- 29
+call.type$ -- 17
+change.case$ -- 94
+chr.to.int$ -- 25
+cite$ -- 33
+duplicate$ -- 1457
+empty$ -- 838
+format.name$ -- 296
+if$ -- 3392
+int.to.chr$ -- 11
 int.to.str$ -- 3
-missing$ -- 213
-newline$ -- 55
-num.names$ -- 5
-pop$ -- 280
+missing$ -- 219
+newline$ -- 54
+num.names$ -- 16
+pop$ -- 294
 preamble$ -- 1
-purify$ -- 40
+purify$ -- 44
 quote$ -- 0
-skip$ -- 991
+skip$ -- 1844
 stack$ -- 1
-substring$ -- 220
-swap$ -- 136
-text.length$ -- 4
+substring$ -- 412
+swap$ -- 337
+text.length$ -- 10
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 21
-warning$ -- 32
-while$ -- 20
+type$ -- 15
+warning$ -- 23
+while$ -- 33
 width$ -- 0
-write$ -- 139
-(There were 28 error messages)
+write$ -- 146
+(There were 24 error messages)
