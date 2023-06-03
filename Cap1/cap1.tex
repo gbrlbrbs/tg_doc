@@ -1,11 +1,3 @@
-\section{Objective}
-
-\begin{itemize}
-\item Isso;
-\item Aquilo; e
-\item Aquele outro.
-\end{itemize}
-
 \section{Motivation}
 Often in a problem being tackled with Machine Learning techniques the most important part of the solving process is the algorithm selection. Each one has a specific bias which makes it more suitable for some classes of problems than others \cite{Lorena2022}. 
 
@@ -14,6 +6,14 @@ It is desirable, then, that we may have a way of measuring the relationship of t
 In \cite{Munoz2018} we have been introduced to a novel way of performance evaluation in classifiers mapping the statistical properties of an instance (an entire dataset) into how difficult the instance is for the classification algorithm to perform. Further, in \cite{Lorena2022}, the methodology has been modified to have a more fine-grained analysis, with the instance being reduced to an individual observation.
 
 Given this, we can map each observation into a hardness metric and have another variable that depends upon the observation. We may feed this data into a new model and get new information of the original model. One type of model that may give us new information is a Generative Adversarial Network (GAN) architecture as defined by \cite{Goodfellow2014}. Using this, we can create data with specific hardness metrics and set a difficulty of classification for an entire dataset.
+
+\section{Objective}
+
+This work's objective lies in providing a framework for data generation based on the relationship between instance hardness and classification performance using the GAN architecture. 
+
+\section{Scope}
+
+The scope of this work will be limited to exploring a GAN implementation for the generation of data, creating a Generator and a Discriminator.  The modeling will be made entirely using Python, with the PyTorch \cite{paszke2019pytorch} framework.
 
 %\begin{figure}[ht]
 %\centering

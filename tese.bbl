@@ -61,4 +61,12 @@ Available at: $ $https:\-/\-/doi\-.org\-/10\-.1007\-/s10994-017-5629-5$ $.}
 ISSN 1573-0565.
 Available at: $ $https:\-/\-/doi\-.org\-/10\-.1007\-/s10994-022-06205-9$ $.}
 
+\bibitem[Paszke \textit{et al.} 2019]{paszke2019pytorch}
+\abntrefinfo{Paszke \textit{et al.}}{PASZKE \textit{et al.}}{2019}
+{PASZKE, A.; GROSS, S.; MASSA, F.; LERER, A.; BRADBURY, J.; CHANAN, G.;
+  KILLEEN, T.; LIN, Z.; GIMELSHEIN, N.; ANTIGA, L.; DESMAISON, A.; KöPF, A.;
+  YANG, E.; DEVITO, Z.; RAISON, M.; TEJANI, A.; CHILAMKURTHY, S.; STEINER, B.;
+  FANG, L.; BAI, J.; CHINTALA, S. \textbf{PyTorch: An Imperative Style,
+  High-Performance Deep Learning Library}. 2019.}
+
 \end{thebibliography}

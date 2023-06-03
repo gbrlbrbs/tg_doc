@@ -37,57 +37,57 @@ You're missing a field name---line 65 of file Referencias/referencias.bib
  : %  title = {{NFS} version 3 protocol specification},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 125 of file Referencias/referencias.bib
+You're missing a field name---line 134 of file Referencias/referencias.bib
  : 
  : %  author = {John Gi Joea and Joe Gi John},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 133 of file Referencias/referencias.bib
+You're missing a field name---line 142 of file Referencias/referencias.bib
  : 
  : %  author = {Nathalie Furmento and Yves Roudier and G{\"u}nther Siegel},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 146 of file Referencias/referencias.bib
+You're missing a field name---line 155 of file Referencias/referencias.bib
  : 
  : %  title = {ITALUS},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 154 of file Referencias/referencias.bib
+You're missing a field name---line 163 of file Referencias/referencias.bib
  : 
  : %  title = {CISCO SYSTEMS},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 164 of file Referencias/referencias.bib
+You're missing a field name---line 173 of file Referencias/referencias.bib
  : 
  : %  author = {Morgado, M. L. C.},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 174 of file Referencias/referencias.bib
+You're missing a field name---line 183 of file Referencias/referencias.bib
  : 
  : %  author = {Jackson Patagonios},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 184 of file Referencias/referencias.bib
+You're missing a field name---line 193 of file Referencias/referencias.bib
  : 
  : %  author = {Edson Arantes do Nascimento},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 196 of file Referencias/referencias.bib
+You're missing a field name---line 205 of file Referencias/referencias.bib
  : 
  : %  author = {Wilson Sbornian},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 210 of file Referencias/referencias.bib
+You're missing a field name---line 219 of file Referencias/referencias.bib
  : 
  : %  author = {Sbornian, Wilson},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 222 of file Referencias/referencias.bib
+You're missing a field name---line 231 of file Referencias/referencias.bib
  : 
  : %  title = {Operating system concepts},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 233 of file Referencias/referencias.bib
+You're missing a field name---line 242 of file Referencias/referencias.bib
  : 
  : %    author = {A. Accettura},
 (Error may have been on previous line)
@@ -141,45 +141,45 @@ Warning--campo title vazio em Callaghan1995
 | Em caso de d�vidas ou problemas com este estilo procure |
 | http://abntex.codigolivre.org.br                        |
 +---------------------------------------------------------+
-You've used 15 entries,
+You've used 16 entries,
             6496 wiz_defined-function locations,
-            1212 strings with 10558 characters,
-and the built_in function-call counts, 14362 in all, are:
-= -- 1851
-> -- 193
+            1216 strings with 11016 characters,
+and the built_in function-call counts, 15970 in all, are:
+= -- 1921
+> -- 310
 < -- 200
-+ -- 331
-- -- 55
-* -- 725
-:= -- 1363
-add.period$ -- 29
-call.type$ -- 17
-change.case$ -- 94
-chr.to.int$ -- 25
-cite$ -- 33
-duplicate$ -- 1457
-empty$ -- 838
-format.name$ -- 296
-if$ -- 3392
++ -- 385
+- -- 86
+* -- 883
+:= -- 1548
+add.period$ -- 32
+call.type$ -- 18
+change.case$ -- 126
+chr.to.int$ -- 26
+cite$ -- 34
+duplicate$ -- 1522
+empty$ -- 914
+format.name$ -- 490
+if$ -- 3751
 int.to.chr$ -- 11
 int.to.str$ -- 3
-missing$ -- 219
-newline$ -- 54
-num.names$ -- 16
-pop$ -- 294
+missing$ -- 254
+newline$ -- 58
+num.names$ -- 21
+pop$ -- 337
 preamble$ -- 1
-purify$ -- 44
+purify$ -- 49
 quote$ -- 0
-skip$ -- 1844
+skip$ -- 1929
 stack$ -- 1
-substring$ -- 412
-swap$ -- 337
+substring$ -- 429
+swap$ -- 385
 text.length$ -- 10
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 15
 warning$ -- 23
-while$ -- 33
+while$ -- 39
 width$ -- 0
-write$ -- 146
+write$ -- 159
 (There were 24 error messages)
