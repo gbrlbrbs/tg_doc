@@ -12,174 +12,54 @@ Reallocated singl_function (elt_size=8) to 100 items from 50.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
 Database file #1: abnt/abnt-options.bib
 Database file #2: Referencias/referencias.bib
-You're missing a field name---line 2 of file Referencias/referencias.bib
- : 
- : %  author = {Brayner Arystides and Carlos Santos de Medeiros},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-You're missing a field name---line 17 of file Referencias/referencias.bib
- : 
- : %  author = {Hans Assenmacher and Tedy Breitbach and Paul Buhler and Visk H{\"u}bsch and Robert Schwarz},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-You're missing a field name---line 33 of file Referencias/referencias.bib
- : 
- : %  title = {Traditions around Colombian coffee},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-You're missing a field name---line 48 of file Referencias/referencias.bib
- : 
- : %  author = {K. BADDAM and M. ZWOLINSKI},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-You're missing a field name---line 65 of file Referencias/referencias.bib
- : 
- : %  title = {{NFS} version 3 protocol specification},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-You're missing a field name---line 134 of file Referencias/referencias.bib
- : 
- : %  author = {John Gi Joea and Joe Gi John},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-You're missing a field name---line 142 of file Referencias/referencias.bib
- : 
- : %  author = {Nathalie Furmento and Yves Roudier and G{\"u}nther Siegel},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-You're missing a field name---line 155 of file Referencias/referencias.bib
- : 
- : %  title = {ITALUS},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-You're missing a field name---line 163 of file Referencias/referencias.bib
- : 
- : %  title = {CISCO SYSTEMS},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-You're missing a field name---line 173 of file Referencias/referencias.bib
- : 
- : %  author = {Morgado, M. L. C.},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-You're missing a field name---line 183 of file Referencias/referencias.bib
- : 
- : %  author = {Jackson Patagonios},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-You're missing a field name---line 193 of file Referencias/referencias.bib
- : 
- : %  author = {Edson Arantes do Nascimento},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-You're missing a field name---line 205 of file Referencias/referencias.bib
- : 
- : %  author = {Wilson Sbornian},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-You're missing a field name---line 219 of file Referencias/referencias.bib
- : 
- : %  author = {Sbornian, Wilson},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-You're missing a field name---line 231 of file Referencias/referencias.bib
- : 
- : %  title = {Operating system concepts},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-You're missing a field name---line 242 of file Referencias/referencias.bib
- : 
- : %    author = {A. Accettura},
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
 Reallocated wiz_functions (elt_size=8) to 9000 items from 6000.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
-Warning--para ordenar, precisa dos campos author, organization, editor, title ou key in Furmento1995
-Warning--para ordenar, precisa dos campos author, organization, editor, title ou key in Morgado2003
-Warning--para ordenar, precisa dos campos author, organization, editor, title ou key in Sbornian2004
-Warning--para ordenar, precisa dos campos author, organization, editor, title ou key in Joea2003
-Warning--para ordenar, precisa dos campos author, organization, editor, title ou key in Assenmacher1993
-Warning--para ordenar, precisa dos campos author, organization, editor, title ou key in Silberschatz1991
-Warning--para ordenar, precisa dos campos author, organization, editor, title ou key in Callaghan1995
 Reallocated glb_str_ptr (elt_size=8) to 20 items from 10.
 Reallocated global_strs (elt_size=200001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=8) to 20 items from 10.
-`title' is a missing field, not a string, for entry Furmento1995
-while executing---line 2161 of file abnt/abnt-alf.bst
-Warning--campo title vazio em Furmento1995
-Warning--campo author vazio em Morgado2003
-`title' is a missing field, not a string, for entry Morgado2003
-while executing---line 2161 of file abnt/abnt-alf.bst
-Warning--campo title vazio em Morgado2003
-You can't pop an empty literal stack for entry Morgado2003
-while executing---line 2161 of file abnt/abnt-alf.bst
-Warning--faltando school em Morgado2003
-Warning--campo year vazio em Morgado2003
-Warning--campo author vazio em Sbornian2004
-`title' is a missing field, not a string, for entry Sbornian2004
-while executing---line 2161 of file abnt/abnt-alf.bst
-Warning--campo title vazio em Sbornian2004
-Warning--faltando school em Sbornian2004
-Warning--campo year vazio em Sbornian2004
-`title' is a missing field, not a string, for entry Joea2003
-while executing---line 2161 of file abnt/abnt-alf.bst
-Warning--campo title vazio em Joea2003
-Warning--campo year vazio ou faltando em Joea2003
-`title' is a missing field, not a string, for entry Assenmacher1993
-while executing---line 2161 of file abnt/abnt-alf.bst
-Warning--campo title vazio em Assenmacher1993
-Warning--campo year vazio ou faltando em Assenmacher1993
-`title' is a missing field, not a string, for entry Silberschatz1991
-while executing---line 2161 of file abnt/abnt-alf.bst
-Warning--campo title vazio em Silberschatz1991
-Warning--campo year vazio ou faltando em Silberschatz1991
-`title' is a missing field, not a string, for entry Callaghan1995
-while executing---line 2161 of file abnt/abnt-alf.bst
-Warning--campo title vazio em Callaghan1995
 +---------------------------------------------------------+
 | Estilo bibliogr�fico abnt-alf.bst vers�o 1.45.2.1           |
 | Em caso de d�vidas ou problemas com este estilo procure |
 | http://abntex.codigolivre.org.br                        |
 +---------------------------------------------------------+
-You've used 16 entries,
+You've used 9 entries,
             6496 wiz_defined-function locations,
-            1216 strings with 11016 characters,
-and the built_in function-call counts, 15970 in all, are:
-= -- 1921
+            1203 strings with 10883 characters,
+and the built_in function-call counts, 14432 in all, are:
+= -- 1959
 > -- 310
-< -- 200
-+ -- 385
+< -- 242
++ -- 413
 - -- 86
-* -- 883
-:= -- 1548
-add.period$ -- 32
-call.type$ -- 18
-change.case$ -- 126
+* -- 786
+:= -- 1373
+add.period$ -- 22
+call.type$ -- 11
+change.case$ -- 105
 chr.to.int$ -- 26
-cite$ -- 34
-duplicate$ -- 1522
-empty$ -- 914
+cite$ -- 4
+duplicate$ -- 1616
+empty$ -- 534
 format.name$ -- 490
-if$ -- 3751
-int.to.chr$ -- 11
+if$ -- 3169
+int.to.chr$ -- 4
 int.to.str$ -- 3
-missing$ -- 254
-newline$ -- 58
+missing$ -- 157
+newline$ -- 31
 num.names$ -- 21
-pop$ -- 337
+pop$ -- 203
 preamble$ -- 1
-purify$ -- 49
+purify$ -- 35
 quote$ -- 0
-skip$ -- 1929
+skip$ -- 1894
 stack$ -- 1
-substring$ -- 429
-swap$ -- 385
-text.length$ -- 10
+substring$ -- 426
+swap$ -- 386
+text.length$ -- 11
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 15
-warning$ -- 23
-while$ -- 39
+type$ -- 1
+warning$ -- 0
+while$ -- 33
 width$ -- 0
-write$ -- 159
-(There were 24 error messages)
+write$ -- 79
