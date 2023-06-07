@@ -16,6 +16,16 @@
   }files\-/paper\-/2014\-/file\-/5ca3e9b122f61f8f06494c97b1afccf3-Paper\-.pdf$
   $.}
 
+\bibitem[Hornik \textit{et al.} 1989]{HORNIK1989}
+\abntrefinfo{Hornik \textit{et al.}}{HORNIK \textit{et al.}}{1989}
+{HORNIK, K.; STINCHCOMBE, M.; WHITE, H. Multilayer feedforward networks are
+  universal approximators.
+\textbf{Neural Networks}, v.~2, n.~5, p. 359--366, 1989.
+ISSN 0893-6080.
+Available at: $
+  $https:\-/\-/www\-.sciencedirect\-.com\-/science\-/article\-/pii\-/0893608089900208$
+  $.}
+
 \bibitem[Mu{\~{n}}oz \textit{et al.} 2018]{Munoz2018}
 \abntrefinfo{Mu{\~{n}}oz \textit{et al.}}{MU{\~{N}}OZ \textit{et al.}}{2018}
 {MU{\~{N}}OZ, M.~A.; VILLANOVA, L.; BAATAR, D.; SMITH-MILES, K. Instance spaces
@@ -41,5 +51,14 @@ Available at: $ $https:\-/\-/doi\-.org\-/10\-.1007\-/s10994-022-06205-9$ $.}
   FANG, L.; BAI, J.; CHINTALA, S. \textbf{PyTorch: An Imperative Style,
   High-Performance Deep Learning Library}. 2019.
 Available at: $ $https:\-/\-/doi\-.org\-/10\-.48550\-/arXiv\-.1912\-.01703$ $.}
+
+\bibitem[Puri \textit{et al.} 2016]{Puri2016}
+\abntrefinfo{Puri \textit{et al.}}{PURI \textit{et al.}}{2016}
+{PURI, M.; SOLANKI, A.; PADAWER, T.; TIPPARAJU, S.~M.; MORENO, W.~A.; PATHAK,
+  Y. Introduction to artificial neural network (ann) as a predictive tool for
+  drug design, discovery, delivery, and disposition: Basic concepts and
+  modeling. basic concepts and modeling.
+\textbf{Artificial Neural Network for Drug Design, Delivery and Disposition},
+  Elsevier Inc., p. 3--13, 2016.}
 
 \end{thebibliography}
