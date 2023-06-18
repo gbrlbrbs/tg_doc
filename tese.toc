@@ -9,20 +9,23 @@
 \contentsline {section}{\numberline {2.2}Neural networks}{16}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}Artificial neuron}{17}{subsection.2.2.1}
 \contentsline {subsection}{\numberline {2.2.2}The network}{17}{subsection.2.2.2}
-\contentsline {section}{\numberline {2.3}Generative Adversarial Networks}{17}{section.2.3}
-\contentsline {chapter}{\numberline {3}Instance Space Analysis}{19}{chapter.3}
-\contentsline {section}{\numberline {3.1}Instance Spaces}{19}{section.3.1}
-\contentsline {section}{\numberline {3.2}Instance hardness}{19}{section.3.2}
-\contentsline {chapter}{\numberline {4}Methodology}{20}{chapter.4}
-\contentsline {chapter}{\numberline {5}Results}{21}{chapter.5}
-\contentsline {section}{\numberline {5.1}Planned results}{21}{section.5.1}
-\contentsline {chapter}{\numberline {6}Conclusion}{22}{chapter.6}
-\contentsline {section}{\numberline {6.1}Preliminary conclusions and future work}{22}{section.6.1}
-\contentsline {section}{\numberline {6.2}Work plan}{22}{section.6.2}
-\contentsline {chapter}{Bibliography}{23}{chapter.7}
+\contentsline {subsection}{\numberline {2.2.3}Learning}{18}{subsection.2.2.3}
+\contentsline {subsubsection}{\numberline {2.2.3.1}Learning rate}{18}{subsubsection.2.2.3.1}
+\contentsline {subsubsection}{\numberline {2.2.3.2}Backpropagation}{18}{subsubsection.2.2.3.2}
+\contentsline {section}{\numberline {2.3}Generative Adversarial Networks}{19}{section.2.3}
+\contentsline {chapter}{\numberline {3}Instance Space Analysis}{21}{chapter.3}
+\contentsline {section}{\numberline {3.1}Instance spaces}{21}{section.3.1}
+\contentsline {section}{\numberline {3.2}Instance hardness}{21}{section.3.2}
+\contentsline {chapter}{\numberline {4}Methodology}{23}{chapter.4}
+\contentsline {chapter}{\numberline {5}Results}{24}{chapter.5}
+\contentsline {section}{\numberline {5.1}Planned results}{24}{section.5.1}
+\contentsline {chapter}{\numberline {6}Conclusion}{25}{chapter.6}
+\contentsline {section}{\numberline {6.1}Preliminary conclusions and future work}{25}{section.6.1}
+\contentsline {section}{\numberline {6.2}Work plan}{25}{section.6.2}
+\contentsline {chapter}{Bibliography}{26}{chapter.7}
 \SetAppendixTocName {Appendix}
-\contentsline {chapter}{\numberline {A}Tópicos de Dilema Linear}{24}{appendix.A}
-\contentsline {section}{\numberline {A.1}Uma Primeira Seção para o Apêndice}{24}{section.A.1}
+\contentsline {chapter}{\numberline {A}Tópicos de Dilema Linear}{28}{appendix.A}
+\contentsline {section}{\numberline {A.1}Uma Primeira Seção para o Apêndice}{28}{section.A.1}
 \SetAppendixTocName {Annex}
-\contentsline {chapter}{\numberline {A}Exemplo de um Primeiro Anexo}{25}{annex.a}
-\contentsline {section}{\numberline {A.1}Uma Seção do Primeiro Anexo}{25}{section.a.1}
+\contentsline {chapter}{\numberline {A}Exemplo de um Primeiro Anexo}{29}{annex.a}
+\contentsline {section}{\numberline {A.1}Uma Seção do Primeiro Anexo}{29}{section.a.1}

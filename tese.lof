@@ -2,11 +2,13 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Model of a neuron.\relax }}{17}{figure.caption.8}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces A model of a simple fully-connected neural network with 10 nodes.\relax }}{18}{figure.caption.9}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces A model of a simple fully-connected neural network with 3 inputs, 3 outputs and a hidden layer with 4 nodes.\relax }}{18}{figure.caption.9}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Flowchart of the GAN training model.\relax }}{19}{figure.caption.11}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces ISA framework. Extracted from \cite {Munoz2018}.\relax }}{22}{figure.caption.12}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Uma figura que está no apêndice\relax }}{24}{figure.caption.11}
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Uma figura que está no apêndice\relax }}{28}{figure.caption.14}
 \addvspace {10\p@ }

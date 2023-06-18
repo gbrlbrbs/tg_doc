@@ -26,6 +26,12 @@ Available at: $
   $https:\-/\-/www\-.sciencedirect\-.com\-/science\-/article\-/pii\-/0893608089900208$
   $.}
 
+\bibitem[Kingma e Ba 2017]{kingma2017adam}
+\abntrefinfo{Kingma e Ba}{KINGMA; BA}{2017}
+{KINGMA, D.~P.; BA, J. \textbf{Adam: A Method for Stochastic Optimization}.
+  2017.
+Available at: $ $https:\-/\-/doi\-.org\-/10\-.48550\-/arXiv\-.1412\-.6980$ $.}
+
 \bibitem[Mu{\~{n}}oz \textit{et al.} 2018]{Munoz2018}
 \abntrefinfo{Mu{\~{n}}oz \textit{et al.}}{MU{\~{N}}OZ \textit{et al.}}{2018}
 {MU{\~{N}}OZ, M.~A.; VILLANOVA, L.; BAATAR, D.; SMITH-MILES, K. Instance spaces
@@ -60,5 +66,17 @@ Available at: $ $https:\-/\-/doi\-.org\-/10\-.48550\-/arXiv\-.1912\-.01703$ $.}
   modeling. basic concepts and modeling.
 \textbf{Artificial Neural Network for Drug Design, Delivery and Disposition},
   Elsevier Inc., p. 3--13, 2016.}
+
+\bibitem[Rice 1976]{RICE1976}
+\abntrefinfo{Rice}{RICE}{1976}
+{RICE, J.~R. The algorithm selection problem**this work was partially supported
+  by the national science foundation through grant gp-32940x. this chapter was
+  presented as the george e. forsythe memorial lecture at the computer science
+  conference, february 19, 1975, washington, d. c. \textit{In}:  RUBINOFF, M.;
+  YOVITS, M.~C. (Ed.). Elsevier, 1976,  (Advances in Computers, v.~15). p.
+  65--118.
+Available at: $
+  $https:\-/\-/www\-.sciencedirect\-.com\-/science\-/article\-/pii\-/S0065245808605203$
+  $.}
 
 \end{thebibliography}

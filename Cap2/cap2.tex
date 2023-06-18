@@ -3,7 +3,7 @@ This chapter will introduce Machine Learning (ML) concepts and techniques being 
 
 \section{Classification}
 
-In Statistics and Machine Learning, a problem is defined as a classification problem when it consists in identifying which categories a population belongs to. An example might be identifying which race of domestic cat is shown in a picture containing a cat. An algorithm that implements classification is known as a classifier. The classifier works by analysing each observation into dependent variables and either mapping those to the categories or by comparing each observation to previous observations by means of a similarity function or loss function. 
+In Statistics and Machine Learning, a problem is defined as a classification problem when it consists in identifying to which categories a member of a population belongs to. An example might be identifying which race of domestic cat is shown in a picture containing a cat. An algorithm that implements classification is known as a classifier. The classifier works by analysing each observation into dependent variables and either mapping those to the categories or by comparing each observation to previous observations by means of a similarity function or loss function. 
 
 Terminology between Statistics and Machine Learning tend to differ. In this work, we will be using the terminology found in Machine Learning, namely:
 
@@ -32,13 +32,13 @@ where the symbols are defined as:
 \begin{equation} \label{eq:neuron_symbols}
 	\begin{tabular}{ll}
 		$\mathbf{x} = [x_1, x_2, \ldots, x_n]$ & Input vector;\\
-		$\mathbf{w} = [w_1, w_2, \ldots, w_n]$ & Weights vector;\\
+		$\mathbf{w} = [w_1, w_2, \ldots, w_n]$ & Weight vector;\\
 		$f$ & Activation function; \\
 		$y$ & Neuron output.
 	\end{tabular}
 \end{equation}
 
-The image \ref{fig:neuron} shows the artificial neuron model.
+Figure \ref{fig:neuron} shows the artificial neuron model. This model of neuron is useful because it incorporates both the linear combination of input values and bias and the non-linearity of the activation function, which means it may function as a part of an universal function approximator \cite{HORNIK1989}.
 
 \begin{figure}[ht]
 	\centering
@@ -72,11 +72,9 @@ The image \ref{fig:neuron} shows the artificial neuron model.
 	\caption{Model of a neuron.} \label{fig:neuron}
 \end{figure}
 
-This model of neuron is useful because it incorporates both the linear combination of input values and bias and the non-linearity of the activation function, which means it may function as a part of an universal function approximator \cite{HORNIK1989}.
-
 \subsection{The network}
 
-As said before, an ANN is a network of artificial neurons. Such network may be built by having the neurons configured in layers, having each neuron in a layer connected only to neurons in either preceding or following layers. Figure \ref{fig:fc_nn} shows a simple model of a fully-connected (a neuron in a layer connects to every neuron in the other layers) neural network, having 3 input nodes, 4 middle nodes (called a hidden layer) and 3 output nodes.
+As said before, an ANN is a network of artificial neurons. Such network may be built by having the neurons configured in layers, having each neuron in a layer connected only to neurons in either preceding or following layers or with other arrangement of connections. Figure \ref{fig:fc_nn} shows a simple model of a fully-connected (a neuron in a layer connects to every neuron in the next layer) neural network, having 3 inputs, 4 middle nodes (called a hidden layer) and 3 output nodes.
 
 \begin{figure}[ht]
 	\centering
@@ -85,7 +83,7 @@ As said before, an ANN is a network of artificial neurons. Such network may be b
 			\foreach \i/\name in {1/$x_1$, 2/$x_2$, 3/$x_3$} {
 				\node[circle, draw, fill=red!50] (input\i) at (0, \i) {\name};
 			}
-			\node[above, align=center] at (0, 3.5) {Input\\layer};
+			\node[above, align=center] at (0, 3.5) {Input};
 			
 			% Hidden layer
 			\foreach \i/\name in {1/$h_1$, 2/$h_2$, 3/$h_3$, 4/$h_4$} {
@@ -112,7 +110,74 @@ As said before, an ANN is a network of artificial neurons. Such network may be b
 				}
 			}
 		\end{tikzpicture}
-		\caption{A model of a simple fully-connected neural network with 10 nodes.} \label{fig:fc_nn}
+		\caption{A model of a simple fully-connected neural network with 3 inputs, 3 outputs and a hidden layer with 4 nodes.} \label{fig:fc_nn}
 \end{figure}
 
+\subsection{Learning}
+
+Learning is the process by which an ANN adapts itself to a given task using data. It involves adjusting the weights of the network to improve some predefined metric (e.g. accuracy) and minimizing observed errors. In practice, learning is done by defining a loss function which is evaluated during learning and as long as its output (called loss, for short) decreases, the learning continues.
+
+Most learning models are applications of optimization theory, like the gradient descent algorithm. In this algorithm the purpose is to find a local minima by moving against the gradient of the function. It is the basis for the Adam optimizer \cite{kingma2017adam}, used extensively in ANNs.
+
+\subsubsection{Learning rate}
+
+The learning rate is a parameter in an optimization algorithm, defining the size of each step towards the local minima of a loss function. Higher learning rates shorten the learning time, but at a cost of possibly never converging and higher errors, while setting it at a value too low might have it converging in an undesirable local minimum.
+
+\subsubsection{Backpropagation}
+
+Backpropagation is a method to adjust the weights of the network and minimize the mean squared error. It computes the gradient of the loss function with respects to the weights and propagates backwards from the output layer to avoid redundant calculations.
+
 \section{Generative Adversarial Networks}
+
+A Generative Adversarial Network (GAN) is an architecture for estimating generative artificial intelligence models. It consists of a two-player minimax game between two ANNs: a generative model $G$ and a discriminative model $D$. The purpose of $D$ is to estimate the probability that a sample came from the training data instead of coming from $G$, and the purpose of $G$ is to minimize that probability. A unique solution exists where $D$ outputs the probability of $\frac{1}{2}$ everywhere \cite{Goodfellow2014}. The generator $G$ is, then, not trained to minimize a loss function, but to fool the discriminator $D$. 
+
+We will now be defining some notation for more formal modelling. Let $\mathbf{x}$ be the input data, $D(\mathbf{x})$ is then the output of the discriminator over the training data, which is the probability that the input data came from the training data rather than the generator. For the generator, let $\mathbf{z}$ be a latent space vector sampled from a standard normal distribution. $G(\mathbf{z})$ represents the generator's output, mapping $\mathbf{z}$ to the data space.
+
+$D(G(\mathbf{z}))$ is therefore the probability that a generated input came from the training data. The goal of $G$ is to estimate the distribution which the training data comes from ($p_{data}$) so that it may draw samples from this estimation ($p_G$) \cite{Goodfellow2014}. The minimax loss function will be, therefore :
+
+\begin{equation} \label{eq:minimax}
+	\min_{G} \max_{D} V(D, G) = \mathbb{E}_{\mathbf{x} \sim p_{data}(\mathbf{x})} [\log D(\mathbf{x})] + \mathbb{E}_{\mathbf{z} \sim p_{\mathbf{z}}(\mathbf{z})} [\log(1 - D(G(\mathbf{z})))]
+\end{equation}
+
+In theory, the solution of this game will be when $p_G = p_{data}$ and the discriminator will guess every generated input randomly ($D(G(\mathbf{z})) = \frac{1}{2}$). Figure \ref{fig:gan_flowchart} shows a flowchart of this training model. Algorithm \ref{alg:training_gan} is the training algorithm defined in \cite{Goodfellow2014}.
+
+\begin{algorithm}
+	\caption{Minibatch stochastic gradient descent training of GANs as defined in \cite{Goodfellow2014}. The number of steps to apply to the discriminator is a hyperparameter $k$.} \label{alg:training_gan}
+	\For{number of training steps}{
+		\For{k steps}{
+			Sample minibatch of $m$ noise samples $[\mathbf{z}^{(1)}, \ldots, \mathbf{z}^{(m)}]$ from noise prior $p_G(\mathbf{z})$; \\
+			Sample minibatch of $m$ examples $[\mathbf{x}^{(1)}, \ldots, \mathbf{x}^{(m)}]$ from data distribution $p_{data}(\mathbf{x})$; \\
+			Update the discriminator by ascending its stochastic gradient: 
+				$$\nabla_{w_D} \frac{1}{m} \sum_{i=1}^{m} \left[ \log D\left( \mathbf{x}^{(i)} \right) + \log \left( 1 - D\left( G\left( \mathbf{z}^{(i)} \right) \right) \right)  \right]; $$
+ 		}
+ 		Sample minibatch of $m$ noise samples $[\mathbf{z}^{(1)}, \ldots, \mathbf{z}^{(m)}]$ from noise prior $p_G(\mathbf{z})$; \\
+ 		Update the generator by descending its stochastic gradient:
+ 			$$\nabla_{w_G} \frac{1}{m} \sum_{i=1}^{m} \log \left( 1 - D\left( G\left( \mathbf{z}^{(i)} \right) \right) \right);$$
+	}
+\end{algorithm}
+
+\begin{figure}[ht]
+	\begin{tikzpicture}[node distance=4cm]
+		
+		% Nodes
+		\node[rectangle, draw] (generator) {Generator};
+		\node[rectangle, draw, below of=generator] (discriminator) {Discriminator};
+		\node[left of=generator, align=center] (input) {Random\\Noise};
+		\node[rectangle, draw, right of=discriminator, xshift=3cm, align=center] (output) {Real or\\Fake};
+		\node[left of=discriminator, align=center] (realdata) {Real\\Data};
+		
+		% Arrows
+		\draw[->] (input) -- (generator);
+		\draw[->] (generator) -- (discriminator) node[midway, left, align=center] {Generated\\Data};
+		\draw[->] (discriminator) -- (output) node[midway, above] {Discriminator Score};
+		\draw[->] (output) -- (generator) node[midway, above, fill=white] {Backpropagation};
+		\draw[->] (output.south west) to[out=240, in=300]  node[anchor=north, midway] {Backpropagation} (discriminator.south east);
+		
+		% Dashed line
+		\draw[dashed, ->] (realdata) -- (discriminator);
+		
+	\end{tikzpicture}
+	\caption{Flowchart of the GAN training model.} \label{fig:gan_flowchart}
+\end{figure}
+
+In practice, equation \ref{eq:minimax} might not provide sufficient gradient for training $G$ because of the $\log \left( 1 - D\left( G\left( \mathbf{z} \right) \right) \right)$ term might saturate in the start of training, since $D$ can easily differentiate between the generated data and the actual data. Instead of minimizing this term we may maximize $\log D\left( G\left( \mathbf{z} \right) \right)$ to give enough gradient for $G$ \cite{Goodfellow2014}.

@@ -1,3 +1,39 @@
-\section{Instance Spaces}
+In this chapter we will be introducing the novel methodology for algorithm selection and performance evaluation called Instance Space Analysis (ISA), introduced in \cite{Munoz2018}. We will be showing the original definition of an instance space and the adaptation of the methodology brought up by \cite{Lorena2022} relating instance hardness.
+
+\section{Instance spaces}
+
+ISA is, at its core, an extension of the Algorithm Selection Problem (ASP) \cite{RICE1976}
+
+\begin{figure}[ht]
+	\begin{tikzpicture}[node distance=4cm]
+		
+		% Nodes
+		\node[rectangle, draw, align=center] (problem) {Problem Space \\ $z \in P$};
+		\node[rectangle, draw, below of=problem, align=center] (subspace) {$x \in I \subset P$ \\ Sub-space of \\ instances};
+		\node[rectangle, draw, below of=subspace, align=center] (feature) {$f(x) \in F$ \\ Feature \\ Space};
+		\node[rectangle, draw, below of=feature, align=center] (instance) {$g(f(x)) \in \mathbb{R}^2$ \\ 2-D Instance \\ Space};
+		\node[rectangle, draw, right of=feature, xshift=4cm, align=center] (algorithm) {$\alpha \in A$ \\ Algorithm \\ Space};
+		\node[rectangle, draw, above of=algorithm, align=center] (performance) {$y \in Y$ \\ Performance \\ Space};
+		\node[rectangle, draw, above of=performance, align=center] (footprints) {Footprints in \\ Instance Space};
+		
+		% Rectangle
+		\begin{scope}[on background layer]
+			\node[fill=blue!30, rounded corners, opacity=0.3, fit=(subspace)(feature)(algorithm)(performance), inner ysep=0.5cm, inner xsep=2.5cm] (rectangle) {};
+		\end{scope}
+		
+		% Arrows
+		\draw[->] (problem) -- node[left, align=right] {Instance selection\\or generation} (subspace);
+		\draw[->] (subspace) -- node[left, align=center] {Feature selection\\$f$} (feature);
+		\draw[->] (feature) -- node[left, align=right] {Dimension reduction\\and visualization} (instance);
+		\draw[->] (feature) -- node[above] (alpha) {$\alpha^* = S(f(x))$} (algorithm);
+		\draw[->] (instance) -| node[above, near start, align=center] {Learn selection\\mapping\\from features} node[below, near start] {$\alpha^* = S^\prime(f(x))$} ++(8cm,0) |-  (algorithm.south);
+		\draw[->] (algorithm) -- node[right, align=left] {$y(\alpha, x)$ apply \\algorithm $\alpha$ \\to instance $x$} (performance);
+		\draw[->] (performance) -| node[above, near start, align=center] {Select $\alpha^*$ to\\ maximize $||y||$} ++(-4cm,0) |-  (alpha.north);
+		\draw[->] (footprints) -- node[above, align=center] {Infer algorithm \\performance on \\all $z \in P$} (problem);
+		\draw[->] (performance) -- node[right, align=left] {Define algorithm \\footprints $\varphi(y(\alpha, x))$} (footprints);
+		
+	\end{tikzpicture}
+	\caption{ISA framework. Extracted from \cite{Munoz2018}.} \label{fig:ISA_flowchart}
+\end{figure}
 
 \section{Instance hardness}
