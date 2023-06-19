@@ -48,6 +48,7 @@
 \usepackage{epsfig}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{csquotes}
 \usepackage{subfig}
 \usepackage{multirow}
 \usepackage{float}
@@ -63,7 +64,7 @@
 \usepackage{placeins}
 \usepackage{tikz}
 \usetikzlibrary{fit, backgrounds, calc, positioning}
-
+\DeclareMathOperator{\logloss}{logloss}
 
 %HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 %\usepackage{subfigure}
@@ -166,13 +167,13 @@
 
 % Apendices
 \appendix
-\chapter{Tópicos de Dilema Linear} %opcional
+\chapter{Instance Hardness} \label{ch:instance_hardness} %opcional
 \input{ApeA/apendiceA}
 
 % Anexos
-\annex
-\chapter{Exemplo de um Primeiro Anexo} %opcional
-\input{AneA/anexoA}
+%\annex
+%\chapter{Exemplo de um Primeiro Anexo} %opcional
+%\input{AneA/anexoA}
 
 % Glossario
 %\itaglossary

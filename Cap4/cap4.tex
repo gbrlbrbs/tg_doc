@@ -1,0 +1,15 @@
+In this chapter, we will describe the problem's modelling and the main tools being used.
+
+\section{Instance Space generation}
+
+For the IS generation, we will use the PyHard \cite{Lorena2022} library. The library has some examples of the implementation, those being discussed in the paper \cite{Lorena2022}. In this work we will generate the IS, attach the resulting 2-D embedding with the original dataset $\mathcal{D}$ and feed into the GAN architecture as training data.
+
+\section{Generator and Discriminator creation}
+
+The implementation of the GAN model is straightforward. Using the PyTorch \cite{paszke2019pytorch} framework we can define classes that function as neural network models. It has methods for backpropagation and has multiple optimizers implemented. We will be using the Adam optimizer \cite{kingma2017adam}. The training algorithm in algorithm \ref{alg:training_gan} will be used, with the optimization step of $G$ being the maximization of $\log D\left( G\left( \mathbf{z} \right) \right)$ for better gradients. 
+
+The optimization step for $D$ will be done in two parts. Firstly, we will use real samples from the training set, forward pass through $D$, calculate the loss ($\log(D(x))$), then calculate the gradients with backpropagation. Secondly, we will use the fake samples from the current generator, forward pass them through $D$, calculate the loss ($\log(1-D(G(z)))$), and accumulate the gradients with backpropagation.
+
+\section{Re-evaluation of the generated data}
+
+After training the generator $G$, we will re-evaluate the generated data using the adapted ISA. We will use the generated 2-D embedding and check if it correlates with the 2-D embedding computed from the generated data.

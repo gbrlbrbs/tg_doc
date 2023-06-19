@@ -69,10 +69,7 @@ Available at: $ $https:\-/\-/doi\-.org\-/10\-.48550\-/arXiv\-.1912\-.01703$ $.}
 
 \bibitem[Rice 1976]{RICE1976}
 \abntrefinfo{Rice}{RICE}{1976}
-{RICE, J.~R. The algorithm selection problem**this work was partially supported
-  by the national science foundation through grant gp-32940x. this chapter was
-  presented as the george e. forsythe memorial lecture at the computer science
-  conference, february 19, 1975, washington, d. c. \textit{In}:  RUBINOFF, M.;
+{RICE, J.~R. The algorithm selection problem. \textit{In}:  RUBINOFF, M.;
   YOVITS, M.~C. (Ed.). Elsevier, 1976,  (Advances in Computers, v.~15). p.
   65--118.
 Available at: $

@@ -1,15 +1,13 @@
 \babel@toc {english}{}\relax 
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Model of a neuron.\relax }}{17}{figure.caption.8}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces A model of a simple fully-connected neural network with 3 inputs, 3 outputs and a hidden layer with 4 nodes.\relax }}{18}{figure.caption.9}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Flowchart of the GAN training model.\relax }}{19}{figure.caption.11}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Model of an artificial neuron.\relax }}{15}{figure.caption.6}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces A model of a simple fully-connected neural network with 3 inputs, 3 outputs and a hidden layer with 4 nodes.\relax }}{16}{figure.caption.7}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Flowchart of the GAN training model.\relax }}{17}{figure.caption.9}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces ISA framework. Extracted from \cite {Munoz2018}. The ASP is highlighted in blue.\relax }}{22}{figure.caption.12}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces ISA framework for a single dataset. Extracted from \cite {Lorena2022}.\relax }}{24}{figure.caption.13}
-\addvspace {10\p@ }
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces ISA framework. Extracted from \cite {Munoz2018}. The ASP is highlighted in blue.\relax }}{20}{figure.caption.10}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces ISA framework for a single dataset. Extracted from \cite {Lorena2022}.\relax }}{22}{figure.caption.11}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Uma figura que está no apêndice\relax }}{30}{figure.caption.15}
+\addvspace {10\p@ }
 \addvspace {10\p@ }

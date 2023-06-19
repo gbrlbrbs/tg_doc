@@ -79,18 +79,18 @@ Summarizing, the application of ISA requires \cite{Munoz2018}:
 The problem of finding the optimal mapping between the instance metadata domain to a 2-D IS has been modelled using the Prediction Based Linear Dimensionality Reduction (PBLDR) method \cite{Munoz2018}. Given a meta-dataset $\mathcal{M}$ with $m$ meta-features, $n$ instances and $a$ algorithms, let $F \in \mathbb{R}^{m \times n}$ be the matrix containing the meta-features values for all instances and $Y \in \mathbb{R}^{n \ times a}$ be the matrix containing the performance measure of the algorithms on the same instances. The optimal projection is achieved by minimizing the MSE:
 
 \begin{equation}
-	MSE = ||F - \hat{F}||_F^2 + ||Y - \hat{Y}||_F^2,
+	MSE = ||\mathbf{F} - \mathbf{\hat{F}}||_F^2 + ||\mathbf{Y} - \mathbf{\hat{Y}}||_F^2,
 \end{equation}
 
 such that:
 
 \begin{gather}
-	Z = A_r F \label{eq:z_is}, \\
-	\hat{F} = B_r Z \label{eq:f_hat}, \\
-	\hat{Y}^T = C_r Z \label{eq:y_hat}.
+	\mathbf{Z} = \mathbf{A}_r \mathbf{F} \label{eq:z_is}, \\
+	\mathbf{\hat{F}} = \mathbf{B}_r \mathbf{Z} \label{eq:f_hat}, \\
+	\mathbf{\hat{Y}}^T = \mathbf{C}_r \mathbf{Z} \label{eq:y_hat}.
 \end{gather}
 
-Where $A_r \in \mathbb{R}^{2 \times m}$, $B_r \in \mathbb{R}^{m \times 2}$ and $C_r \in \mathbb{R}^{a \times 2}$. $Z \in \mathbb{2 \times n}$ is the matrix of instance coordinates in the IS and $A_r$ is the projection matrix. \cite{Lorena2022} solves this problem numerically using the Broyden–Fletcher–Goldfarb–Shanno (BFGS) algorithm.
+Where $\mathbf{A}_r \in \mathbb{R}^{2 \times m}$, $\mathbf{B}_r \in \mathbb{R}^{m \times 2}$ and $\mathbf{C}_r \in \mathbb{R}^{a \times 2}$. $\mathbf{Z} \in \mathbb{R}^{2 \times n}$ is the matrix of instance coordinates in the IS and $A_r$ is the projection matrix. \cite{Lorena2022} solves this problem numerically using the Broyden–Fletcher–Goldfarb–Shanno (BFGS) algorithm.
 
 \subsection{Footprint analysis}
 
@@ -102,36 +102,117 @@ In \cite{Munoz2018}, ISA is defined with an instance being an entire classificat
 
 \begin{figure}[ht]
 	\centering
-	\begin{tikzpicture}[node distance=3cm and 3cm, align=center, on grid]
+	\begin{tikzpicture}[node distance=3cm and 3cm, align=center, on grid, trim left]
 		
 		% Start node
-		\node[draw, rounded corners] (dataset) {Dataset};
+		\node[draw, rounded corners, align=center] (dataset) {Original \\dataset $\mathcal{D}$};
 		
 		% Nodes to the right of dataset
-		\node[draw, rounded corners, above right=of dataset] (hardness) {Hardness \\ measures};
-		\node[draw, rounded corners, below right=of dataset] (algorithm) {Algorithm \\ space};
+		\node[draw, rounded corners, above right=of dataset, xshift=1cm] (hardness) {$f(\mathbf{x}_i) \in \mathcal{F}$ \\Hardness \\ measures};
+		\node[draw, rounded corners, below right=of dataset, xshift=1cm] (algorithm) {$\alpha \in \mathcal{A}$ \\ Algorithm \\ space};
 		
 		% Arrows from dataset to hardness and algorithm
-		\draw[->] (dataset.east) -- ++(0.6cm,0) |- (hardness.west);
+		\draw[->] (dataset.east) -- ++(0.6cm,0) |- node[near end, above] {$f$} (hardness.west);
 		\draw[->] (dataset.east) -- ++(0.6cm,0) |- (algorithm.west);
 		
 		% Node to the right of hardness
-		\node[draw, rounded corners, right=of hardness, xshift=2cm] (feature) {Feature \\ selection};
+		\node[draw, rounded corners, right=of hardness, xshift=1cm] (feature) {$f_s(f(\mathbf{x}_i), y)$ \\Feature \\ selection};
 		\draw[->] (hardness.east) -- (feature.west);
 		
 		% Node to the right of algorithm
-		\node[draw, rounded corners, right=of algorithm, xshift=2cm] (performance) {Performance \\ space};
-		\draw[->] (algorithm.east) -- (performance.west) node[midway, above] {$y(\alpha, x)$};
+		\node[draw, rounded corners, right=of algorithm, xshift=1cm] (performance) {$y \in \mathcal{Y}$ \\Performance \\ space};
+		\draw[->] (algorithm.east) -- (performance.west) node[midway, above] {$y(\alpha, \mathbf{x}_i)$};
+		\draw[->] (performance.north) -- (feature.south);
 		
 		% Node to the right of feature and performance
-		\node[draw, rounded corners, below right=of feature] (metadata) {Metadata};
-		\draw[->] (feature) -- ++(3cm,0) |- (metadata.north);
+		\node[draw, rounded corners, below right=of feature, align=center] (metadata) {Metadata \\ $\mathcal{M}$};
+		\begin{scope}[tips=proper]
+			\draw[->] (feature) -| ++(3cm,0) -- (metadata.north);
+		\end{scope}
+		
 		\draw[->] (performance) -- ++(3cm,0) |- (metadata.south);
 		
 		% Node to the right of metadata
-		\node[draw, rounded corners, right=of metadata] (instance) {Instance \\ Space};
+		\node[draw, rounded corners, right=of metadata, xshift=1cm] (instance) {$(z_1, z_2) \in \mathbb{R}^2$ \\Instance Space};
 		\draw[->] (metadata.east) -- (instance.west) node[midway, above] {ISA};
 		
 	\end{tikzpicture}
-	\caption{ISA framework for a single dataset. Extracted from \cite{Lorena2022}.} \label{eq:isa_dataset}
+	\caption{ISA framework for a single dataset. Extracted from \cite{Lorena2022}.} \label{fig:isa_dataset}
 \end{figure}
+
+Given a classification dataset $\mathcal{D}$ with $n_D$ instances $\mathbf{x}_i$, $m_D$ input features and each instance labelled in a class $y_i$, we have:
+
+\begin{itemize}
+	\item \textbf{Problem space} $\mathcal{P}$: reduced to the dataset $\mathcal{D}$;
+	\item \textbf{Instance sub-space} $\mathcal{I}$: contains all individual instances $\mathbf{x}_i$;
+	\item \textbf{Feature space} $\mathcal{F}$: contains a set of meta-features known as \emph{hardness measures}.
+\end{itemize}
+
+The modified framework is shown in figure \ref{fig:isa_dataset}. For each instance, a set of hardness measures are stored in $\mathcal{F}$, and each algorithm $\alpha \in \mathcal{A}$ is evaluated over the instance $\mathbf{x}_i$ and has its performance $y(\alpha, \mathbf{x}_i)$ measured and stored in $\mathcal{Y}$. The measure used is a cross-validated log-loss error obtained in the prediction of the instance label. A feature selection is used with these measures and the hardness measures, resulting in a reduced feature set $f_s(f(\mathbf{x}_i), y)$.
+
+Combining the reduced feature set to the predictive performance of the algorithms allows us to construct the meta-dataset $\mathcal{M}$, from which the IS is extracted. The steps are explained in \cite{Lorena2022}, we will summarize some important topics.
+
+\subsection{Hardness measures} \label{subsec:hardness_measures}
+
+\cite{Lorena2022} revisits the definition of \emph{Instance Hardness} (IH), a property that indicates the probability of an instance being misclassified given a classification hypothesis:
+
+\begin{equation} \label{eq:instance_hardness}
+	IH_h(\mathbf{x}_i, y_i) = 1 - p(y_i | \mathbf{x}_i, h),
+\end{equation}
+
+where $h: X \rightarrow Y$ is a classification hypothesis mapping an input space of features $X$ to an output space of labels $Y$. In practice, $h$ is a learning algorithm induced from the dataset $\mathcal{D}$ and hyperparameters $\mathbf{\beta}$, that is $h = l(\mathcal{D}, \mathbf{\beta})$. We can then compute the IH of the whole algorithm space $\mathcal{A}$:
+
+\begin{equation}
+	IH_{\mathcal{A}}(\mathbf{x}_i, y_i) = 1 - \frac{1}{|\mathcal{A}|} \sum_{l \in \mathcal{A}} p(y_i | \mathbf{x}_i, l(\mathcal{D}, \mathbf{\beta})).
+\end{equation}
+
+The idea is that instances frequently misclassified over the algorithm space can be considered hard, and instances being correctly classified are considered easy. \cite{Lorena2022} also shows a set of \emph{hardness metrics} being extracted for each instance. Table \ref{tab:hardness_measures} lists the measures used, the formal definition for each one is shown in Appendix \ref{ch:instance_hardness}.
+
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{llll}
+		\hline
+		Measure                                      & Acronym & Min.        & Max.        \\ \hline
+		k-Disagreeing Neighbors                      & $kDN$   & 0           & 1           \\
+		Disjunct Class Percentage                    & $DCP$   & 0           & 1           \\
+		Tree Depth (pruned)                          & $TD_P$  & 0           & 1           \\
+		Tree Depth (unpruned)                        & $TD_U$  & 0           & 1           \\
+		Class Likelihood                             & $CL$    & 0           & 1           \\
+		Class Likelihood Difference                  & $CLD$   & 0           & 1           \\
+		Fraction of features in overlapping areas    & $F1$    & 0           & 1           \\
+		Fraction of nearby instances different class & $N1$    & 0           & 1           \\
+		Ratio of intra-extra class distances         & $N2$    & 0           & $\approx 1$ \\
+		Local set cardinality                        & $LSC$   & 0           & 1           \\
+		Local set radius                             & $LSR$   & 0           & 1           \\
+		Usefulness                                   & $U$     & $\approx 0$ & 1           \\
+		Harmfulness                                  & $H$     & 0           & $\approx 1$ \\ \hline
+	\end{tabular}
+	\caption{Hardness measures used in \cite{Lorena2022}.} \label{tab:hardness_measures}
+\end{table}
+
+\newpage
+\subsection{Performance assessment}
+
+To assess the performance from each algorithm in the dataset $\mathcal{D}$, it is first split into $r$ folds according to the cross-validation strategy such that each instance from the dataset belongs to only one fold. $r-1$ folds are used for training the algorithm while the last fold is used for testing. Therefore we can compute a performance estimate for each instance and algorithm combination. Repeating this process yields an interval estimation \cite{Lorena2022}. The measure used for performance assessment was the log-loss, or cross-entropy, defined in equation \ref{eq:logloss}:
+
+\begin{equation} \label{eq:logloss}
+	\logloss(\mathbf{x}_i) = - \sum_{c=1}^{C} y_{i, c} \log(p_{i, c}),
+\end{equation}
+
+where $C$ is the number of classes the problem has, $y_{i, c}$ is a binary indicator of whether the class $c$ is an actual label of $\mathbf{x}_i$ or not and $p_{i, c}$ is the probability that the classifier attributes $\mathbf{x}_i$ to class $c$.
+
+\subsection{Feature selection}
+
+For feature selection, \cite{Lorena2022} employs a method called \emph{Minimum Redundancy Maximum Relevance} (MRMR), a criterion that gradually reduces the effect of feature redundancy as more features are selected. There is a trade-off between minimizing the number of redundant features and keeping relevant features, this method rejects redundant features at first but tolerates redundancy as more informative features are added. The mathematical model for MRMR is in equation \ref{eq:MRMR}:
+
+\begin{equation} \label{eq:MRMR}
+	J(\mathbf{f}_k) = MI(\mathbf{f}_k; \mathbf{y}_j) - \frac{1}{|\mathcal{S}_j|} \sum_{\mathbf{f}_i \in \mathcal{S}_j} MI(\mathbf{f}_k; \mathbf{f}_i),
+\end{equation}
+
+where $J(\mathbf{f}_k)$ is a score for the $k$-th feature vector $\mathbf{f}_k$, $ MI(\mathbf{f}_k; \mathbf{y}_j)$ is the mutual information between the feature vector and the response variable for the $j$-th algorithm and $\mathcal{S}_j$ is the set of selected features for the $j$-th algorithm. $\mathcal{S}_j$ is initially empty and the first feature chosen is the one with maximum mutual information between the feature vector and the response variable $\mathbf{y}_j$. Features are selected based on their score in subsequent rounds until there are a desired number of features chosen $n_f = |\mathcal{S}_j|$
+
+\subsection{IS representation and footprints}
+
+Given the now constructed meta-dataset $\mathcal{M}$ after feature selection and performance assessments, the 2-D IS can be constructed. \cite{Lorena2022} added a rotation to the IS so that bad instances are placed towards the upper left of the IS, while good instances are placed towards the bottom right.
+
+All of this section is implemented in the Python library PyHard \cite{Lorena2022}. This work will use this implementation for reproducing this methodology.
