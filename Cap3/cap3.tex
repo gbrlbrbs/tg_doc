@@ -2,18 +2,26 @@ In this chapter we will be introducing the novel methodology for algorithm selec
 
 \section{Instance spaces}
 
-ISA is, at its core, an extension of the Algorithm Selection Problem (ASP) \cite{RICE1976}
+ISA is, at its core, an extension of the Algorithm Selection Problem (ASP) \cite{RICE1976}. Figure \ref{fig:ISA_flowchart} shows the ISA framework with the ASP highlighted in blue. The objective in the ASP is to automate the process of selecting algorithms based on past similar solved problems. The following sets compose the core of the ASP:
+
+\begin{itemize}
+	\item \textbf{Problem Space} $\mathcal{P}$: contains all instances of the problem being analysed;
+	\item \textbf{Instance Sub-space} $\mathcal{I}$: contains a subset of instances from $\mathcal{P}$ for which the characteristics and solutions are available;
+	\item \textbf{Feature Space} $\mathcal{F}$: a set of descriptive characteristics of the instances in $\mathcal{I}$. These are also known as meta-features;
+	\item \textbf{Algorithm Space} $\mathcal{A}$: contains algorithms that may be used to solve the instances in $\mathcal{I}$;
+	\item \textbf{Performance Space} $\mathcal{Y}$: contains the performance evaluations of the algorithms in $\mathcal{A}$ over the instances in $\mathcal{I}$;
+\end{itemize}
 
 \begin{figure}[ht]
 	\begin{tikzpicture}[node distance=4cm]
 		
 		% Nodes
-		\node[rectangle, draw, align=center] (problem) {Problem Space \\ $z \in P$};
-		\node[rectangle, draw, below of=problem, align=center] (subspace) {$x \in I \subset P$ \\ Sub-space of \\ instances};
-		\node[rectangle, draw, below of=subspace, align=center] (feature) {$f(x) \in F$ \\ Feature \\ Space};
+		\node[rectangle, draw, align=center] (problem) {Problem Space \\ $z \in \mathcal{P}$};
+		\node[rectangle, draw, below of=problem, align=center] (subspace) {$x \in \mathcal{I} \subset \mathcal{P}$ \\ Sub-space of \\ instances};
+		\node[rectangle, draw, below of=subspace, align=center] (feature) {$f(x) \in \mathcal{F}$ \\ Feature \\ Space};
 		\node[rectangle, draw, below of=feature, align=center] (instance) {$g(f(x)) \in \mathbb{R}^2$ \\ 2-D Instance \\ Space};
-		\node[rectangle, draw, right of=feature, xshift=4cm, align=center] (algorithm) {$\alpha \in A$ \\ Algorithm \\ Space};
-		\node[rectangle, draw, above of=algorithm, align=center] (performance) {$y \in Y$ \\ Performance \\ Space};
+		\node[rectangle, draw, right of=feature, xshift=4cm, align=center] (algorithm) {$\alpha \in \mathcal{A}$ \\ Algorithm \\ Space};
+		\node[rectangle, draw, above of=algorithm, align=center] (performance) {$y \in \mathcal{Y}$ \\ Performance \\ Space};
 		\node[rectangle, draw, above of=performance, align=center] (footprints) {Footprints in \\ Instance Space};
 		
 		% Rectangle
@@ -29,11 +37,40 @@ ISA is, at its core, an extension of the Algorithm Selection Problem (ASP) \cite
 		\draw[->] (instance) -| node[above, near start, align=center] {Learn selection\\mapping\\from features} node[below, near start] {$\alpha^* = S^\prime(f(x))$} ++(8cm,0) |-  (algorithm.south);
 		\draw[->] (algorithm) -- node[right, align=left] {$y(\alpha, x)$ apply \\algorithm $\alpha$ \\to instance $x$} (performance);
 		\draw[->] (performance) -| node[above, near start, align=center] {Select $\alpha^*$ to\\ maximize $||y||$} ++(-4cm,0) |-  (alpha.north);
-		\draw[->] (footprints) -- node[above, align=center] {Infer algorithm \\performance on \\all $z \in P$} (problem);
+		\draw[->] (footprints) -- node[above, align=center] {Infer algorithm \\performance on \\all $z \in \mathcal{P}$} (problem);
 		\draw[->] (performance) -- node[right, align=left] {Define algorithm \\footprints $\varphi(y(\alpha, x))$} (footprints);
 		
 	\end{tikzpicture}
-	\caption{ISA framework. Extracted from \cite{Munoz2018}.} \label{fig:ISA_flowchart}
+	\caption{ISA framework. Extracted from \cite{Munoz2018}. The ASP is highlighted in blue.} \label{fig:ISA_flowchart}
 \end{figure}
 
-\section{Instance hardness}
+The combination of tuples $(x, f(x), \alpha, y(\alpha, x))$, where $x \in \mathcal{I}$, $f(x) \in \mathcal{F}$, $\alpha \in \mathcal{A}$ and $y(\alpha, x) \in \mathcal{Y}$, composes a meta-dataset $\mathcal{M}$. A meta-learner $S$ can then be trained to select the best algorithm for an instance $x$ based on its meta-features, that is, an algorithm $\alpha^*$ with maximum predictive performance for $x$ as given by $y$: 
+
+\begin{equation} \label{eq:algo_selection}
+	\alpha^* = S(f(x)) = \arg \max_{\alpha} ||y(\alpha, x)||.
+\end{equation}
+
+The ISA framework goes further to give insights into why some instances are harder to solve than others, using both the information of meta-features and algorithmic performance in a 2-D embedding, called Instance Space (IS), that can be visually inspected. An optimization problem is solved to find the mapping from meta-features to the IS $g(f(x))$, such that the distribution of algorithmic performance metrics and meta-features values display as close a linear trend as possible in the IS embedding. This embedding can then be inspected for regions of good and bad algorithmic performance and a new learner can be created to select new algorithms, as in:
+
+\begin{equation}
+	\alpha^* = S^\prime(g(f(x)))
+\end{equation}
+
+In the IS, it is also possible to define algorithm footprints $\varphi(y(\alpha, x))$, which are areas of strength of each algorithm $\alpha$. A set of objective measures can be derived from these footprints and aid in the inference of algorithmic performance for other instances that were not in $\mathcal{I}$, such as: 
+
+\begin{itemize}
+	\item the area of the footprint $A$, which can be normalized across multiple algorithms for comparison;
+	\item the density of the footprint $\rho$, which can be calculated as the ratio between the number of instances enclosed by the footprint and its area;
+	\item the purity of the footprint $p$, which is the percentage of instances in the footprint that have good performance.
+\end{itemize}
+
+Summarizing, the application of ISA requires \cite{Munoz2018}:
+
+\begin{enumerate}
+	\item building the meta-dataset $\mathcal{M}$;
+	\item reducing the set of meta-features in $\mathcal{M}$, keeping only those able to discriminate algorithmic performance;
+	\item creating the 2-D IS from $\mathcal{M}$;
+	\item building the algorithms' footprints in the IS.
+\end{enumerate}
+
+\section{ISA for a single dataset}

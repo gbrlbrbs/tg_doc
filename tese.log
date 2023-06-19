@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.6.13)  18 JUN 2023 17:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.6.13)  18 JUN 2023 23:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1612,19 +1612,21 @@ pdftex: bookmark at 3: {3.1} {\numberline{3.1}Instance spaces} {section.3.1}{1}
 {toc}
 Package hyperref Info: Reference (cite) `cite.RICE1976' on input line 5.
 Package hyperref Info: Reference (cite) `cite.RICE1976' on input line 5.
-Package hyperref Info: Anchor `figure.caption.12' on input line 7.
-pdftex: bookmark at 36: {3.1} {\numberline{3.1}{\ignorespaces ISA framework. Ex
-tracted from \cite {Munoz2018}.\relax }} {figure.caption.12}{0}{lof}
-Package hyperref Info: Reference (cite) `cite.Munoz2018' on input line 36.
-Package hyperref Info: Reference (cite) `cite.Munoz2018' on input line 36.
-Package hyperref Info: Reference (cite) `cite.Munoz2018' on input line 36.
-Package hyperref Info: Reference (cite) `cite.Munoz2018' on input line 36.
-Package hyperref Info: Anchor `section.3.2' on input line 39.
-pdftex: bookmark at 39: {3.2} {\numberline{3.2}Instance hardness} {section.3.2}
-{1}{toc}
-)
-Package hyperref Info: Anchor `page.21' on input line 154.
- [21
+Package hyperref Info: Reference (link) `figure.caption.12' on input line 5.
+Package hyperref Info: Anchor `figure.caption.12' on input line 15.
+pdftex: bookmark at 44: {3.1} {\numberline{3.1}{\ignorespaces ISA framework. Ex
+tracted from \cite {Munoz2018}. The ASP is highlighted in blue.\relax }} {figur
+e.caption.12}{0}{lof}
+Package hyperref Info: Reference (cite) `cite.Munoz2018' on input line 44.
+Package hyperref Info: Reference (cite) `cite.Munoz2018' on input line 44.
+Package hyperref Info: Reference (cite) `cite.Munoz2018' on input line 44.
+Package hyperref Info: Reference (cite) `cite.Munoz2018' on input line 44.
+Package hyperref Info: Anchor `equation.3.1.1' on input line 49.
+Package hyperref Info: Anchor `equation.3.1.1' on input line 49.
+Package hyperref Info: Anchor `equation.3.1.1' on input line 49.
+Package hyperref Info: Anchor `equation.3.1.1' on input line 49.
+Package hyperref Info: Anchor `page.21' on input line 54.
+[21
 
 Package `hyperref' Info: End of reference (cite) `cite.Munoz2018', line 1.
 Package `hyperref' Info: End of reference (cite) `cite.Munoz2018', line 1.
@@ -1632,19 +1634,40 @@ Package `hyperref' Info: End of reference (cite) `cite.Lorena2022', line 1.
 Package `hyperref' Info: End of reference (cite) `cite.Lorena2022', line 1.
 Package `hyperref' Info: End of reference (cite) `cite.RICE1976', line 5.
 Package `hyperref' Info: End of reference (cite) `cite.RICE1976', line 5.
+Package `hyperref' Info: End of reference (link) `figure.caption.12', line 5.
 ]
-Package hyperref Info: Anchor `page.22' on input line 154.
+Package hyperref Info: Anchor `equation.3.1.2' on input line 55.
+Package hyperref Info: Anchor `equation.3.1.2' on input line 55.
+Package hyperref Info: Anchor `equation.3.1.2' on input line 55.
+Package hyperref Info: Anchor `equation.3.1.2' on input line 55.
+Package hyperref Info: Anchor `page.22' on input line 62.
  [22
-Package `hyperref' Info: End of reference (cite) `cite.Munoz2018', line 36.
-Package `hyperref' Info: End of reference (cite) `cite.Munoz2018', line 36.
+Package `hyperref' Info: End of reference (cite) `cite.Munoz2018', line 44.
+Package `hyperref' Info: End of reference (cite) `cite.Munoz2018', line 44.
+]
+Package hyperref Info: Reference (cite) `cite.Munoz2018' on input line 67.
+Package hyperref Info: Reference (cite) `cite.Munoz2018' on input line 67.
+Package hyperref Info: Anchor `Item.1' on input line 70.
+Package hyperref Info: Anchor `Item.2' on input line 71.
+Package hyperref Info: Anchor `Item.3' on input line 72.
+Package hyperref Info: Anchor `Item.4' on input line 73.
+Package hyperref Info: Anchor `section.3.2' on input line 76.
+
+pdftex: bookmark at 76: {3.2} {\numberline{3.2}ISA for a single dataset} {secti
+on.3.2}{1}{toc}
+)
+Package hyperref Info: Anchor `page.23' on input line 154.
+ [23
+Package `hyperref' Info: End of reference (cite) `cite.Munoz2018', line 67.
+Package `hyperref' Info: End of reference (cite) `cite.Munoz2018', line 67.
 ]
 Package hyperref Info: Anchor `chapter.4' on input line 154.
 
 Chapter 4.
 pdftex: bookmark at 154: {4} {\numberline{4}Methodology} {chapter.4}{0}{toc}
 (./Cap4/cap4.tex)
-Package hyperref Info: Anchor `page.23' on input line 157.
- [23
+Package hyperref Info: Anchor `page.24' on input line 157.
+ [24
 
 ]
 Package hyperref Info: Anchor `chapter.5' on input line 157.
@@ -1657,8 +1680,8 @@ Package hyperref Info: Anchor `section.5.1' on input line 1.
 pdftex: bookmark at 1: {5.1} {\numberline{5.1}Planned results} {section.5.1}{1}
 {toc}
 )
-Package hyperref Info: Anchor `page.24' on input line 160.
- [24
+Package hyperref Info: Anchor `page.25' on input line 160.
+ [25
 
 ]
 Package hyperref Info: Anchor `chapter.6' on input line 160.
@@ -1676,8 +1699,8 @@ pdftex: bookmark at 5: {6.2} {\numberline{6.2}Work plan} {section.6.2}{1}{toc}
 \tf@brf=\write11
 \openout11 = `tese.brf'.
 
-Package hyperref Info: Anchor `page.25' on input line 3.
- [25
+Package hyperref Info: Anchor `page.26' on input line 3.
+ [26
 
 ]
 Package hyperref Info: Anchor `chapter*.13' on input line 3.
@@ -1692,12 +1715,12 @@ Package hyperref Info: Anchor `cite.Lorena2022' on input line 51.
 Package hyperref Info: Anchor `cite.paszke2019pytorch' on input line 60.
 Package hyperref Info: Anchor `cite.Puri2016' on input line 69.
 Package hyperref Info: Anchor `cite.RICE1976' on input line 81.
-Package hyperref Info: Anchor `page.26' on input line 81.
-[26
+Package hyperref Info: Anchor `page.27' on input line 81.
+[27
 
 ])
-Package hyperref Info: Anchor `page.27' on input line 168.
- [27]
+Package hyperref Info: Anchor `page.28' on input line 168.
+ [28]
 Package hyperref Info: Anchor `appendix.A' on input line 169.
 
 Appendix A.
@@ -1713,7 +1736,7 @@ Package hyperref Info: Anchor `equation.A.1.1' on input line 6.
 Package hyperref Info: Anchor `equation.A.1.1' on input line 6.
 Package hyperref Info: Anchor `equation.A.1.1' on input line 6.
 Package hyperref Info: Anchor `figure.caption.14' on input line 14.
-<ApeA/pragas_ciclo_cupim.pdf, id=418, 401.5pt x 403.5075pt>
+<ApeA/pragas_ciclo_cupim.pdf, id=432, 401.5pt x 403.5075pt>
 File: ApeA/pragas_ciclo_cupim.pdf Graphic file (type pdf)
 <use ApeA/pragas_ciclo_cupim.pdf>
 Package pdftex.def Info: ApeA/pragas_ciclo_cupim.pdf  used on input line 16.
@@ -1721,8 +1744,8 @@ Package pdftex.def Info: ApeA/pragas_ciclo_cupim.pdf  used on input line 16.
 pdftex: bookmark at 17: {A.1} {\numberline{A.1}{\ignorespaces Uma figura que es
 tá no apêndice\relax }} {figure.caption.14}{0}{lof}
 )
-Package hyperref Info: Anchor `page.28' on input line 173.
- [28
+Package hyperref Info: Anchor `page.29' on input line 173.
+ [29
 
 
  <./ApeA/pragas_ciclo_cupim.pdf>]
@@ -1737,8 +1760,8 @@ Package hyperref Info: Anchor `section.a.1' on input line 2.
 pdftex: bookmark at 2: {A.1} {\numberline{A.1}Uma Seção do Primeiro Anexo} {s
 ection.a.1}{1}{toc}
 )
-Package hyperref Info: Anchor `page.29' on input line 198.
- [29
+Package hyperref Info: Anchor `page.30' on input line 198.
+ [30
 
 
 ]
@@ -1751,8 +1774,8 @@ Overfull \hbox (74.53033pt too wide) in paragraph at lines 198--198
 [][] 
  []
 
-Package hyperref Info: Anchor `page.30' on input line 200.
-[30
+Package hyperref Info: Anchor `page.31' on input line 200.
+[31
 
 ] 
 enddocument/afterlastpage: lastpage setting LastPage.
@@ -1764,15 +1787,15 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
 Package rerunfilecheck Info: File `tese.out' has not changed.
-(rerunfilecheck)             Checksum: EC57D2FEDCD8D991664B235989DB254F;5966.
+(rerunfilecheck)             Checksum: 70622DD5E8800C6B8D381725A915E2DA;6010.
 Package rerunfilecheck Info: File `tese.brf' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 28090 strings out of 476025
- 510702 string characters out of 5796532
+ 28098 strings out of 476025
+ 510780 string characters out of 5796532
  1868388 words of memory out of 5000000
- 47736 multiletter control sequences out of 15000+600000
+ 47737 multiletter control sequences out of 15000+600000
  576224 words of font info for 152 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  105i,17n,104p,830b,915s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1797,10 +1820,10 @@ ic/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
 sr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/
 texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf-dist/font
 s/type1/public/cm-super/sfrm1200.pfb>
-Output written on tese.pdf (31 pages, 479113 bytes).
+Output written on tese.pdf (32 pages, 484387 bytes).
 PDF statistics:
- 567 PDF objects out of 1000 (max. 8388607)
- 474 compressed objects within 5 object streams
- 102 named destinations out of 1000 (max. 500000)
+ 584 PDF objects out of 1000 (max. 8388607)
+ 490 compressed objects within 5 object streams
+ 109 named destinations out of 1000 (max. 500000)
  343 words of extra memory for PDF output out of 10000 (max. 10000000)
 
