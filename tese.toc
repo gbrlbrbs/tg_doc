@@ -15,17 +15,19 @@
 \contentsline {section}{\numberline {2.3}Generative Adversarial Networks}{19}{section.2.3}
 \contentsline {chapter}{\numberline {3}Instance Space Analysis}{21}{chapter.3}
 \contentsline {section}{\numberline {3.1}Instance spaces}{21}{section.3.1}
-\contentsline {section}{\numberline {3.2}ISA for a single dataset}{23}{section.3.2}
-\contentsline {chapter}{\numberline {4}Methodology}{24}{chapter.4}
-\contentsline {chapter}{\numberline {5}Results}{25}{chapter.5}
-\contentsline {section}{\numberline {5.1}Planned results}{25}{section.5.1}
-\contentsline {chapter}{\numberline {6}Conclusion}{26}{chapter.6}
-\contentsline {section}{\numberline {6.1}Preliminary conclusions and future work}{26}{section.6.1}
-\contentsline {section}{\numberline {6.2}Work plan}{26}{section.6.2}
-\contentsline {chapter}{Bibliography}{27}{chapter.7}
+\contentsline {subsection}{\numberline {3.1.1}Instance Space construction}{23}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Footprint analysis}{24}{subsection.3.1.2}
+\contentsline {section}{\numberline {3.2}ISA for a single dataset}{24}{section.3.2}
+\contentsline {chapter}{\numberline {4}Methodology}{25}{chapter.4}
+\contentsline {chapter}{\numberline {5}Results}{26}{chapter.5}
+\contentsline {section}{\numberline {5.1}Planned results}{26}{section.5.1}
+\contentsline {chapter}{\numberline {6}Conclusion}{27}{chapter.6}
+\contentsline {section}{\numberline {6.1}Preliminary conclusions and future work}{27}{section.6.1}
+\contentsline {section}{\numberline {6.2}Work plan}{27}{section.6.2}
+\contentsline {chapter}{Bibliography}{28}{chapter.7}
 \SetAppendixTocName {Appendix}
-\contentsline {chapter}{\numberline {A}Tópicos de Dilema Linear}{29}{appendix.A}
-\contentsline {section}{\numberline {A.1}Uma Primeira Seção para o Apêndice}{29}{section.A.1}
+\contentsline {chapter}{\numberline {A}Tópicos de Dilema Linear}{30}{appendix.A}
+\contentsline {section}{\numberline {A.1}Uma Primeira Seção para o Apêndice}{30}{section.A.1}
 \SetAppendixTocName {Annex}
-\contentsline {chapter}{\numberline {A}Exemplo de um Primeiro Anexo}{30}{annex.a}
-\contentsline {section}{\numberline {A.1}Uma Seção do Primeiro Anexo}{30}{section.a.1}
+\contentsline {chapter}{\numberline {A}Exemplo de um Primeiro Anexo}{31}{annex.a}
+\contentsline {section}{\numberline {A.1}Uma Seção do Primeiro Anexo}{31}{section.a.1}

@@ -13,6 +13,7 @@ ISA is, at its core, an extension of the Algorithm Selection Problem (ASP) \cite
 \end{itemize}
 
 \begin{figure}[ht]
+	\centering
 	\begin{tikzpicture}[node distance=4cm]
 		
 		% Nodes
@@ -56,7 +57,7 @@ The ISA framework goes further to give insights into why some instances are hard
 	\alpha^* = S^\prime(g(f(x)))
 \end{equation}
 
-In the IS, it is also possible to define algorithm footprints $\varphi(y(\alpha, x))$, which are areas of strength of each algorithm $\alpha$. A set of objective measures can be derived from these footprints and aid in the inference of algorithmic performance for other instances that were not in $\mathcal{I}$, such as: 
+In the IS, it is also possible to define algorithm footprints $\varphi(y(\alpha, x))$, which are areas where an algorithm $\alpha$ is expected to perform well. A set of objective measures can be derived from these footprints and aid in the inference of algorithmic performance for other instances that were not in $\mathcal{I}$, such as: 
 
 \begin{itemize}
 	\item the area of the footprint $A$, which can be normalized across multiple algorithms for comparison;
@@ -73,4 +74,64 @@ Summarizing, the application of ISA requires \cite{Munoz2018}:
 	\item building the algorithms' footprints in the IS.
 \end{enumerate}
 
+\subsection{Instance Space construction}
+
+The problem of finding the optimal mapping between the instance metadata domain to a 2-D IS has been modelled using the Prediction Based Linear Dimensionality Reduction (PBLDR) method \cite{Munoz2018}. Given a meta-dataset $\mathcal{M}$ with $m$ meta-features, $n$ instances and $a$ algorithms, let $F \in \mathbb{R}^{m \times n}$ be the matrix containing the meta-features values for all instances and $Y \in \mathbb{R}^{n \ times a}$ be the matrix containing the performance measure of the algorithms on the same instances. The optimal projection is achieved by minimizing the MSE:
+
+\begin{equation}
+	MSE = ||F - \hat{F}||_F^2 + ||Y - \hat{Y}||_F^2,
+\end{equation}
+
+such that:
+
+\begin{gather}
+	Z = A_r F \label{eq:z_is}, \\
+	\hat{F} = B_r Z \label{eq:f_hat}, \\
+	\hat{Y}^T = C_r Z \label{eq:y_hat}.
+\end{gather}
+
+Where $A_r \in \mathbb{R}^{2 \times m}$, $B_r \in \mathbb{R}^{m \times 2}$ and $C_r \in \mathbb{R}^{a \times 2}$. $Z \in \mathbb{2 \times n}$ is the matrix of instance coordinates in the IS and $A_r$ is the projection matrix. \cite{Lorena2022} solves this problem numerically using the Broyden–Fletcher–Goldfarb–Shanno (BFGS) algorithm.
+
+\subsection{Footprint analysis}
+
+As said before, a footprint is a region in the IS where an algorithm is expected to perform well based on inference from empirical performance analysis \cite{Munoz2018}. \cite{Lorena2022} goes into more detail of its construction, qualitatively we can infer from the set of footprint measures defined before that a good algorithm will have large quantities of each of those measures, i.e. a large area shows that an algorithm performs well in a large portion of the IS, a large density shows that the footprint contains a large amount of instances and a large purity shows that the algorithm performs well in most instances.
+
 \section{ISA for a single dataset}
+
+In \cite{Munoz2018}, ISA is defined with an instance being an entire classification dataset. \cite{Lorena2022} has adapted the framework and reduced the problem space $\mathcal{P}$ into a single dataset, with each instance being an observation inside the dataset. This has come with the removal of some steps of the original ISA, namely the algorithmic recommendation module and the creation of new instances from the IS.
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}[node distance=3cm and 3cm, align=center, on grid]
+		
+		% Start node
+		\node[draw, rounded corners] (dataset) {Dataset};
+		
+		% Nodes to the right of dataset
+		\node[draw, rounded corners, above right=of dataset] (hardness) {Hardness \\ measures};
+		\node[draw, rounded corners, below right=of dataset] (algorithm) {Algorithm \\ space};
+		
+		% Arrows from dataset to hardness and algorithm
+		\draw[->] (dataset.east) -- ++(0.6cm,0) |- (hardness.west);
+		\draw[->] (dataset.east) -- ++(0.6cm,0) |- (algorithm.west);
+		
+		% Node to the right of hardness
+		\node[draw, rounded corners, right=of hardness, xshift=2cm] (feature) {Feature \\ selection};
+		\draw[->] (hardness.east) -- (feature.west);
+		
+		% Node to the right of algorithm
+		\node[draw, rounded corners, right=of algorithm, xshift=2cm] (performance) {Performance \\ space};
+		\draw[->] (algorithm.east) -- (performance.west) node[midway, above] {$y(\alpha, x)$};
+		
+		% Node to the right of feature and performance
+		\node[draw, rounded corners, below right=of feature] (metadata) {Metadata};
+		\draw[->] (feature) -- ++(3cm,0) |- (metadata.north);
+		\draw[->] (performance) -- ++(3cm,0) |- (metadata.south);
+		
+		% Node to the right of metadata
+		\node[draw, rounded corners, right=of metadata] (instance) {Instance \\ Space};
+		\draw[->] (metadata.east) -- (instance.west) node[midway, above] {ISA};
+		
+	\end{tikzpicture}
+	\caption{ISA framework for a single dataset. Extracted from \cite{Lorena2022}.} \label{eq:isa_dataset}
+\end{figure}
