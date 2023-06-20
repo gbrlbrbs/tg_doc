@@ -49,6 +49,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{csquotes}
+\usepackage{enumitem}
 \usepackage{subfig}
 \usepackage{multirow}
 \usepackage{float}
@@ -59,12 +60,16 @@
 \usepackage{multicol}    % allows text in multi columns
 \usepackage{cancel}      % needed to show canceled terms in equations
 \usepackage{lettrine}
+ \usepackage{multirow}
+ \usepackage[table,xcdraw]{xcolor}
 \usepackage[ruled]{algorithm2e}
 \usepackage{float}
 \usepackage{placeins}
 \usepackage{tikz}
 \usetikzlibrary{fit, backgrounds, calc, positioning}
 \DeclareMathOperator{\logloss}{logloss}
+\DeclareMathOperator{\maxmin}{maxmin}
+\DeclareMathOperator{\minmax}{minmax}
 
 %HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 %\usepackage{subfigure}
@@ -152,10 +157,10 @@
 \chapter{Instance Space Analysis}
 \input{Cap3/cap3}
 
-\chapter{Methodology}
+\chapter{Methodology} \label{ch:methodology}
 \input{Cap4/cap4}
 
-\chapter{Results}
+\chapter{Results} \label{ch:results}
 \input{Cap5/cap5}
 
 \chapter{Conclusion}

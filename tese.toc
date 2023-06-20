@@ -29,9 +29,8 @@
 \contentsline {chapter}{\numberline {5}Results}{28}{chapter.5}
 \contentsline {section}{\numberline {5.1}Planned results}{28}{section.5.1}
 \contentsline {chapter}{\numberline {6}Conclusion}{29}{chapter.6}
-\contentsline {section}{\numberline {6.1}Preliminary conclusions and future work}{29}{section.6.1}
+\contentsline {section}{\numberline {6.1}Preliminary conclusions}{29}{section.6.1}
 \contentsline {section}{\numberline {6.2}Work plan}{29}{section.6.2}
 \contentsline {chapter}{Bibliography}{30}{chapter.7}
 \SetAppendixTocName {Appendix}
 \contentsline {chapter}{\numberline {A}Instance Hardness}{31}{appendix.A}
-\contentsline {section}{\numberline {A.1}Metrics used in subsection \ref {subsec:hardness_measures}}{31}{section.A.1}

@@ -1,5 +1,28 @@
-\section{Preliminary conclusions and future work}
+\section{Preliminary conclusions}
 
+In this work so far we have presented the theoretical foundations of GANs and the Instance Space Analysis methodology. The methodology presented shows promising applications of the combination of those technologies and new analyses that may be useful.
 
+Challenges are expected in the implementation of the generator and discriminator networks because of the dataset selection (e.g. image-based datasets vs tabular datasets). 
 
 \section{Work plan}
+
+With the landmarks detailed in chapter \ref{ch:results}, we define the work plan in table \ref{tab:work_plan} for their implementation.
+
+% Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+% \usepackage[table,xcdraw]{xcolor}
+% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{|l|llll|}
+		\hline
+		\multicolumn{1}{|c|}{}                        & \multicolumn{4}{l|}{Landmark}                                                                                                                                                                                                                                        \\ \cline{2-5} 
+		\multicolumn{1}{|c|}{\multirow{-2}{*}{Month}} & \multicolumn{1}{l|}{A}                                               & \multicolumn{1}{l|}{B}                                               & \multicolumn{1}{l|}{C}                                               & D                                               \\ \hline
+		July                                          & \multicolumn{1}{l|}{\cellcolor[HTML]{000000}}                        & \multicolumn{1}{l|}{\cellcolor[HTML]{000000}}                        & \multicolumn{1}{l|}{}                                                &                                                 \\ \hline
+		August                                        & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{\cellcolor[HTML]{000000}{\color[HTML]{000000} }} & \multicolumn{1}{l|}{\cellcolor[HTML]{000000}}                        &                                                 \\ \hline
+		September                                     & \multicolumn{1}{l|}{}                                                & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{\cellcolor[HTML]{000000}} & \cellcolor[HTML]{000000}{\color[HTML]{000000} } \\ \hline
+		October                                       & \multicolumn{1}{l|}{}                                                & \multicolumn{1}{l|}{}                                                & \multicolumn{1}{l|}{\cellcolor[HTML]{000000}}                        & \cellcolor[HTML]{000000}                        \\ \hline
+		November                                      & \multicolumn{1}{l|}{}                                                & \multicolumn{1}{l|}{}                                                & \multicolumn{1}{l|}{}                                                & \cellcolor[HTML]{000000}                        \\ \hline
+	\end{tabular}
+	\caption{Work plan for the development of this work.} \label{tab:work_plan}
+\end{table}

@@ -1,3 +1,97 @@
-\section{Metrics used in subsection \ref{subsec:hardness_measures}} \label{sec:appendix_hm}
+In this appendix, we will show the calculation of each hardness measures shown in table \ref{tab:hardness_measures} extracted from \cite{Lorena2022}.
 
+\paragraph*{k-Disagreeing Neighbours $kDN(\mathbf{x}_i)$:} gives the percentage of the $k$ nearest neighbours of $\mathbf{x}_i$ which do not share its label. It is described in equation \ref{eq:kdn}
 
+\begin{equation} \label{eq:kdn}
+	kDN(\mathbf{x}_i) = \frac{\# \{\mathbf{x}_j | \mathbf{x}_j \in kNN(\mathbf{x}_i) \wedge y_j \neq y_i \}}{k}
+\end{equation}
+
+\paragraph*{Disjunct Class Percentage $DCP(\mathbf{x}_i)$:} builds a decision tree using the original dataset $\mathcal{D}$ and considers the percentage of instances in the disjunct of $\mathbf{x}_i$ which share the same label as $\mathbf{x}_j$. The disjunct of an example is the leaf node where it is classified by the decision tree. Equation \ref{eq:dcp} shows the calculation of the measure.
+
+\begin{equation} \label{eq:dcp}
+	DCP(\mathbf{x}_i) = 1 - \frac{\# \{ \mathbf{x}_j | \mathbf{x}_j \in Disjunct(\mathbf{x}_i) \wedge y_j = y_i \}}{\# \{ \mathbf{x}_j | \mathbf{x}_j \in Disjunct(\mathbf{x}_i)\}},
+\end{equation}
+
+where $Disjunct(\mathbf{x}_i)$ represents the set of instances contained in the disjunct where $\mathbf{x}_i$ is placed.
+
+\paragraph*{Tree Depth $TD(\mathbf{x}_i)$:} returns the depth of the leaf node that classifies $\mathbf{x}_i$ in a decision tree $DT$, normalized by the maximum depth of the tree built from $\mathcal{D}$:
+
+\begin{equation}
+	TD(\mathbf{x}_i) = \frac{depth_{DT}(\mathbf{x}_i)}{\max(depth_{DT}(\mathbf{x}_j \in \mathcal{D}))}.
+\end{equation}
+
+There are two versions of this measure, using pruned and unpruned decision trees.
+
+\paragraph*{Class Likelihood $CL(\mathbf{x}_i)$:} measures the likelihood of $\mathbf{x}_i$ belonging to its class:
+
+\begin{equation}
+	CL(\mathbf{x}_i) = 1 - P(\mathbf{x}_i| y_i) P(y_i),
+\end{equation}
+
+where $P(\mathbf{x}_i| y_i)$ is the likelihood of $\mathbf{x}_i$ belonging to class $y_i$, measured in $\mathcal{D}$, and $P(y_i)$ is the prior of class $y_i$.
+
+\paragraph*{Class Likelihood Difference $CLD(\mathbf{x}_i)$:} takes the difference between the likelihood of $\mathbf{x}_i$ in relation to its class and the maximum likelihood it has to any other class:
+
+\begin{equation}
+	CLD(\mathbf{x}_i) = \frac{1 - (P(\mathbf{x}_i | y_i) - \max_{y_j \neq y_i}[P(\mathbf{x}_i | y_j) P(y_j)] ) }{2}
+\end{equation}
+
+\paragraph*{Fraction of features in overlapping areas $F1(\mathbf{x}_i)$:} the percentage of features of the instance $\mathbf{x}_i$ whose values lie in an overlapping region of the classes:
+
+\begin{equation}
+	F1(\mathbf{x}_i) = \frac{\sum_{j=1}^{m_D} I(x_{ij} > \maxmin(\mathbf{f}_j) \wedge x_{ij} < \minmax(\mathbf{xf}_j)) }{m_D},
+\end{equation}
+
+where $I$ is the indicator function, which return 1 if its argument is true and 0 otherwise, $\mathbf{f}_j$ is the $j$-th feature vector and:
+
+\begin{gather}
+	\minmax(\mathbf{f}_j) = \min(\max(\mathbf{f}_i^{c_1}), \max(\mathbf{f}_j^{c_2})), \\
+	\maxmin(\mathbf{f}_j) = \max(\min(\mathbf{f}_i^{c_1}), \min(\mathbf{f}_j^{c_2})).
+\end{gather}
+
+The values $\max(\mathbf{f}_j^{y_i}$ and $\min(\mathbf{f}_j^{y_i}$ are the maximum and minimum values of $\mathbf{f}_j$ in a class $y_i \in {c1 , c2 }$.
+
+\paragraph*{Fraction of nearby instances of different classes $N1(\mathbf{x}_i)$:} in this measure, first a minimum spanning tree (MST) is built from $\mathcal{D}$. In this tree, each instance of the dataset correspond to one vertex and nearby instances are connected according to their distances in the input space in order to obtain a tree of minimal cost concerning the sum of the edges' weights. $N1$ gives the percentage of instances of different classes that $\mathbf{x}_i$ is connected to.
+
+\begin{equation}
+	N1(\mathbf{x}_i) = \frac{\# \{ \mathbf{x}_j | (\mathbf{x}_i, \mathbf{x}_j) \in MST(\mathcal{D}) \wedge y_j \neq y_i  \}}{\# \{ \mathbf{x}_j | (\mathbf{x}_i, \mathbf{x}_j) \in MST(\mathcal{D}) \}}
+\end{equation}
+
+\paragraph*{Ratio of intra-extra class distances $N2(\mathbf{x}_i)$:} first the ratio of the distance of $\mathbf{x}_i$ to the nearest example from its class to the distance it has to the nearest instance from a different class is computed:
+
+\begin{equation}
+	IntraInter(\mathbf{x}_i) = \frac{d(\mathbf{x}_i, NN(\mathbf{x}_i) \in y_i)}{d(\mathbf{x}_i, NN(\mathbf{x}_i) \in y_j \neq y_i)},
+\end{equation}
+
+where $NN(\mathbf{x}_i)$ represents a nearest neighbour of $\mathbf{x}_i$. Then, $N2(\mathbf{x}_i)$ is computed as:
+
+\begin{equation}
+	N2(\mathbf{x}_i) = 1 - \frac{1}{IntraInter(\mathbf{x}_i) + 1}
+\end{equation}
+
+\paragraph*{Local Set Cardinality $LSC(\mathbf{x}_i$:} the Local Set (LS) of an instance $\mathbf{x}_i$ is the set of points from $\mathcal{D}$ whose distances to $\mathbf{x}_i$ are smaller than the distance between $\mathbf{x}_i$ and $\mathbf{x}_i$'s nearest neighbour from another class:
+
+\begin{gather}
+	LS(\mathbf{x}_i) = \{ \mathbf{x}_j | d(\mathbf{x}_i, \mathbf{x}_j) < d(\mathbf{x}_i, NN(\mathbf{x}_i) \in y_j \neq y_i) \} \\
+	LSC(\mathbf{x}_i) = 1 - \frac{|LS(\mathbf{x}_i)|}{\# \{ \mathbf{x}_j | y_j = y_i \}}
+\end{gather}
+
+\paragraph*{Local Set Radius $LSR(\mathbf{x}_i)$:} the normalized radius of the LS of $\mathbf{x}_i$:
+
+\begin{equation}
+	LSR(\mathbf{x}_i) = 1 - \min \left( 1, \frac{d(\mathbf{x}_i, NN(\mathbf{x}_i) \in y_j \neq y_i )}{\max(d(\mathbf{x}_i, \mathbf{x}_j) | y_j = y_i)} \right)
+\end{equation}
+
+\paragraph*{Usefulness $U(\mathbf{x}_i)$:} corresponds to the fraction of instances having $\mathbf{x}_i$ in their local sets:
+
+\begin{equation}
+	U(\mathbf{x}_i) = 1 - \frac{\# \{ \mathbf{x}_j | d(\mathbf{x}_i, \mathbf{x}_j) < d(\mathbf{x}_j, NN(\mathbf{x}_j) \in y_k \neq y_j) \}}{|\mathcal{D}| - 1}
+\end{equation}
+
+\paragraph*{Harmfulness $H(\mathbf{x}_i)$:} number of instances having $\mathbf{x}_i$ as their nearest neighbour of another class:
+
+\begin{equation}
+	H(\mathbf{x}_i) = \frac{\# \{ \mathbf{x}_j | NN(\mathbf{x}_j) \in y_k \neq y_j = \mathbf{x}_i \}}{|\mathcal{D}| - 1}
+\end{equation}
+
+All measures are computed using the entire dataset.
