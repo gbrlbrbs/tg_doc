@@ -1,13 +1,15 @@
 \section{Motivation}
-Often in a problem being tackled with Machine Learning (ML) techniques one of the most important part of the solving process is the algorithm selection. Each algorithm has a specific bias which makes it more suitable for some classes of problems than others \cite{Lorena2022}. 
+Often in a problem being tackled with Machine Learning (ML) techniques one of the most important part of the solving process is the algorithm selection. Each algorithm has a specific bias which makes it more suitable for some classes of problems than others \cite{Adam2019}. 
 
 It is desirable, then, that we may have a way of measuring the relationship of the performance of a given algorithm in a problem with the problem's characteristics, since knowing which data is easy or difficult for a given model to classify is useful in the way that we may make changes to the original model.
 
-\cite{Munoz2018} has introduced a methodology called Instance Space Analysis (ISA), a novel way of performance evaluation and algorithm selection in classifiers by mapping the statistical properties of an instance (an entire dataset) into how difficult the instance is for the classification algorithm to perform. Further, in \cite{Lorena2022}, the methodology has been modified to have a more fine-grained analysis, with the instance being reduced to an individual observation in a classification dataset.
+\citeonline{Munoz2018} has introduced a methodology called Instance Space Analysis (ISA), a novel way of performance evaluation and algorithm selection in classification problems by mapping the statistical properties of an instance (an entire dataset) into how difficult the instance is for the classification algorithm to perform. Further, in \citeonline{Lorena2022}, the methodology has been modified to have a more fine-grained analysis, with the instance being reduced to an individual observation in a classification dataset.
 
-Given this, we can map each observation into a hardness level . One type of model that may give us new information from this data is a Generative Adversarial Network (GAN) architecture as defined by \cite{Goodfellow2014}. This architecture is based on a zero-sum game, with a generator network trying to create data matching the original data and a discriminator network trying to discern between the original data and the generated data. 
+Given this, we can map each observation into a hardness level. But one feature of the ISA not investigated in the instance-level proposal of \citeonline{Lorena2022} is how to generate new problem instances with desired characteristics in order to expand the dataset with instances that may defy the classification techniques. This project aims to fill this gap. 
 
-Using this, we can use the trained generator to create data with specific hardness levels and set a difficulty of classification for an entire dataset. We can use this to verify how the original model behaves with data with a given difficulty profile or to challenge the model.
+One type of model that may give us this feature from this data is a Generative Adversarial Network (GAN) architecture, as defined by \citeonline{Goodfellow2014}. This architecture is based on a zero-sum game, with a generator network trying to create data matching the original data and a discriminator network trying to discern between the original data and the generated data. 
+
+Using this approach, we can use the trained generator to create data with specific hardness levels and be able to challenge the classification techniques at different levels. We can use this to verify how the original model behaves with data with a given difficulty profile or to challenge the model, such as generating adversarial examples \cite{Yuan2019}.
 
 \section{Objective}
 
@@ -34,4 +36,11 @@ The scope of this work will be limited to exploring a GAN implementation for the
 
 \section{Outline of this work}
 
+The document is organized as follows:
 
+\begin{itemize}
+	\item Chapter \ref{ch:machinelearning}  introduces some Machine Learning terminology and describes the GAN neural network model;
+	\item Chapter \ref{ch:isa} describes the ISA framework;
+	\item Chapter \ref{ch:methodology} presents the methodology to be followed in the computational experiments;
+	\item Chapter \ref{ch:conclusion} concludes the work presenting future activities and a work schedule.
+\end{itemize}

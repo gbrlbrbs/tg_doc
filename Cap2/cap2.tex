@@ -3,7 +3,7 @@ This chapter will introduce Machine Learning (ML) concepts and techniques being 
 
 \section{Classification}
 
-In Statistics and Machine Learning, a problem is defined as a classification problem when it consists in identifying to which categories a member of a population belongs to. An example might be identifying which race of domestic cat is shown in a picture containing a cat. An algorithm that implements classification is known as a classifier. The classifier works by analysing each observation into dependent variables and either mapping those to the categories or by comparing each observation to previous observations by means of a similarity function or loss function. 
+In Statistics and Machine Learning, a problem is defined as a classification problem when it consists in identifying to which categories a member of a population belongs to. An example might be identifying which race of domestic cat is shown in a picture containing a cat \cite{Kolla2020}. An algorithm that implements classification is known as a classifier. The classifier works by analysing each observation into dependent variables and either mapping those to the categories or by comparing each observation to previous observations by means of a similarity function or loss function \cite{lorena2021inteligencia}. 
 
 Terminology between Statistics and Machine Learning tend to differ. In this work, we will be using the terminology found in Machine Learning, namely:
 
@@ -17,7 +17,7 @@ In this work, we will not focus on a specific classification algorithm since ISA
 \section{Neural networks}
 
 % cito aqui ou não? perguntar
-Neural networks, formally called \emph{artificial neural networks} (ANNs), are computational models inspired by networks of biological neurons \cite{Puri2016}. They are made up of multiple nodes called artificial neurons that map an input to an output based on mathematical operations. This model is used extensively in ML applications because of its perceived intelligent behaviour that come from the interactions between neurons.
+Neural networks, formally called \emph{artificial neural networks} (ANNs), are computational models inspired by networks of biological neurons \cite{Puri2016}. They are made up of multiple nodes called artificial neurons that map an input to an output based on mathematical operations. This model is used extensively in ML applications because of its perceived intelligent behaviour that comes from the interactions between neurons.
 
 \subsection{Artificial neuron}
 
@@ -34,7 +34,8 @@ where the symbols are defined as:
 		$\mathbf{x} = [x_1, x_2, \ldots, x_n]$ & Input vector;\\
 		$\mathbf{w} = [w_1, w_2, \ldots, w_n]$ & Weight vector;\\
 		$f$ & Activation function; \\
-		$y$ & Neuron output.
+		$y$ & Neuron output; \\
+		$b$ & Bias,
 	\end{tabular}
 \end{equation}
 
@@ -125,13 +126,13 @@ The learning rate is a parameter in an optimization algorithm, defining the size
 
 \subsubsection{Backpropagation}
 
-Backpropagation is a method to adjust the weights of the network and minimize the mean squared error. It computes the gradient of the loss function with respects to the weights and propagates backwards from the output layer to avoid redundant calculations.
+Backpropagation is a method to adjust the weights of the network and minimize the mean squared error. It computes the gradient of the loss function with respects to the weights and propagates backwards from the output layer to the initial layers in order to avoid redundant calculations.
 
 \section{Generative Adversarial Networks}
 
 A Generative Adversarial Network (GAN) is an architecture for estimating generative artificial intelligence models. It consists of a two-player minimax game between two ANNs: a generative model $G$ and a discriminative model $D$. The purpose of $D$ is to estimate the probability that a sample came from the training data instead of coming from $G$, and the purpose of $G$ is to minimize that probability. A unique solution exists where $D$ outputs the probability of $\frac{1}{2}$ everywhere \cite{Goodfellow2014}. The generator $G$ is, then, not trained to minimize a loss function, but to fool the discriminator $D$. 
 
-We will now be defining some notation for more formal modelling. Let $\mathbf{x}$ be the input data, $D(\mathbf{x})$ is then the output of the discriminator over the training data, which is the probability that the input data came from the training data rather than the generator. For the generator, let $\mathbf{z}$ be a latent space vector sampled from a standard normal distribution. $G(\mathbf{z})$ represents the generator's output, mapping $\mathbf{z}$ to the data space.
+We will now be defining some notation for more formal modelling. Let $\mathbf{x}$ be the input data, $D(\mathbf{x})$ is then the output of the discriminator over the input data, which is the probability that the input data came from the training data rather than the generator. For the generator, let $\mathbf{z}$ be a latent space vector sampled from a standard normal distribution. $G(\mathbf{z})$ represents the generator's output, mapping $\mathbf{z}$ to the data space.
 
 $D(G(\mathbf{z}))$ is therefore the probability that a generated input came from the training data. The goal of $G$ is to estimate the distribution which the training data comes from ($p_{data}$) so that it may draw samples from this estimation ($p_G$) \cite{Goodfellow2014}. The minimax loss function will be, therefore :
 
@@ -139,10 +140,10 @@ $D(G(\mathbf{z}))$ is therefore the probability that a generated input came from
 	\min_{G} \max_{D} V(D, G) = \mathbb{E}_{\mathbf{x} \sim p_{data}(\mathbf{x})} [\log D(\mathbf{x})] + \mathbb{E}_{\mathbf{z} \sim p_{\mathbf{z}}(\mathbf{z})} [\log(1 - D(G(\mathbf{z})))]
 \end{equation}
 
-In theory, the solution of this game will be when $p_G = p_{data}$ and the discriminator will guess every generated input randomly ($D(G(\mathbf{z})) = \frac{1}{2}$). Figure \ref{fig:gan_flowchart} shows a flowchart of this training model. Algorithm \ref{alg:training_gan} is the training algorithm defined in \cite{Goodfellow2014}.
+In theory, the solution of this game will be when $p_G = p_{data}$ and the discriminator will guess every generated input randomly ($D(G(\mathbf{z})) = \frac{1}{2}$). Figure \ref{fig:gan_flowchart} shows a flowchart of this training model. Algorithm \ref{alg:training_gan} is the training algorithm defined in \citeonline{Goodfellow2014}.
 
 \begin{algorithm}
-	\caption{Minibatch stochastic gradient descent training of GANs as defined in \cite{Goodfellow2014}. The number of steps to apply to the discriminator is a hyperparameter $k$.} \label{alg:training_gan}
+	\caption{Minibatch stochastic gradient descent training of GANs as defined in \citeonline{Goodfellow2014}. The number of steps to apply to the discriminator is a hyperparameter $k$.} \label{alg:training_gan}
 	\For{number of training steps}{
 		\For{k steps}{
 			Sample minibatch of $m$ noise samples $[\mathbf{z}^{(1)}, \ldots, \mathbf{z}^{(m)}]$ from noise prior $p_G(\mathbf{z})$; \\

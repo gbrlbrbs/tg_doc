@@ -1,4 +1,4 @@
-In this chapter we will be introducing the novel methodology for algorithm selection and performance evaluation called Instance Space Analysis (ISA), introduced in \cite{Munoz2018}. We will be showing the original definition of an instance space and the adaptation of the methodology brought up by \cite{Lorena2022} relating instance hardness.
+In this chapter we will be introducing the novel methodology for algorithm selection and performance evaluation called Instance Space Analysis (ISA), introduced in \citeonline{Munoz2018}. We will be showing the original definition of an instance space and the adaptation of the methodology brought up by \citeonline{Lorena2022} relating instance hardness.
 
 \section{Instance spaces}
 
@@ -9,7 +9,7 @@ ISA is, at its core, an extension of the Algorithm Selection Problem (ASP) \cite
 	\item \textbf{Instance Sub-space} $\mathcal{I}$: contains a subset of instances from $\mathcal{P}$ for which the characteristics and solutions are available;
 	\item \textbf{Feature Space} $\mathcal{F}$: a set of descriptive characteristics of the instances in $\mathcal{I}$. These are also known as meta-features;
 	\item \textbf{Algorithm Space} $\mathcal{A}$: contains algorithms that may be used to solve the instances in $\mathcal{I}$;
-	\item \textbf{Performance Space} $\mathcal{Y}$: contains the performance evaluations of the algorithms in $\mathcal{A}$ over the instances in $\mathcal{I}$;
+	\item \textbf{Performance Space} $\mathcal{Y}$: contains the performance evaluations of the algorithms in $\mathcal{A}$ over the instances in $\mathcal{I}$.
 \end{itemize}
 
 \begin{figure}[ht]
@@ -42,7 +42,7 @@ ISA is, at its core, an extension of the Algorithm Selection Problem (ASP) \cite
 		\draw[->] (performance) -- node[right, align=left] {Define algorithm \\footprints $\varphi(y(\alpha, x))$} (footprints);
 		
 	\end{tikzpicture}
-	\caption{ISA framework. Extracted from \cite{Munoz2018}. The ASP is highlighted in blue.} \label{fig:ISA_flowchart}
+	\caption{ISA framework. Extracted from \citeonline{Munoz2018}. The ASP is highlighted in blue.} \label{fig:ISA_flowchart}
 \end{figure}
 
 The combination of tuples $(x, f(x), \alpha, y(\alpha, x))$, where $x \in \mathcal{I}$, $f(x) \in \mathcal{F}$, $\alpha \in \mathcal{A}$ and $y(\alpha, x) \in \mathcal{Y}$, composes a meta-dataset $\mathcal{M}$. A meta-learner $S$ can then be trained to select the best algorithm for an instance $x$ based on its meta-features, that is, an algorithm $\alpha^*$ with maximum predictive performance for $x$ as given by $y$: 
@@ -76,7 +76,7 @@ Summarizing, the application of ISA requires \cite{Munoz2018}:
 
 \subsection{Instance Space construction}
 
-The problem of finding the optimal mapping between the instance metadata domain to a 2-D IS has been modelled using the Prediction Based Linear Dimensionality Reduction (PBLDR) method \cite{Munoz2018}. Given a meta-dataset $\mathcal{M}$ with $m$ meta-features, $n$ instances and $a$ algorithms, let $F \in \mathbb{R}^{m \times n}$ be the matrix containing the meta-features values for all instances and $Y \in \mathbb{R}^{n \ times a}$ be the matrix containing the performance measure of the algorithms on the same instances. The optimal projection is achieved by minimizing the MSE:
+The problem of finding the optimal mapping between the instance metadata domain to a 2-D IS has been modelled using the Prediction Based Linear Dimensionality Reduction (PBLDR) method \cite{SmithMiles2023}. Given a meta-dataset $\mathcal{M}$ with $m$ meta-features, $n$ instances and $a$ algorithms, let $F \in \mathbb{R}^{m \times n}$ be the matrix containing the meta-features values for all instances and $Y \in \mathbb{R}^{n \ times a}$ be the matrix containing the performance measure of the algorithms on the same instances. The optimal projection is achieved by minimizing the MSE:
 
 \begin{equation}
 	MSE = ||\mathbf{F} - \mathbf{\hat{F}}||_F^2 + ||\mathbf{Y} - \mathbf{\hat{Y}}||_F^2,
@@ -90,15 +90,15 @@ such that:
 	\mathbf{\hat{Y}}^T = \mathbf{C}_r \mathbf{Z} \label{eq:y_hat}.
 \end{gather}
 
-Where $\mathbf{A}_r \in \mathbb{R}^{2 \times m}$, $\mathbf{B}_r \in \mathbb{R}^{m \times 2}$ and $\mathbf{C}_r \in \mathbb{R}^{a \times 2}$. $\mathbf{Z} \in \mathbb{R}^{2 \times n}$ is the matrix of instance coordinates in the IS and $A_r$ is the projection matrix. \cite{Lorena2022} solves this problem numerically using the Broyden–Fletcher–Goldfarb–Shanno (BFGS) algorithm.
+Where $\mathbf{A}_r \in \mathbb{R}^{2 \times m}$, $\mathbf{B}_r \in \mathbb{R}^{m \times 2}$ and $\mathbf{C}_r \in \mathbb{R}^{a \times 2}$. $\mathbf{Z} \in \mathbb{R}^{2 \times n}$ is the matrix of instance coordinates in the IS and $A_r$ is the projection matrix. \cite{SmithMiles2023} solves this problem numerically using the Broyden–Fletcher–Goldfarb–Shanno (BFGS) algorithm.
 
 \subsection{Footprint analysis}
 
-As said before, a footprint is a region in the IS where an algorithm is expected to perform well based on inference from empirical performance analysis \cite{Munoz2018}. \cite{Lorena2022} goes into more detail of its construction, qualitatively we can infer from the set of footprint measures defined before that a good algorithm will have large quantities of each of those measures, i.e. a large area shows that an algorithm performs well in a large portion of the IS, a large density shows that the footprint contains a large amount of instances and a large purity shows that the algorithm performs well in most instances.
+As said before, a footprint is a region in the IS where an algorithm is expected to perform well based on inference from empirical performance analysis \cite{Munoz2018}. \citeonline{SmithMiles2023} goes into more detail of its construction, qualitatively we can infer from the set of footprint measures defined before that a good algorithm will have large quantities of each of those measures, i.e. a large area shows that an algorithm performs well in a large portion of the IS, a large density shows that the footprint contains a large amount of instances and a large purity shows that the algorithm performs well in most instances.
 
 \section{ISA for a single dataset}
 
-In \cite{Munoz2018}, ISA is defined with an instance being an entire classification dataset. \cite{Lorena2022} has adapted the framework and reduced the problem space $\mathcal{P}$ into a single dataset, with each instance being an observation inside the dataset. This has come with the removal of some steps of the original ISA, namely the algorithmic recommendation module and the creation of new instances from the IS.
+In \citeonline{Munoz2018}, ISA is defined with an instance being an entire classification dataset. \citeonline{Lorena2022} has adapted the framework and reduced the problem space $\mathcal{P}$ into a single dataset, with each instance being an observation inside the dataset. This has come with the removal of some steps of the original ISA, namely the algorithmic recommendation module and the creation of new instances from the IS.
 
 \begin{figure}[ht]
 	\centering
@@ -137,7 +137,7 @@ In \cite{Munoz2018}, ISA is defined with an instance being an entire classificat
 		\draw[->] (metadata.east) -- (instance.west) node[midway, above] {ISA};
 		
 	\end{tikzpicture}
-	\caption{ISA framework for a single dataset. Extracted from \cite{Lorena2022}.} \label{fig:isa_dataset}
+	\caption{ISA framework for a single dataset. Extracted from \citeonline{Lorena2022}.} \label{fig:isa_dataset}
 \end{figure}
 
 Given a classification dataset $\mathcal{D}$ with $n_D$ instances $\mathbf{x}_i$, $m_D$ input features and each instance labelled in a class $y_i$, we have:
@@ -148,13 +148,13 @@ Given a classification dataset $\mathcal{D}$ with $n_D$ instances $\mathbf{x}_i$
 	\item \textbf{Feature space} $\mathcal{F}$: contains a set of meta-features known as \emph{hardness measures}.
 \end{itemize}
 
-The modified framework is shown in figure \ref{fig:isa_dataset}. For each instance, a set of hardness measures are stored in $\mathcal{F}$, and each algorithm $\alpha \in \mathcal{A}$ is evaluated over the instance $\mathbf{x}_i$ and has its performance $y(\alpha, \mathbf{x}_i)$ measured and stored in $\mathcal{Y}$. The measure used is a cross-validated log-loss error obtained in the prediction of the instance label. A feature selection is used with these measures and the hardness measures, resulting in a reduced feature set $f_s(f(\mathbf{x}_i), y)$.
+The modified framework is shown in Figure \ref{fig:isa_dataset}. For each instance, a set of hardness measures are stored in $\mathcal{F}$, and each algorithm $\alpha \in \mathcal{A}$ is evaluated over the instance $\mathbf{x}_i$ and has its performance $y(\alpha, \mathbf{x}_i)$ measured and stored in $\mathcal{Y}$. The measure used is a cross-validated log-loss error obtained in the prediction of the instance label. A feature selection is used with these measures and the hardness measures, resulting in a reduced feature set $f_s(f(\mathbf{x}_i), y)$.
 
 Combining the reduced feature set to the predictive performance of the algorithms allows us to construct the meta-dataset $\mathcal{M}$, from which the IS is extracted. The steps are explained in \cite{Lorena2022}, we will summarize some important topics.
 
 \subsection{Hardness measures} \label{subsec:hardness_measures}
 
-\cite{Lorena2022} revisits the definition of \emph{Instance Hardness} (IH), a property that indicates the probability of an instance being misclassified given a classification hypothesis:
+\cite{Lorena2022} revisits the definition of \emph{Instance Hardness} (IH), a property that indicates the probability of an instance being misclassified given a classification hypothesis \cite{Smith2014}:
 
 \begin{equation} \label{eq:instance_hardness}
 	IH_h(\mathbf{x}_i, y_i) = 1 - p(y_i | \mathbf{x}_i, h),
@@ -166,7 +166,7 @@ where $h: X \rightarrow Y$ is a classification hypothesis mapping an input space
 	IH_{\mathcal{A}}(\mathbf{x}_i, y_i) = 1 - \frac{1}{|\mathcal{A}|} \sum_{l \in \mathcal{A}} p(y_i | \mathbf{x}_i, l(\mathcal{D}, \mathbf{\beta})).
 \end{equation}
 
-The idea is that instances frequently misclassified over the algorithm space can be considered hard, and instances being correctly classified are considered easy. \cite{Lorena2022} also shows a set of \emph{hardness metrics} being extracted for each instance. Table \ref{tab:hardness_measures} lists the measures used, the formal definition for each one is shown in Appendix \ref{ch:instance_hardness}.
+The idea is that instances frequently misclassified over the algorithm space can be considered hard, and instances being correctly classified are considered easy. \citeonline{Lorena2022} also shows a set of \emph{hardness metrics} being extracted for each instance. Table \ref{tab:hardness_measures} lists the measures used, the formal definition for each one is shown in Appendix \ref{ch:instance_hardness}.
 
 \begin{table}[ht]
 	\centering
@@ -193,7 +193,7 @@ The idea is that instances frequently misclassified over the algorithm space can
 \newpage
 \subsection{Performance assessment}
 
-To assess the performance from each algorithm in the dataset $\mathcal{D}$, it is first split into $r$ folds according to the cross-validation strategy such that each instance from the dataset belongs to only one fold. $r-1$ folds are used for training the algorithm while the last fold is used for testing. Therefore we can compute a performance estimate for each instance and algorithm combination. Repeating this process yields an interval estimation \cite{Lorena2022}. The measure used for performance assessment was the log-loss, or cross-entropy, defined in equation \ref{eq:logloss}:
+To assess the performance from each algorithm in the dataset $\mathcal{D}$, it is first split into $r$ folds according to the cross-validation strategy such that each instance from the dataset belongs to only one fold. $r-1$ folds are used for training the algorithm while the last fold is used for testing. Therefore we can compute a performance estimate for each instance and algorithm combination. The measure used for performance assessment was the log-loss, or cross-entropy, defined in equation \ref{eq:logloss}:
 
 \begin{equation} \label{eq:logloss}
 	\logloss(\mathbf{x}_i) = - \sum_{c=1}^{C} y_{i, c} \log(p_{i, c}),
@@ -203,7 +203,7 @@ where $C$ is the number of classes the problem has, $y_{i, c}$ is a binary indic
 
 \subsection{Feature selection}
 
-For feature selection, \cite{Lorena2022} employs a method called \emph{Minimum Redundancy Maximum Relevance} (MRMR), a criterion that gradually reduces the effect of feature redundancy as more features are selected. There is a trade-off between minimizing the number of redundant features and keeping relevant features, this method rejects redundant features at first but tolerates redundancy as more informative features are added. The mathematical model for MRMR is in equation \ref{eq:MRMR}:
+For feature selection, \citeonline{Lorena2022} employs a method called \emph{Minimum Redundancy Maximum Relevance} (MRMR), a criterion that gradually reduces the effect of feature redundancy as more features are selected. There is a trade-off between minimizing the number of redundant features and keeping relevant features, this method rejects redundant features at first but tolerates redundancy as more informative features are added. The mathematical model for MRMR is in equation \ref{eq:MRMR}:
 
 \begin{equation} \label{eq:MRMR}
 	J(\mathbf{f}_k) = MI(\mathbf{f}_k; \mathbf{y}_j) - \frac{1}{|\mathcal{S}_j|} \sum_{\mathbf{f}_i \in \mathcal{S}_j} MI(\mathbf{f}_k; \mathbf{f}_i),
@@ -213,6 +213,6 @@ where $J(\mathbf{f}_k)$ is a score for the $k$-th feature vector $\mathbf{f}_k$,
 
 \subsection{IS representation and footprints}
 
-Given the now constructed meta-dataset $\mathcal{M}$ after feature selection and performance assessments, the 2-D IS can be constructed. \cite{Lorena2022} added a rotation to the IS so that bad instances are placed towards the upper left of the IS, while good instances are placed towards the bottom right.
+Given the now constructed meta-dataset $\mathcal{M}$ after feature selection and performance assessments, the 2-D IS can be constructed. \citeonline{Lorena2022} added a rotation to the IS so that bad instances are placed towards the upper left of the IS, while good instances are placed towards the bottom right.
 
 All of this section is implemented in the Python library PyHard \cite{Lorena2022}. This work will use this implementation for reproducing this methodology.
