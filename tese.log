@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.6.13)  22 JUN 2023 12:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.6.13)  22 JUN 2023 23:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1812,7 +1812,7 @@ Package hyperref Info: Reference (link) `table.caption.12' on input line 169.
 Package hyperref Info: Reference (link) `appendix.A' on input line 169.
 Package hyperref Info: Anchor `table.caption.12' on input line 171.
 pdftex: bookmark at 190: {3.1} {\numberline{3.1}{\ignorespaces Hardness measure
-s used in \cite {Lorena2022}.\relax }} {table.caption.12}{0}{lot}
+s used in \citeonline {Lorena2022}.\relax }} {table.caption.12}{0}{lot}
 Package hyperref Info: Reference (cite) `cite.Lorena2022' on input line 190.
 Package hyperref Info: Reference (cite) `cite.Lorena2022' on input line 190.
 Package hyperref Info: Reference (cite) `cite.Lorena2022' on input line 190.
@@ -2072,8 +2072,8 @@ Package hyperref Info: Anchor `page.33' on input line 204.
 \bottommargin=\skip109
 \rightmarginn=\skip110
 Package hyperref Info: Anchor `bla.0' on input line 204.
- (./PreTextuais/resumo.tex)
-(./PreTextuais/resumo.tex) (./PreTextuais/resumo.tex)
+ (./PreTextuais/abstract.tex)
+(./PreTextuais/abstract.tex) (./PreTextuais/abstract.tex)
 Overfull \hbox (74.53033pt too wide) in paragraph at lines 204--204
 [][] 
  []
@@ -2096,39 +2096,37 @@ Package rerunfilecheck Info: File `tese.brf' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 29599 strings out of 476025
- 535189 string characters out of 5796532
+ 29591 strings out of 476025
+ 535081 string characters out of 5796532
  1869388 words of memory out of 5000000
- 49183 multiletter control sequences out of 15000+600000
- 576224 words of font info for 152 fonts, out of 8000000 for 9000
+ 49179 multiletter control sequences out of 15000+600000
+ 573734 words of font info for 149 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 105i,17n,104p,830b,925s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 105i,17n,104p,801b,925s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmb10.pfb></usr/share/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/font
 s/type1/public/amsfonts/cm/cmbx6.pfb></usr/share/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmbx8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmc
 sc10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr
-/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb
-></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.p
-fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/share/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></us
-r/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texmf-d
-ist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf-dist/fonts
-/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf-dist/fonts/type1/public/c
-m-super/sfrm1200.pfb>
-Output written on tese.pdf (35 pages, 514460 bytes).
+/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
+></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/share/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
+></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/te
+xmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on tese.pdf (35 pages, 495578 bytes).
 PDF statistics:
- 737 PDF objects out of 1000 (max. 8388607)
- 634 compressed objects within 7 object streams
+ 727 PDF objects out of 1000 (max. 8388607)
+ 628 compressed objects within 7 object streams
  158 named destinations out of 1000 (max. 500000)
  354 words of extra memory for PDF output out of 10000 (max. 10000000)
 

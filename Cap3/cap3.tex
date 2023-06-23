@@ -90,7 +90,7 @@ such that:
 	\mathbf{\hat{Y}}^T = \mathbf{C}_r \mathbf{Z} \label{eq:y_hat}.
 \end{gather}
 
-Where $\mathbf{A}_r \in \mathbb{R}^{2 \times m}$, $\mathbf{B}_r \in \mathbb{R}^{m \times 2}$ and $\mathbf{C}_r \in \mathbb{R}^{a \times 2}$. $\mathbf{Z} \in \mathbb{R}^{2 \times n}$ is the matrix of instance coordinates in the IS and $A_r$ is the projection matrix. \cite{SmithMiles2023} solves this problem numerically using the Broyden–Fletcher–Goldfarb–Shanno (BFGS) algorithm.
+Where $\mathbf{A}_r \in \mathbb{R}^{2 \times m}$, $\mathbf{B}_r \in \mathbb{R}^{m \times 2}$ and $\mathbf{C}_r \in \mathbb{R}^{a \times 2}$. $\mathbf{Z} \in \mathbb{R}^{2 \times n}$ is the matrix of instance coordinates in the IS and $A_r$ is the projection matrix. \citeonline{SmithMiles2023} solves this problem numerically using the Broyden–Fletcher–Goldfarb–Shanno (BFGS) algorithm.
 
 \subsection{Footprint analysis}
 
@@ -148,7 +148,7 @@ Given a classification dataset $\mathcal{D}$ with $n_D$ instances $\mathbf{x}_i$
 	\item \textbf{Feature space} $\mathcal{F}$: contains a set of meta-features known as \emph{hardness measures}.
 \end{itemize}
 
-The modified framework is shown in Figure \ref{fig:isa_dataset}. For each instance, a set of hardness measures are stored in $\mathcal{F}$, and each algorithm $\alpha \in \mathcal{A}$ is evaluated over the instance $\mathbf{x}_i$ and has its performance $y(\alpha, \mathbf{x}_i)$ measured and stored in $\mathcal{Y}$. The measure used is a cross-validated log-loss error obtained in the prediction of the instance label. A feature selection is used with these measures and the hardness measures, resulting in a reduced feature set $f_s(f(\mathbf{x}_i), y)$.
+The modified framework is shown in Figure \ref{fig:isa_dataset}. For each instance, a set of hardness measures are stored in $\mathcal{F}$, and each algorithm $\alpha \in \mathcal{A}$ is evaluated over the instance $\mathbf{x}_i$ and has its performance $y(\alpha, \mathbf{x}_i)$ measured and stored in $\mathcal{Y}$. The measure used is a cross-validated log-loss error obtained in the prediction of the instance label. A feature selection is made with these measures and the hardness measures, resulting in a reduced feature set $f_s(f(\mathbf{x}_i), y)$.
 
 Combining the reduced feature set to the predictive performance of the algorithms allows us to construct the meta-dataset $\mathcal{M}$, from which the IS is extracted. The steps are explained in \cite{Lorena2022}, we will summarize some important topics.
 
@@ -187,7 +187,7 @@ The idea is that instances frequently misclassified over the algorithm space can
 		Usefulness                                   & $U$     & $\approx 0$ & 1           \\
 		Harmfulness                                  & $H$     & 0           & $\approx 1$ \\ \hline
 	\end{tabular}
-	\caption{Hardness measures used in \cite{Lorena2022}.} \label{tab:hardness_measures}
+	\caption{Hardness measures used in \citeonline{Lorena2022}.} \label{tab:hardness_measures}
 \end{table}
 
 \newpage
@@ -209,7 +209,7 @@ For feature selection, \citeonline{Lorena2022} employs a method called \emph{Min
 	J(\mathbf{f}_k) = MI(\mathbf{f}_k; \mathbf{y}_j) - \frac{1}{|\mathcal{S}_j|} \sum_{\mathbf{f}_i \in \mathcal{S}_j} MI(\mathbf{f}_k; \mathbf{f}_i),
 \end{equation}
 
-where $J(\mathbf{f}_k)$ is a score for the $k$-th feature vector $\mathbf{f}_k$, $ MI(\mathbf{f}_k; \mathbf{y}_j)$ is the mutual information between the feature vector and the response variable for the $j$-th algorithm and $\mathcal{S}_j$ is the set of selected features for the $j$-th algorithm. $\mathcal{S}_j$ is initially empty and the first feature chosen is the one with maximum mutual information between the feature vector and the response variable $\mathbf{y}_j$. Features are selected based on their score in subsequent rounds until there are a desired number of features chosen $n_f = |\mathcal{S}_j|$
+where $J(\mathbf{f}_k)$ is a score for the $k$-th feature vector $\mathbf{f}_k$, $ MI(\mathbf{f}_k; \mathbf{y}_j)$ is the mutual information between the feature vector and the response variable for the $j$-th algorithm and $\mathcal{S}_j$ is the set of selected features for the $j$-th algorithm. $\mathcal{S}_j$ is initially empty and the first feature chosen is the one with maximum mutual information between the feature vector and the response variable $\mathbf{y}_j$. Features are selected based on their score in subsequent rounds until there are a desired number of features chosen $n_f = |\mathcal{S}_j|$.
 
 \subsection{IS representation and footprints}
 
