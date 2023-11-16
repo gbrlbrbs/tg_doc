@@ -2087,7 +2087,7 @@ FUNCTION {set.default.abnt.variables}
   %
   "abnt-alf.bst,v " = 'abnt.alf := % #1 para abnt-alf #0 para abnt-num
   "$Revision: 1.45.2.1 $" extract.cvs.key 'abnt.bst.revision :=
-  #0 'abnt.and.type     :=     % #0 "e"; #1 "&"
+  #1 'abnt.and.type     :=     % #0 "e"; #1 "&"
   "\emph" 'abnt.emphasize :=
   #0 'abnt.cite.style :=       %default norm version for NBR10520
                                %#0 \cite=(AUTHOR, YEAR)

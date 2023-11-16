@@ -6,7 +6,7 @@
 \abntbstabout{1.45.2.1 }
 
 \bibitem[Adam \textit{et al.} 2019]{Adam2019}
-\abntrefinfo{Adam \textit{et al.}}{ADAM \textit{et al.}}{2019}
+\abntrefinfo{Adam \textit{et al.}}{Adam \textit{et al.}}{2019}
 {ADAM, S.~P.; ALEXANDROPOULOS, S.-A.~N.; PARDALOS, P.~M.; VRAHATIS, M.~N. No
   free lunch theorem: A review.
 \textit{In}:  \underline{\ \ \ \ \ \ \ \ }. \textbf{Approximation and
@@ -16,25 +16,26 @@ ISBN 978-3-030-12767-1.
 Available at: $
   $https:\-/\-/doi\-.org\-/10\-.1007\-/978-3-030-12767-1\underline{\ }5$ $.}
 
+\bibitem[Bengio \textit{et al.} 2013]{RepLearning}
+\abntrefinfo{Bengio \textit{et al.}}{Bengio \textit{et al.}}{2013}
+{BENGIO, Y.; COURVILLE, A.; VINCENT, P. Representation learning: A review and
+  new perspectives.
+\textbf{IEEE Transactions on Pattern Analysis and Machine Intelligence}, v.~35,
+  n.~8, p. 1798--1828, 2013.}
+
 \bibitem[Faceli \textit{et al.} 2021]{lorena2021inteligencia}
-\abntrefinfo{Faceli \textit{et al.}}{FACELI \textit{et al.}}{2021}
+\abntrefinfo{Faceli \textit{et al.}}{Faceli \textit{et al.}}{2021}
 {FACELI, K.; LORENA, A.~C.; GAMA, J.; CARVALHO, A. C. P. d. L. F.~d.
   \textbf{Intelig{\^e}ncia artificial: uma abordagem de aprendizado de
   m{\'a}quina}. [\textit{S.l.}]: LTC, 2021.}
 
-\bibitem[Goodfellow \textit{et al.} 2014]{Goodfellow2014}
-\abntrefinfo{Goodfellow \textit{et al.}}{GOODFELLOW \textit{et al.}}{2014}
-{GOODFELLOW, I.; POUGET-ABADIE, J.; MIRZA, M.; XU, B.; WARDE-FARLEY, D.; OZAIR,
-  S.; COURVILLE, A.; BENGIO, Y. Generative adversarial nets. \textit{In}:
-  GHAHRAMANI, Z.; WELLING, M.; CORTES, C.; LAWRENCE, N.; WEINBERGER, K. (Ed.).
-  \textbf{Advances in Neural Information Processing Systems}.
-  \textbf{Proceedings}~[...]. Curran Associates, Inc., 2014. v.~27. Available
-  at: $ $https:\-/\-/proceedings\-.neurips\-.cc\-/paper\underline{\
-  }files\-/paper\-/2014\-/file\-/5ca3e9b122f61f8f06494c97b1afccf3-Paper\-.pdf$
-  $.}
+\bibitem[Goodfellow \textit{et al.} 2016]{Goodfellow-et-al-2016}
+\abntrefinfo{Goodfellow \textit{et al.}}{Goodfellow \textit{et al.}}{2016}
+{GOODFELLOW, I.; BENGIO, Y.; COURVILLE, A. \textbf{Deep Learning}.
+  [\textit{S.l.}]: MIT Press, 2016. \url{http://www.deeplearningbook.org}.}
 
 \bibitem[Hornik \textit{et al.} 1989]{HORNIK1989}
-\abntrefinfo{Hornik \textit{et al.}}{HORNIK \textit{et al.}}{1989}
+\abntrefinfo{Hornik \textit{et al.}}{Hornik \textit{et al.}}{1989}
 {HORNIK, K.; STINCHCOMBE, M.; WHITE, H. Multilayer feedforward networks are
   universal approximators.
 \textbf{Neural Networks}, v.~2, n.~5, p. 359--366, 1989.
@@ -43,21 +44,27 @@ Available at: $
   $https:\-/\-/www\-.sciencedirect\-.com\-/science\-/article\-/pii\-/0893608089900208$
   $.}
 
-\bibitem[Kingma e Ba 2017]{kingma2017adam}
-\abntrefinfo{Kingma e Ba}{KINGMA; BA}{2017}
+\bibitem[Kingma \& Ba 2017]{kingma2017adam}
+\abntrefinfo{Kingma \& Ba}{Kingma; Ba}{2017}
 {KINGMA, D.~P.; BA, J. \textbf{Adam: A Method for Stochastic Optimization}.
   2017.
 Available at: $ $https:\-/\-/doi\-.org\-/10\-.48550\-/arXiv\-.1412\-.6980$ $.}
 
 \bibitem[Kolla 2020]{Kolla2020}
-\abntrefinfo{Kolla}{KOLLA}{2020}
+\abntrefinfo{Kolla}{Kolla}{2020}
 {KOLLA, V. R.~K. Paws and reflect: A comparative study of deep learning
   techniques for cat vs dog image classification.
 \textbf{International Journal of Computer Engineering and Technology}, 12 2020.
 Available at: $ $https:\-/\-/papers\-.ssrn\-.com\-/abstract=4413724$ $.}
 
+\bibitem[Mckinney 2011]{pandas}
+\abntrefinfo{Mckinney}{Mckinney}{2011}
+{MCKINNEY, W. pandas: a foundational python library for data analysis and
+  statistics.
+\textbf{Python High Performance Science Computer}, 01 2011.}
+
 \bibitem[Mu{\~{n}}oz \textit{et al.} 2018]{Munoz2018}
-\abntrefinfo{Mu{\~{n}}oz \textit{et al.}}{MU{\~{N}}OZ \textit{et al.}}{2018}
+\abntrefinfo{Mu{\~{n}}oz \textit{et al.}}{Mu{\~{n}}oz \textit{et al.}}{2018}
 {MU{\~{N}}OZ, M.~A.; VILLANOVA, L.; BAATAR, D.; SMITH-MILES, K. Instance spaces
   for machine learning classification.
 \textbf{Machine Learning}, v.~107, n.~1, p. 109--147, Jan 2018.
@@ -65,7 +72,7 @@ ISSN 1573-0565.
 Available at: $ $https:\-/\-/doi\-.org\-/10\-.1007\-/s10994-017-5629-5$ $.}
 
 \bibitem[Paiva \textit{et al.} 2022]{Lorena2022}
-\abntrefinfo{Paiva \textit{et al.}}{PAIVA \textit{et al.}}{2022}
+\abntrefinfo{Paiva \textit{et al.}}{Paiva \textit{et al.}}{2022}
 {PAIVA, P. Y.~A.; MORENO, C.~C.; SMITH-MILES, K.; VALERIANO, M.~G.; LORENA,
   A.~C. Relating instance hardness to classification performance in a dataset:
   a visual approach.
@@ -74,7 +81,7 @@ ISSN 1573-0565.
 Available at: $ $https:\-/\-/doi\-.org\-/10\-.1007\-/s10994-022-06205-9$ $.}
 
 \bibitem[Paszke \textit{et al.} 2019]{paszke2019pytorch}
-\abntrefinfo{Paszke \textit{et al.}}{PASZKE \textit{et al.}}{2019}
+\abntrefinfo{Paszke \textit{et al.}}{Paszke \textit{et al.}}{2019}
 {PASZKE, A.; GROSS, S.; MASSA, F.; LERER, A.; BRADBURY, J.; CHANAN, G.;
   KILLEEN, T.; LIN, Z.; GIMELSHEIN, N.; ANTIGA, L.; DESMAISON, A.; KöPF, A.;
   YANG, E.; DEVITO, Z.; RAISON, M.; TEJANI, A.; CHILAMKURTHY, S.; STEINER, B.;
@@ -83,7 +90,7 @@ Available at: $ $https:\-/\-/doi\-.org\-/10\-.1007\-/s10994-022-06205-9$ $.}
 Available at: $ $https:\-/\-/doi\-.org\-/10\-.48550\-/arXiv\-.1912\-.01703$ $.}
 
 \bibitem[Puri \textit{et al.} 2016]{Puri2016}
-\abntrefinfo{Puri \textit{et al.}}{PURI \textit{et al.}}{2016}
+\abntrefinfo{Puri \textit{et al.}}{Puri \textit{et al.}}{2016}
 {PURI, M.; SOLANKI, A.; PADAWER, T.; TIPPARAJU, S.~M.; MORENO, W.~A.; PATHAK,
   Y. Introduction to artificial neural network (ann) as a predictive tool for
   drug design, discovery, delivery, and disposition: Basic concepts and
@@ -92,7 +99,7 @@ Available at: $ $https:\-/\-/doi\-.org\-/10\-.48550\-/arXiv\-.1912\-.01703$ $.}
   Elsevier Inc., p. 3--13, 2016.}
 
 \bibitem[Rice 1976]{RICE1976}
-\abntrefinfo{Rice}{RICE}{1976}
+\abntrefinfo{Rice}{Rice}{1976}
 {RICE, J.~R. The algorithm selection problem. \textit{In}:  RUBINOFF, M.;
   YOVITS, M.~C. (Ed.). Elsevier, 1976,  (Advances in Computers, v.~15). p.
   65--118.
@@ -101,23 +108,23 @@ Available at: $
   $.}
 
 \bibitem[Smith \textit{et al.} 2014]{Smith2014}
-\abntrefinfo{Smith \textit{et al.}}{SMITH \textit{et al.}}{2014}
+\abntrefinfo{Smith \textit{et al.}}{Smith \textit{et al.}}{2014}
 {SMITH, M.~R.; MARTINEZ, T.; GIRAUD-CARRIER, C. An instance level analysis of
   data complexity.
 \textbf{Machine Learning}, v.~95, p. 225--256, 2014.
 ISSN 1573-0565.
 Available at: $ $https:\-/\-/doi\-.org\-/10\-.1007\-/s10994-013-5422-z$ $.}
 
-\bibitem[Smith-Miles e Muñoz 2023]{SmithMiles2023}
-\abntrefinfo{Smith-Miles e Muñoz}{SMITH-MILES; MUñOZ}{2023}
-{SMITH-MILES, K.; MUñOZ, M.~A. Instance space analysis for algorithm testing:
-  Methodology and software tools.
+\bibitem[Smith-Miles \& Mu{\~{n}}oz 2023]{SmithMiles2023}
+\abntrefinfo{Smith-Miles \& Mu{\~{n}}oz}{Smith-Miles; Mu{\~{n}}oz}{2023}
+{SMITH-MILES, K.; MU{\~{N}}OZ, M.~A. Instance space analysis for
+  algorithm testing: Methodology and software tools.
 \textbf{ACM Computing Surveys}, ACM New York, NY, v.~55, p. 1--31, 3 2023.
 ISSN 0360-0300.
 Available at: $ $https:\-/\-/dl\-.acm\-.org\-/doi\-/10\-.1145\-/3572895$ $.}
 
 \bibitem[Yuan \textit{et al.} 2019]{Yuan2019}
-\abntrefinfo{Yuan \textit{et al.}}{YUAN \textit{et al.}}{2019}
+\abntrefinfo{Yuan \textit{et al.}}{Yuan \textit{et al.}}{2019}
 {YUAN, X.; HE, P.; ZHU, Q.; LI, X. Adversarial examples: Attacks and defenses
   for deep learning.
 \textbf{IEEE Transactions on Neural Networks and Learning Systems}, v.~30,

@@ -35,7 +35,7 @@ ISA is, at its core, an extension of the Algorithm Selection Problem (ASP) \cite
 		\draw[->] (subspace) -- node[left, align=center] {Feature selection\\$f$} (feature);
 		\draw[->] (feature) -- node[left, align=right] {Dimension reduction\\and visualization} (instance);
 		\draw[->] (feature) -- node[above] (alpha) {$\alpha^* = S(f(x))$} (algorithm);
-		\draw[->] (instance) -| node[above, near start, align=center] {Learn selection\\mapping\\from features} node[below, near start] {$\alpha^* = S^\prime(f(x))$} ++(8cm,0) |-  (algorithm.south);
+		\draw[->] (instance) -| node[above, near start, align=center] {Learn selection\\mapping\\from features} node[below, near start] {$\alpha^* = S^\prime(g(f(x)))$} ++(8cm,0) |-  (algorithm.south);
 		\draw[->] (algorithm) -- node[right, align=left] {$y(\alpha, x)$ apply \\algorithm $\alpha$ \\to instance $x$} (performance);
 		\draw[->] (performance) -| node[above, near start, align=center] {Select $\alpha^*$ to\\ maximize $||y||$} ++(-4cm,0) |-  (alpha.north);
 		\draw[->] (footprints) -- node[above, align=center] {Infer algorithm \\performance on \\all $z \in \mathcal{P}$} (problem);

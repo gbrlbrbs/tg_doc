@@ -1,5 +1,5 @@
 
-This chapter will introduce Machine Learning (ML) concepts and techniques being explored in this work, namely the classification problem, neural networks and the Generative Adversarial Network architecture.
+This chapter will introduce Machine Learning (ML) concepts and techniques being explored in this work, namely the classification problem, feature learning, neural networks and encoder and decoder neural networks.
 
 \section{Classification}
 
@@ -14,9 +14,20 @@ Terminology between Statistics and Machine Learning tend to differ. In this work
 
 In this work, we will not focus on a specific classification algorithm since ISA is not dependent on the algorithm used, only on the problem of classification.
 
+\section{Feature learning} \label{sec:feature_learning}
+
+Feature learning, or representation learning\cite{RepLearning}, is a set of techniques that allow a model to discover representations needed for feature detection or classification from raw data. This is a method by which we replace feature engineering and have the model both learn the features and use them to perform the task.
+
+Feature learning can be either supervised, unsupervised or self-supervised:
+
+\begin{itemize}
+	\item in supervised learning, features are learned using labeled input data;
+	\item in unsupervised learning, features are learned using the relationship between the individual observations in the input data. Examples include principal component analysis and various forms of clustering;
+	\item in self-supervised learning, features are learned using unsupervised methods and then input-label pairs are constructed, enabling supervised learning. Examples include autoencoders and word embeddings.
+\end{itemize}	
+
 \section{Neural networks}
 
-% cito aqui ou não? perguntar
 Neural networks, formally called \emph{artificial neural networks} (ANNs), are computational models inspired by networks of biological neurons \cite{Puri2016}. They are made up of multiple nodes called artificial neurons that map an input to an output based on mathematical operations. This model is used extensively in ML applications because of its perceived intelligent behaviour that comes from the interactions between neurons.
 
 \subsection{Artificial neuron}
@@ -128,58 +139,136 @@ The learning rate is a parameter in an optimization algorithm, defining the size
 
 Backpropagation is a method to adjust the weights of the network and minimize the mean squared error. It computes the gradient of the loss function with respects to the weights and propagates backwards from the output layer to the initial layers in order to avoid redundant calculations.
 
-\section{Generative Adversarial Networks}
+\section{Encoder, decoder and autoencoder neural networks}
 
-A Generative Adversarial Network (GAN) is an architecture for estimating generative artificial intelligence models. It consists of a two-player minimax game between two ANNs: a generative model $G$ and a discriminative model $D$. The purpose of $D$ is to estimate the probability that a sample came from the training data instead of coming from $G$, and the purpose of $G$ is to minimize that probability. A unique solution exists where $D$ outputs the probability of $\frac{1}{2}$ everywhere \cite{Goodfellow2014}. The generator $G$ is, then, not trained to minimize a loss function, but to fool the discriminator $D$. 
+Neural networks can be used in feature learning tasks, as shown in section \ref{sec:feature_learning}. We can construct neural networks to learn efficient codings of the input data by means of an encoder network, which is a network that transforms input data into a representation in a latent space. Figure \ref{fig:encoder} shows a representation of an encoder network. A decoder network is much the same as an encoder, but in the opposite direction, transforming the latent space representation into the original data.
 
-We will now be defining some notation for more formal modelling. Let $\mathbf{x}$ be the input data, $D(\mathbf{x})$ is then the output of the discriminator over the input data, which is the probability that the input data came from the training data rather than the generator. For the generator, let $\mathbf{z}$ be a latent space vector sampled from a standard normal distribution. $G(\mathbf{z})$ represents the generator's output, mapping $\mathbf{z}$ to the data space.
-
-$D(G(\mathbf{z}))$ is therefore the probability that a generated input came from the training data. The goal of $G$ is to estimate the distribution which the training data comes from ($p_{data}$) so that it may draw samples from this estimation ($p_G$) \cite{Goodfellow2014}. The minimax loss function will be, therefore :
-
-\begin{equation} \label{eq:minimax}
-	\min_{G} \max_{D} V(D, G) = \mathbb{E}_{\mathbf{x} \sim p_{data}(\mathbf{x})} [\log D(\mathbf{x})] + \mathbb{E}_{\mathbf{z} \sim p_{\mathbf{z}}(\mathbf{z})} [\log(1 - D(G(\mathbf{z})))]
-\end{equation}
-
-In theory, the solution of this game will be when $p_G = p_{data}$ and the discriminator will guess every generated input randomly ($D(G(\mathbf{z})) = \frac{1}{2}$). Figure \ref{fig:gan_flowchart} shows a flowchart of this training model. Algorithm \ref{alg:training_gan} is the training algorithm defined in \citeonline{Goodfellow2014}.
-
-\begin{algorithm}
-	\caption{Minibatch stochastic gradient descent training of GANs as defined in \citeonline{Goodfellow2014}. The number of steps to apply to the discriminator is a hyperparameter $k$.} \label{alg:training_gan}
-	\For{number of training steps}{
-		\For{k steps}{
-			Sample minibatch of $m$ noise samples $[\mathbf{z}^{(1)}, \ldots, \mathbf{z}^{(m)}]$ from noise prior $p_G(\mathbf{z})$; \\
-			Sample minibatch of $m$ examples $[\mathbf{x}^{(1)}, \ldots, \mathbf{x}^{(m)}]$ from data distribution $p_{data}(\mathbf{x})$; \\
-			Update the discriminator by ascending its stochastic gradient: 
-				$$\nabla_{w_D} \frac{1}{m} \sum_{i=1}^{m} \left[ \log D\left( \mathbf{x}^{(i)} \right) + \log \left( 1 - D\left( G\left( \mathbf{z}^{(i)} \right) \right) \right)  \right]; $$
- 		}
- 		Sample minibatch of $m$ noise samples $[\mathbf{z}^{(1)}, \ldots, \mathbf{z}^{(m)}]$ from noise prior $p_G(\mathbf{z})$; \\
- 		Update the generator by descending its stochastic gradient:
- 			$$\nabla_{w_G} \frac{1}{m} \sum_{i=1}^{m} \log \left( 1 - D\left( G\left( \mathbf{z}^{(i)} \right) \right) \right);$$
-	}
-\end{algorithm}
-
-\begin{figure}[ht]
+\begin{figure}[!ht]
 	\centering
-	\begin{tikzpicture}[node distance=4cm]
-		
-		% Nodes
-		\node[rectangle, draw] (generator) {Generator};
-		\node[rectangle, draw, below of=generator] (discriminator) {Discriminator};
-		\node[left of=generator, align=center] (input) {Random\\Noise};
-		\node[rectangle, draw, right of=discriminator, xshift=3cm, align=center] (output) {Real or\\Fake};
-		\node[left of=discriminator, align=center] (realdata) {Real\\Data};
-		
-		% Arrows
-		\draw[->] (input) -- (generator);
-		\draw[->] (generator) -- (discriminator) node[midway, left, align=center] {Generated\\Data};
-		\draw[->] (discriminator) -- (output) node[midway, above] {Discriminator Score};
-		\draw[->] (output) -- (generator) node[midway, above, fill=white] {Backpropagation};
-		\draw[->] (output.south west) to[out=240, in=300]  node[anchor=north, midway] {Backpropagation} (discriminator.south east);
-		
-		% Dashed line
-		\draw[dashed, ->] (realdata) -- (discriminator);
-		
+	\begin{tikzpicture}
+		% Input layer
+		\foreach \i in {1,...,10} {
+			\node[circle, draw, minimum size=0.8cm] (input\i) at (0, \i) {$x_{\i}$};
+		}
+	
+		% Hidden layers
+		\foreach \h in {1,...,6} {
+			\node[circle, draw, minimum size=0.8cm, right=of input5] (hidden1\h) at (3, \h * 9 / 7 + 1) {$h_{1,\h}$};
+		}
+		\foreach \h in {1,...,4} {
+			\node[circle, draw, minimum size=0.8cm, right=of hidden16] (hidden2\h) at (6, \h * 9 / 5 + 1) {$h_{2,\h}$};
+		}
+		\foreach \h in {1,...,2} {
+			\node[circle, draw, minimum size=0.8cm, right=of hidden24] (output\h) at (9, \h * 9 / 3 + 1) {$y_{\h}$};
+		}
+	
+		% Connect layers
+		\foreach \i in {1,...,10} {
+			\foreach \h in {1,...,6} {
+				\draw[->] (input\i) -- (hidden1\h);
+			}
+		}
+		\foreach \h in {1,...,6} {
+			\foreach \hprime in {1,...,4} {
+				\draw[->] (hidden1\h) -- (hidden2\hprime);
+			}
+		}
+		\foreach \h in {1,...,4} {
+			\foreach \hprime in {1,...,2} {
+				\draw[->] (hidden2\h) -- (output\hprime);
+			}
+		}
 	\end{tikzpicture}
-	\caption{Flowchart of the GAN training model.} \label{fig:gan_flowchart}
+	\caption{Representation of an encoder} \label{fig:encoder}
 \end{figure}
 
-In practice, equation \ref{eq:minimax} might not provide sufficient gradient for training $G$ because of the $\log \left( 1 - D\left( G\left( \mathbf{z} \right) \right) \right)$ term might saturate in the start of training, since $D$ can easily differentiate between the generated data and the actual data. Instead of minimizing this term we may maximize $\log D\left( G\left( \mathbf{z} \right) \right)$ to give enough gradient for $G$ \cite{Goodfellow2014}.
+An \textbf{autoencoder} is one such networks, composed of two parts: an encoder (or \emph{encoding function} $f$) and a decoder (or \emph{decoding function} $g$) that recreates the data from this representation. The learning problem is then defined as minimizing a loss function $L(\mathbf{x}, g(f(\mathbf{x})))$ that penalizes $g(f( \mathbf{x} ))$ from being too different from $\mathbf{x}$ \cite{Goodfellow-et-al-2016}. A representation of an autoencoder is shown in figure \ref{fig:autoencoder}.
+
+\begin{figure}[!ht]
+	\centering
+	\begin{tikzpicture}[node distance=3cm, rotate=90]
+
+		% Define block styles
+		\tikzstyle{input} = [draw, rectangle, minimum width=1cm, minimum height=3cm, text centered, text width=1cm, fill=blue!20]
+		\tikzstyle{encoder} = [draw, trapezium, trapezium stretches=true, trapezium angle=65, minimum width=2cm, minimum height=2cm, text centered, text width=2cm, fill=green!20]
+		\tikzstyle{latent} = [draw, circle, minimum size=1cm, text centered, text width=1cm, fill=yellow!20]
+		\tikzstyle{decoder} = [draw, trapezium, trapezium stretches=true, trapezium angle=65, minimum width=2cm, minimum height=2cm, text centered, text width=2cm, fill=orange!20]
+		\tikzstyle{output} = [draw, rectangle, minimum width=1cm, minimum height=3cm, text centered, text width=1cm, fill=red!20]
+		\tikzstyle{arrow} = [thick,->,>=stealth]
+		
+		% Nodes
+		\node (input) [input] {$\mathbf{x}$};
+		\node (encoder) [encoder, right of=input, shape border rotate = 270] {Encoder};
+		\node (latent) [latent, right of=encoder] {Latent Space};
+		\node (decoder) [decoder, right of=latent, shape border rotate = 90] {Decoder};
+		\node (output) [output, right of=decoder] {$\mathbf{x}^\prime$};
+		
+		% Arrows
+		\draw [arrow] (input) -- (encoder);
+		\draw [arrow] (encoder) -- (latent);
+		\draw [arrow] (latent) -- (decoder);
+		\draw [arrow] (decoder) -- (output);
+		
+	\end{tikzpicture}
+	\caption{Representation of an autoencoder with input $\mathbf{x}$.} \label{fig:autoencoder}
+\end{figure}
+
+It is not useful to have the autoencoder copy each input perfectly to the output. Usually they are restricted in ways that allow them to copy only approximately, and to copy only input that resembles the training data \cite{Goodfellow-et-al-2016}.
+
+One way to restrict the autoencoder is to have the encoder be an undercomplete network, meaning that the dimensionality of the latent space is smaller than the dimensionality of the input space. This forces the autoencoder to learn the most important features of the input data in order to be able to recreate it. In this case, if the decoder is linear and the loss function $L$ is the mean squared error, then the optimal solution to the autoencoder is the principal component analysis \cite{Goodfellow-et-al-2016}. 
+
+Unfortunately, if the encoder and the decoder are allowed too much capacity, the autoencoder will learn to copy the input to the output without learning any useful information about the data distribution \cite{Goodfellow-et-al-2016}. A similar problem occurs if the latent space is allowed to have the same or greater dimension than the input data. 
+
+%A Generative Adversarial Network (GAN) is an architecture for estimating generative artificial intelligence models. It consists of a two-player minimax game between two ANNs: a generative model $G$ and a discriminative model $D$. The purpose of $D$ is to estimate the probability that a sample came from the training data instead of coming from $G$, and the purpose of $G$ is to minimize that probability. A unique solution exists where $D$ outputs the probability of $\frac{1}{2}$ everywhere \cite{Goodfellow2014}. The generator $G$ is, then, not trained to minimize a loss function, but to fool the discriminator $D$. 
+%
+%We will now be defining some notation for more formal modelling. Let $\mathbf{x}$ be the input data, $D(\mathbf{x})$ is then the output of the discriminator over the input data, which is the probability that the input data came from the training data rather than the generator. For the generator, let $\mathbf{z}$ be a latent space vector sampled from a standard normal distribution. $G(\mathbf{z})$ represents the generator's output, mapping $\mathbf{z}$ to the data space.
+%
+%$D(G(\mathbf{z}))$ is therefore the probability that a generated input came from the training data. The goal of $G$ is to estimate the distribution which the training data comes from ($p_{data}$) so that it may draw samples from this estimation ($p_G$) \cite{Goodfellow2014}. The minimax loss function will be, therefore :
+%
+%\begin{equation} \label{eq:minimax}
+%	\min_{G} \max_{D} V(D, G) = \mathbb{E}_{\mathbf{x} \sim p_{data}(\mathbf{x})} [\log D(\mathbf{x})] + \mathbb{E}_{\mathbf{z} \sim p_{\mathbf{z}}(\mathbf{z})} [\log(1 - D(G(\mathbf{z})))]
+%\end{equation}
+%
+%In theory, the solution of this game will be when $p_G = p_{data}$ and the discriminator will guess every generated input randomly ($D(G(\mathbf{z})) = \frac{1}{2}$). Figure \ref{fig:gan_flowchart} shows a flowchart of this training model. Algorithm \ref{alg:training_gan} is the training algorithm defined in \citeonline{Goodfellow2014}.
+%
+%\begin{algorithm}
+%	\caption{Minibatch stochastic gradient descent training of GANs as defined in \citeonline{Goodfellow2014}. The number of steps to apply to the discriminator is a hyperparameter $k$.} \label{alg:training_gan}
+%	\For{number of training steps}{
+%		\For{k steps}{
+%			Sample minibatch of $m$ noise samples $[\mathbf{z}^{(1)}, \ldots, \mathbf{z}^{(m)}]$ from noise prior $p_G(\mathbf{z})$; \\
+%			Sample minibatch of $m$ examples $[\mathbf{x}^{(1)}, \ldots, \mathbf{x}^{(m)}]$ from data distribution $p_{data}(\mathbf{x})$; \\
+%			Update the discriminator by ascending its stochastic gradient: 
+%				$$\nabla_{w_D} \frac{1}{m} \sum_{i=1}^{m} \left[ \log D\left( \mathbf{x}^{(i)} \right) + \log \left( 1 - D\left( G\left( \mathbf{z}^{(i)} \right) \right) \right)  \right]; $$
+% 		}
+% 		Sample minibatch of $m$ noise samples $[\mathbf{z}^{(1)}, \ldots, \mathbf{z}^{(m)}]$ from noise prior $p_G(\mathbf{z})$; \\
+% 		Update the generator by descending its stochastic gradient:
+% 			$$\nabla_{w_G} \frac{1}{m} \sum_{i=1}^{m} \log \left( 1 - D\left( G\left( \mathbf{z}^{(i)} \right) \right) \right);$$
+%	}
+%\end{algorithm}
+%
+%\begin{figure}[ht]
+%	\centering
+%	\begin{tikzpicture}[node distance=4cm]
+%		
+%		% Nodes
+%		\node[rectangle, draw] (generator) {Generator};
+%		\node[rectangle, draw, below of=generator] (discriminator) {Discriminator};
+%		\node[left of=generator, align=center] (input) {Random\\Noise};
+%		\node[rectangle, draw, right of=discriminator, xshift=3cm, align=center] (output) {Real or\\Fake};
+%		\node[left of=discriminator, align=center] (realdata) {Real\\Data};
+%		
+%		% Arrows
+%		\draw[->] (input) -- (generator);
+%		\draw[->] (generator) -- (discriminator) node[midway, left, align=center] {Generated\\Data};
+%		\draw[->] (discriminator) -- (output) node[midway, above] {Discriminator Score};
+%		\draw[->] (output) -- (generator) node[midway, above, fill=white] {Backpropagation};
+%		\draw[->] (output.south west) to[out=240, in=300]  node[anchor=north, midway] {Backpropagation} (discriminator.south east);
+%		
+%		% Dashed line
+%		\draw[dashed, ->] (realdata) -- (discriminator);
+%		
+%	\end{tikzpicture}
+%	\caption{Flowchart of the GAN training model.} \label{fig:gan_flowchart}
+%\end{figure}
+%
+%In practice, equation \ref{eq:minimax} might not provide sufficient gradient for training $G$ because of the $\log \left( 1 - D\left( G\left( \mathbf{z} \right) \right) \right)$ term might saturate in the start of training, since $D$ can easily differentiate between the generated data and the actual data. Instead of minimizing this term we may maximize $\log D\left( G\left( \mathbf{z} \right) \right)$ to give enough gradient for $G$ \cite{Goodfellow2014}.

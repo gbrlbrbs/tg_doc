@@ -1,0 +1,29 @@
+In this appendix, we will explain the codebase created for this project.
+
+\section{Introduction}
+
+The codebase is written in Python 3.10. The code is available at \url{https://github.com/gbrlbrbs/tg}. It is implemented as a Pyhon library, with a \texttt{pyproject.toml} file for installing with \texttt{pip}.
+
+\section{Configuration}
+
+The code needs a YAML configuration file for running experiments. Experiments are defined in the \texttt{experiments} folder of the repository, with files as examples.
+
+\section{Encoder and Decoder creation}
+
+Using PyTorch, we can define classes that function as neural network models. We instantiate the encoder and decoder models based on parameters from the configuration file. The encoder and decoder models are defined in the \texttt{pyhardgen/nn} folder of the repository. 
+
+\section{Training}
+
+The training code is defined in the \texttt{pyhardgen/train.py} file. It needs the encoder and decoder models, the training data, and the number of epochs to train for. It then trains the models using the Adam optimizer and the mean squared error as the loss criterion.
+
+\section{Running the code}
+
+In the \texttt{experiments} folder of the repository, there are some example configuration files in each experiment folder. To run the code, we need to run the \texttt{exp.py} file with the number of the experiment as an argument, such as \texttt{python exp.py 1} for experiment 1. The code will then train the models and save them in the \texttt{models} folder of the repository, with training logs in the \texttt{logs} folder.
+
+The code will also save the generated instance space points, the generated data, the original data appended with the generated data and the encoded points in a folder inside the \texttt{pyhard} folder. This folder will also need the PyHard configuration files, which we create by running \texttt{pyhard init} in the terminal inside the folder.
+
+After this is done, we need to run PyHard on the generated experiment folder. To do this, we need to run \texttt{pyhard run} in the terminal. This will generate the instance space and the instance space points. We can then run \texttt{pyhard app} to start a web application that will show the instance space.
+
+Inside the \texttt{experiments} folder, there is also a file called \texttt{is\_analysis.py}. This will generate the scatterplots of the instance space points and the generated/encoded points, with the squared error of each point.
+
+The graphs of the training are logged under TensorBoard, inside the \texttt{logs} folder. To see the graphs, we need to run \texttt{tensorboard --logdir logs} in the terminal inside the \texttt{experiments} folder and open the link in a browser.

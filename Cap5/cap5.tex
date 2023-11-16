@@ -1,39 +1,126 @@
-\section{Planned experiments} \label{sec:experiments}
+In this chapter we will show the experiments made and their results, which we will also discuss. Most graphs were generated with Seaborn, the instance space graphics were generated with Bokeh.
 
-With the presented methodology, we list the following parts that are central to the problem's solution:
+\section{Experiments} \label{sec:experiments}
 
-\begin{enumerate}[label=\Alph*.]
-	\item definition of the dataset(s) to use;
-	\item GAN architecture implementation;
-	\item usage of ISA over the selected dataset(s) and adjustment of GAN training or network architecture;
-	\item analysis of the generated instances.
-\end{enumerate}
+In the code, we define an experiment with a YAML configuration file. The file defines the number of output features in each layer, the number of training epochs and parameters for the optimizer. The next sections will define the experiments and show their results.
 
-\section{Preliminary conclusions}
+\subsection{Original Instance Space and region of data generation}
 
-In this work so far we have presented the theoretical foundations of GANs and the Instance Space Analysis methodology. The methodology presented shows promising applications of the combination of those technologies and new analyses that may be useful.
+Figure \ref{fig:is_original} shows the original instance space with the parameters defined in Chapter \ref{ch:methodology}. The colorbar in the figure is the instance hardness of each point in the instance space. We will be generating data in the region defined by a rectangle with vertices $(-2.5, -1.0)$ and $(-1.5, 0.0)$.
 
-Challenges are expected in the implementation of the generator and discriminator networks because of the dataset selection (e.g. image-based datasets vs tabular datasets). 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Cap5/is_original.png}
+    \caption{Original instance space}
+    \label{fig:is_original}
+\end{figure}
 
-\section{Work plan}
+\subsection{Experiment 1}
 
-With the landmarks detailed in section \ref{sec:experiments}, we define the work plan in Table \ref{tab:work_plan} for their implementation.
+The first experiment is a simple decoder-encoder with 3 layers, with a list of layer output features being $[16, 8, 4]$. The parameters for the optmizer are a learning rate of 0.001 and a weight decay of 0.001, being trained for 50 epochs. The training epoch loss results from TensorBoard are shown in Figure \ref{fig:exp1}.
 
-% Please add the following required packages to your document preamble:
-% \usepackage{multirow}
-% \usepackage[table,xcdraw]{xcolor}
-% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
-\begin{table}[ht]
-	\centering
-	\begin{tabular}{|l|llll|}
-		\hline
-		\multicolumn{1}{|c|}{}                        & \multicolumn{4}{l|}{Landmark}                                                                                                                                                                                                                                        \\ \cline{2-5} 
-		\multicolumn{1}{|c|}{\multirow{-2}{*}{Month}} & \multicolumn{1}{l|}{A}                                               & \multicolumn{1}{l|}{B}                                               & \multicolumn{1}{l|}{C}                                               & D                                               \\ \hline
-		July                                          & \multicolumn{1}{l|}{\cellcolor[HTML]{000000}}                        & \multicolumn{1}{l|}{\cellcolor[HTML]{000000}}                        & \multicolumn{1}{l|}{}                                                &                                                 \\ \hline
-		August                                        & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{\cellcolor[HTML]{000000}{\color[HTML]{000000} }} & \multicolumn{1}{l|}{\cellcolor[HTML]{000000}}                        &                                                 \\ \hline
-		September                                     & \multicolumn{1}{l|}{}                                                & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{\cellcolor[HTML]{000000}} & \cellcolor[HTML]{000000}{\color[HTML]{000000} } \\ \hline
-		October                                       & \multicolumn{1}{l|}{}                                                & \multicolumn{1}{l|}{}                                                & \multicolumn{1}{l|}{\cellcolor[HTML]{000000}}                        & \cellcolor[HTML]{000000}                        \\ \hline
-		November                                      & \multicolumn{1}{l|}{}                                                & \multicolumn{1}{l|}{}                                                & \multicolumn{1}{l|}{}                                                & \cellcolor[HTML]{000000}                        \\ \hline
-	\end{tabular}
-	\caption{Work plan for the development of this work.} \label{tab:work_plan}
-\end{table}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Cap5/loss_exp1}
+    \caption{Experiment 1 training epoch loss}
+    \label{fig:exp1}
+\end{figure}
+
+The loss has reduced nicely over the training epochs. Figure \ref{fig:is_exp1} shows the instance space with the generated points. The instance space has changed dramatically, but the generated points are not in the position we generated them. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.55\textwidth]{Cap5/is_exp1.png}
+    \caption{Instance space of experiment 1}
+    \label{fig:is_exp1}
+\end{figure}
+
+Figure \ref{fig:scatter_exp1} shows an scatterplot of the calculated instance space position value for each dimension versus the original generated value, with the colorbar representing the squared error of each point.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Cap5/scatterplot1}
+    \caption{Scatterplot of experiment 1}
+    \label{fig:scatter_exp1}
+\end{figure}
+
+The calculated IS values are bunched in lines, uncorrelated with the original values. This is a sign that the model is not working as intended. Figure \ref{fig:scatter_enc_exp1} shows the same scatterplot but for the calculated points against the points returned by the encoder, which are also uncorrelated.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Cap5/scatterplot_enc1}
+    \caption{Scatterplot of experiment 1 encoder}
+    \label{fig:scatter_enc_exp1}
+\end{figure}
+
+\subsection{Experiment 2}
+
+In this experiment, we have two more layers and the output features are the list $[128, 32, 16, 8, 4]$. The optimizer parameters are the same, but the training epochs were reduced to 40. The training epoch loss results from TensorBoard are shown in Figure \ref{fig:exp2}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Cap5/loss_exp2}
+    \caption{Experiment 2 training epoch loss}
+    \label{fig:exp2}
+\end{figure}
+
+The loss has reduced nicely over the training epochs as well. Figure \ref{fig:is_exp2} shows the instance space with the generated points. The instance space has again changed dramatically, with Figure \ref{fig:scatter_exp2} showing another scatterplot of the dimensions.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.55\textwidth]{Cap5/is_exp2.png}
+    \caption{Instance space of experiment 2}
+    \label{fig:is_exp2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Cap5/scatterplot2}
+    \caption{Scatterplot of experiment 2}
+    \label{fig:scatter_exp2}
+\end{figure}
+
+The calculated IS values are again bunched in lines, uncorrelated with the original values. Figure \ref{fig:scatter_enc_exp2} shows the scatterplot for the points returned by the encoder. Again, they are uncorrelated.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Cap5/scatterplot_enc2}
+    \caption{Scatterplot of experiment 2 encoder}
+    \label{fig:scatter_enc_exp2}
+\end{figure}
+
+\subsection{Experiment 3}
+
+In this experiment we have again deepened the network, with 8 layers and list of features $[1024, 1024, 256, 128, 32, 16, 8, 4]$. The optimizer parameters and training epochs are the same as Experiment 2. The training epoch loss results from TensorBoard are shown in Figure \ref{fig:exp3}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Cap5/loss_exp3}
+    \caption{Experiment 3 training epoch loss}
+    \label{fig:exp3}
+\end{figure}
+
+The loss has again reduced nicely over the training epochs. Figure \ref{fig:is_exp3} shows the instance space with the generated points. The instance space has again changed dramatically, with Figure \ref{fig:scatter_exp3} showing another scatterplot of the dimensions.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.55\textwidth]{Cap5/is_exp3.png}
+    \caption{Instance space of experiment 3}
+    \label{fig:is_exp3}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Cap5/scatterplot3}
+    \caption{Scatterplot of experiment 3}
+    \label{fig:scatter_exp3}
+\end{figure}
+
+Again, most points are uncorrelated with the original values, bunched up in lines. A curious result has been the points bunched up near $(3, 1)$. Figure \ref{fig:scatter_enc_exp3} shows the scatterplot for the points returned by the encoder, which are also uncorrelated.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{Cap5/scatterplot_enc3}
+    \caption{Scatterplot of experiment 3 encoder}
+    \label{fig:scatter_enc_exp3}
+\end{figure}

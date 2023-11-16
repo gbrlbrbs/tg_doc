@@ -46,6 +46,7 @@
 \usepackage{ae}
 \usepackage{graphicx}
 \usepackage{epsfig}
+\usepackage{epstopdf}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{csquotes}
@@ -60,13 +61,13 @@
 \usepackage{multicol}    % allows text in multi columns
 \usepackage{cancel}      % needed to show canceled terms in equations
 \usepackage{lettrine}
- \usepackage{multirow}
- \usepackage[table,xcdraw]{xcolor}
+\usepackage{multirow}
+\usepackage[table,xcdraw]{xcolor}
 \usepackage[ruled]{algorithm2e}
 \usepackage{float}
 \usepackage{placeins}
 \usepackage{tikz}
-\usetikzlibrary{fit, backgrounds, calc, positioning}
+\usetikzlibrary{fit, backgrounds, calc, positioning, shapes.geometric}
 \DeclareMathOperator{\logloss}{logloss}
 \DeclareMathOperator{\maxmin}{maxmin}
 \DeclareMathOperator{\minmax}{minmax}
@@ -136,15 +137,15 @@
 \date{23}{June}{2023}
 
 % Número CDU - (somente para TG)
-\cdu{621.38}
+\cdu{681.3:16}
 
 % Glossario
 \makeglossary
 \frontmatter
 
+
 \begin{document}
 \input{PreTextuais/main}
-
 \mainmatter
 % Os capitulos comecam aqui
 
@@ -160,11 +161,11 @@
 \chapter{Methodology} \label{ch:methodology}
 \input{Cap4/cap4}
 
-\chapter{Conclusion} \label{ch:conclusion}
+\chapter{Results} 
 \input{Cap5/cap5}
 
-%\chapter{Conclusion}
-%\input{Cap6/cap6}
+\chapter{Conclusion} \label{ch:conclusion}
+\input{Cap6/cap6}
 
 % REFERENCIAS BIBLIOGRAFICAS
 \renewcommand\bibname{\itareferencesnamebabel} %renomear título do capítulo referências
@@ -174,6 +175,9 @@
 \appendix
 \chapter{Instance Hardness} \label{ch:instance_hardness} %opcional
 \input{ApeA/apendiceA}
+
+\chapter{Code for this paper} \label{ch:code}
+\input{ApeB/apendiceB}
 
 % Anexos
 %\annex
@@ -186,14 +190,14 @@
 
 % Folha de Registro do Documento
 % Valores dos campos do formulario
-\FRDitadata{23 de junho de 2023}
+\FRDitadata{30 de junho de 2023}
 \FRDitadocnro{DCTA/ITA/DM-018/2015} %(o número de registro você solicita a biblioteca)
 \FRDitaorgaointerno{Instituto Tecnológico de Aeronáutica -- ITA}
 %Exemplo no caso de pós-graduação: Instituto Tecnol{\'o}gico de Aeron{\'a}utica -- ITA
-\FRDitapalavrasautor{Cupim; Cimento; Estruturas}
-\FRDitapalavrasresult{Cupim; Dilema; Construção}
+\FRDitapalavrasautor{Machine Learning, Neural networks, Instance Space Analysis, Generative models}
+\FRDitapalavrasresult{Aprendizagem (inteligência artificial); Redes neurais; Classificações; Algoritmos; Complexidade computacional; Dados; Computação.}
 %Exemplo no caso de graduação (TG):
-\FRDitapalavraapresentacao{Trabalho de Graduação, ITA, São José dos Campos, 2015. \NumPenultimaPagina\ páginas.}
+\FRDitapalavraapresentacao{Trabalho de Graduação, ITA, São José dos Campos, 2023. \NumPenultimaPagina\ páginas.}
 %Exemplo no caso de pós-graduação (msc, dsc):
 % \FRDitapalavraapresentacao{ITA, São José dos Campos. Curso de Mestrado. Programa de Pós-Graduação em Engenharia Aeronáutica e Mecânica. Área de Sistemas Aeroespaciais e Mecatrônica. Orientador: Prof.~Dr. Adalberto Santos Dupont. Coorientadora: Prof$^\textnormal{a}$.~Dr$^\textnormal{a}$. Doralice Serra. Defesa em 05/03/2015. Publicada em 25/03/2015.}
 \FRDitaresumo{\input{PreTextuais/abstract}}

@@ -7,17 +7,18 @@ It is desirable, then, that we may have a way of measuring the relationship of t
 
 Given this, we can map each observation into a hardness level. But one feature of the ISA not investigated in the instance-level proposal of \citeonline{Lorena2022} is how to generate new problem instances with desired characteristics in order to expand the dataset with instances that may defy the classification techniques. This project aims to fill this gap. 
 
-One type of model that may give us this feature from this data is a Generative Adversarial Network (GAN) architecture, as defined by \citeonline{Goodfellow2014}. This architecture is based on a zero-sum game, with a generator network trying to create data matching the original data and a discriminator network trying to discern between the original data and the generated data. 
-
-Using this approach, we can use the trained generator to create data with specific hardness levels and be able to challenge the classification techniques at different levels. We can use this to verify how the original model behaves with data with a given difficulty profile or to challenge the model, such as generating adversarial examples \cite{Yuan2019}.
+One type of model that may give us this feature from this data is a neural network that encodes the data into the instance space and decodes from it. Using this approach, we can then generate data in a region of the instance space and use the decoding part of the network to infer a reconstruction of the original data and find difficulty metrics from it, as well as be able to challenge the classification techniques at different levels. We can use this to verify how the original model behaves with data with a given instance space profile or to challenge the model, such as generating adversarial examples \cite{Yuan2019}.
+%a Generative Adversarial Network (GAN) architecture, as defined by \citeonline{Goodfellow2014}. This architecture is based on a zero-sum game, with a generator network trying to create data matching the original data and a discriminator network trying to discern between the original data and the generated data. 
+%
+%Using this approach, we can use the trained generator to create data with specific hardness levels and be able to challenge the classification techniques at different levels. We can use this to verify how the original model behaves with data with a given difficulty profile or to challenge the model, such as generating adversarial examples \cite{Yuan2019}.
 
 \section{Objective}
 
-This work's objective lies in providing a framework for data generation based on the relationship between instance hardness and classification performance using the GAN architecture and monitor the original model's behaviour using the generated data. 
+This work's objective lies in providing a framework for data generation based on the instance space generated for the data and monitor the original model's behaviour using the generated data.
 
 \section{Scope}
 
-The scope of this work will be limited to exploring a GAN implementation for the generation of data, creating a Generator and a Discriminator.  The modelling will be made entirely using Python, with the PyTorch \cite{paszke2019pytorch} framework. PyHard \cite{Lorena2022} will be used for reproducing the ISA methodology.
+The scope of this work will be limited to exploring an encoder-decoder implementation for the generation of data.  The modelling will be made entirely using Python, with the PyTorch \cite{paszke2019pytorch} framework. PyHard \cite{Lorena2022} will be used for reproducing the ISA methodology.
 
 %\begin{figure}[ht]
 %\centering
@@ -39,7 +40,7 @@ The scope of this work will be limited to exploring a GAN implementation for the
 The document is organized as follows:
 
 \begin{itemize}
-	\item Chapter \ref{ch:machinelearning}  introduces some Machine Learning terminology and describes the GAN neural network model;
+	\item Chapter \ref{ch:machinelearning}  introduces some Machine Learning terminology and describes the encoder and decoder neural network models;
 	\item Chapter \ref{ch:isa} describes the ISA framework;
 	\item Chapter \ref{ch:methodology} presents the methodology to be followed in the computational experiments;
 	\item Chapter \ref{ch:conclusion} concludes the work presenting future activities and a work schedule.

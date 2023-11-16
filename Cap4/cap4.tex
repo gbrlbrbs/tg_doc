@@ -1,15 +1,74 @@
 In this chapter, we will describe the problem's modelling and the main tools being used.
 
+\section{Environment} \label{sec:env}
+
+The environment used for this work is a computer with an Intel i5-8300H CPU, 16GB of RAM and an NVIDIA GeForce GTX 1050 GPU with 4GB of VRAM. The operating system is Arch Linux.
+
+\section{Data}
+
+In this work, we will be using data for COVID hospitalizations in the city of São José dos Campos. The data is structured as tabular data with most columns encoded as binary values. The columns are:
+
+\begin{enumerate}
+    \item \texttt{Fever}: If the patient had fever or not;
+    \item \texttt{Cough}: If the patient had cough or not;
+    \item \texttt{Sore throat}: If the patient had sore throat or not;
+    \item \texttt{Dyspnea}: If the patient had dyspnea or not;
+    \item \texttt{Respiratory.distress}: If the patient had respiratory discomfort or not;
+    \item \texttt{Oxygen.saturation}: If the patient had low oxygen saturation or not;
+    \item \texttt{Diarrhea}: If the patient had diarrhea or not;
+    \item \texttt{Vomit}: If the patient was vomiting or not;
+    \item \texttt{Other.symptoms}: If the patient had other symptoms or not;
+    \item \texttt{Chronic.cardiovascular.disease}: If the patient had chronic cardiovascular disease or not;
+    \item \texttt{Immunodeficiency.immunodepression}: If the patient had immunodeficiency/immunodepression or not;
+    \item \texttt{Diabetes.mellitus}: If the patient had diabetes mellitus or not;
+    \item \texttt{Obesity}: If the patient was obese or not;
+    \item \texttt{Chronic.respiratory.disease}: If the patient had chronic respiratory disease or not;
+    \item \texttt{Other.risks}: If the patient had other risks not related to the ones before or not;
+    \item \texttt{Sex}: Whether male or female;
+    \item \texttt{Age}: The patient's age;
+    \item \texttt{Hospitalization}: If the patient was hospitalized or not;
+\end{enumerate}
+
 \section{Instance Space generation}
 
-For the IS generation, we will use the PyHard \cite{Lorena2022} library. The library has some examples of the application. In this work we will generate the IS, attach the resulting 2-D embedding with the original dataset $\mathcal{D}$ and feed into the GAN architecture as training data.
+For the IS generation, we will use the PyHard \cite{Lorena2022} library. The library has some examples of the application. We will use a redued version of the configuration, with less hardness measures and algorithms for computational reasons for the hardware defined in Section \ref{sec:env}. The measures used are:
 
-\section{Generator and Discriminator creation}
+\begin{enumerate}
+    \item \texttt{DCP}: Disjunct class percentage;
+    \item \texttt{F1}: Fraction of features in overlapping areas;
+    \item \texttt{TD\_P}: Tree depth using pruned decision trees;
+    \item \texttt{TD\_U}: Tree depth using unpruned decision trees;
+    \item \texttt{CL}: Class likelihood;
+    \item \texttt{CLD}: Class likelihood difference;
+    \item \texttt{LSC}: Local set cardinality;
+    \item \texttt{LSR}: Local set radius;
+    \item \texttt{H}: Harmfulness;
+    \item \texttt{U}: Usefulness;
+\end{enumerate}
 
-The implementation of the GAN model is straightforward. Using the PyTorch \cite{paszke2019pytorch} framework we can define classes that function as neural network models. It has methods for backpropagation and has multiple optimizers implemented. We will be using the Adam optimizer \cite{kingma2017adam}. The training algorithm in Algorithm \ref{alg:training_gan} will be used, with the optimization step of $G$ being the maximization of $\log D\left( G\left( \mathbf{z} \right) \right)$ for better gradients. 
+The algorithms used are:
 
-The optimization step for $D$ will be done in two parts. Firstly, we will use real samples from the training set, forward pass through $D$, calculate the loss ($\log(D(x))$), then calculate the gradients with backpropagation. Secondly, we will use the fake samples from the current generator, forward pass them through $D$, calculate the loss ($\log(1-D(G(z)))$), and accumulate the gradients with backpropagation.
+\begin{enumerate}
+    \item Linear Support Vector Classifier;
+    \item Random forest;
+    \item Logistic regression;
+    \item Bagging;
+\end{enumerate}
 
-\section{Re-evaluation of the generated data}
+With the original data we generate its IS, resulting in coordinates $(z_1, z_2)$ for each observation. This is the data being fed to the decoder for training.
 
-After training the generator $G$, we will re-evaluate the generated data using the adapted ISA. We will use the generated 2-D embedding and check if it correlates with the 2-D embedding computed from the generated data.
+\section{Decoder-Encoder creation and loss function}
+
+The implementation of the decoder-encoder model is straightforward. Using the PyTorch \cite{paszke2019pytorch} framework we can define classes that function as neural network models. It has methods for backpropagation and has multiple optimizers implemented. We will be using the Adam optimizer \cite{kingma2017adam} for training.
+
+The loss function of the model will need to factor the need of the decoder to generate data that is similar to the original data and the need of the encoder to generate a IS that is similar to the original IS. For this, we will create a loss function for the decoder that needs to factor both continuous and categorical variables and one for the encoder for only the continuous values of $\mathbf{z}$. We will be using for the decoder the sum of the mean squared error (MSE) for the continuous variables and the cross-entropy for the categorical variables. For the encoder, we will be using the MSE. The final loss of the model will be the sum of the losses of the decoder and the encoder.
+
+The training of the model will be done in batches of 250 observations. We will also log the epoch losses in TensorBoard.
+
+\section{Data generation and re-evaluation of the generated data}
+
+For data generation, we will define a region of the IS where we will sample points. Those points will then be normalized under the mean and standard deviation of the original IS and passed into the trained decoder to go from the instance space into the data space. We will then add the generated data into the original data to generate a new IS through PyHard. We will then check if the generated points in the new IS are close to the original generated points.
+
+\section{Implementation of this methodology}
+
+The code that implements this methodology is explained in Appendix \ref{ch:code}.
