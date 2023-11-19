@@ -1,8 +1,8 @@
-In this chapter we will be introducing the novel methodology for algorithm selection and performance evaluation called Instance Space Analysis (ISA), introduced in \citeonline{Munoz2018}. We will be showing the original definition of an instance space and the adaptation of the methodology brought up by \citeonline{Lorena2022} relating instance hardness.
+In this chapter, we will introduce the novel algorithm selection and performance evaluation methodology called Instance Space Analysis (ISA), introduced in \citeonline{Munoz2018}. We will show the original definition of an instance space and the methodology adopted by \citeonline{Lorena2022} relating to instance hardness.
 
 \section{Instance spaces}
 
-ISA is, at its core, an extension of the Algorithm Selection Problem (ASP) \cite{RICE1976}. Figure \ref{fig:ISA_flowchart} shows the ISA framework with the ASP highlighted in blue. The objective in the ASP is to automate the process of selecting algorithms based on past similar solved problems. The following sets compose the core of the ASP:
+Instance Space Analysis (ISA) is, at its core, an extension of the Algorithm Selection Problem (ASP) \cite{RICE1976}. Figure \ref{fig:ISA_flowchart} shows the ISA framework with the ASP highlighted in blue. The objective of the ASP is to automate the process of selecting algorithms based on past similar solved problems. The following sets compose the core of the ASP:
 
 \begin{itemize}
 	\item \textbf{Problem Space} $\mathcal{P}$: contains all instances of the problem being analysed;
@@ -62,7 +62,7 @@ In the IS, it is also possible to define algorithm footprints $\varphi(y(\alpha,
 \begin{itemize}
 	\item the area of the footprint $A$, which can be normalized across multiple algorithms for comparison;
 	\item the density of the footprint $\rho$, which can be calculated as the ratio between the number of instances enclosed by the footprint and its area;
-	\item the purity of the footprint $p$, which is the percentage of instances in the footprint that have good performance.
+	\item the purity of the footprint $p$, which is the percentage of instances with good performance in the footprint.
 \end{itemize}
 
 Summarizing, the application of ISA requires \cite{Munoz2018}:
@@ -94,11 +94,11 @@ Where $\mathbf{A}_r \in \mathbb{R}^{2 \times m}$, $\mathbf{B}_r \in \mathbb{R}^{
 
 \subsection{Footprint analysis}
 
-As said before, a footprint is a region in the IS where an algorithm is expected to perform well based on inference from empirical performance analysis \cite{Munoz2018}. \citeonline{SmithMiles2023} goes into more detail of its construction, qualitatively we can infer from the set of footprint measures defined before that a good algorithm will have large quantities of each of those measures, i.e. a large area shows that an algorithm performs well in a large portion of the IS, a large density shows that the footprint contains a large amount of instances and a large purity shows that the algorithm performs well in most instances.
+As said before, a footprint is a region in the IS where an algorithm is expected to perform well based on inference from empirical performance analysis \cite{Munoz2018}. \citeonline{SmithMiles2023} goes into more detail about its construction, qualitatively we can infer from the set of footprint measures defined before that a good algorithm will have large quantities of each of those measures, i.e. a large area shows that an algorithm performs well in a large portion of the IS, a large density shows that the footprint contains a large number of instances and a large purity shows that the algorithm performs well in most instances.
 
 \section{ISA for a single dataset}
 
-In \citeonline{Munoz2018}, ISA is defined with an instance being an entire classification dataset. \citeonline{Lorena2022} has adapted the framework and reduced the problem space $\mathcal{P}$ into a single dataset, with each instance being an observation inside the dataset. This has come with the removal of some steps of the original ISA, namely the algorithmic recommendation module and the creation of new instances from the IS.
+In \citeonline{Munoz2018}, ISA is defined with an instance being an entire classification dataset. \citeonline{Lorena2022} has adapted the framework and reduced the problem space $\mathcal{P}$ into a single dataset, with each instance being an observation inside the dataset. This has come with removing some steps of the original ISA, namely the algorithmic recommendation module and creating new instances from the IS. This work aims to add the later component to the framework.
 
 \begin{figure}[ht]
 	\centering
@@ -166,7 +166,7 @@ where $h: X \rightarrow Y$ is a classification hypothesis mapping an input space
 	IH_{\mathcal{A}}(\mathbf{x}_i, y_i) = 1 - \frac{1}{|\mathcal{A}|} \sum_{l \in \mathcal{A}} p(y_i | \mathbf{x}_i, l(\mathcal{D}, \mathbf{\beta})).
 \end{equation}
 
-The idea is that instances frequently misclassified over the algorithm space can be considered hard, and instances being correctly classified are considered easy. \citeonline{Lorena2022} also shows a set of \emph{hardness metrics} being extracted for each instance. Table \ref{tab:hardness_measures} lists the measures used, the formal definition for each one is shown in Appendix \ref{ch:instance_hardness}.
+The idea is that frequently misclassified instances over the algorithm space can be considered hard, and correctly classified instances are easy. \citeonline{Lorena2022} also shows a set of \emph{hardness metrics} being extracted for each instance. Table \ref{tab:hardness_measures} lists the measures used, the formal definition for each one is shown in Appendix \ref{ch:instance_hardness}.
 
 \begin{table}[ht]
 	\centering
@@ -190,10 +190,10 @@ The idea is that instances frequently misclassified over the algorithm space can
 	\caption{Hardness measures used in \citeonline{Lorena2022}.} \label{tab:hardness_measures}
 \end{table}
 
-\newpage
+%\newpage
 \subsection{Performance assessment}
 
-To assess the performance from each algorithm in the dataset $\mathcal{D}$, it is first split into $r$ folds according to the cross-validation strategy such that each instance from the dataset belongs to only one fold. $r-1$ folds are used for training the algorithm while the last fold is used for testing. Therefore we can compute a performance estimate for each instance and algorithm combination. The measure used for performance assessment was the log-loss, or cross-entropy, defined in equation \ref{eq:logloss}:
+To assess the performance from each algorithm in the dataset $\mathcal{D}$, it is first split into $r$ folds according to the cross-validation strategy such that each instance from the dataset belongs to only one fold. $r-1$ folds are used for training the algorithm while the last fold is used for testing. Therefore we can compute a performance estimate for each instance and algorithm combination. The measure used for performance assessment was the log-loss, or cross-entropy, defined in Equation \ref{eq:logloss}:
 
 \begin{equation} \label{eq:logloss}
 	\logloss(\mathbf{x}_i) = - \sum_{c=1}^{C} y_{i, c} \log(p_{i, c}),
@@ -203,16 +203,16 @@ where $C$ is the number of classes the problem has, $y_{i, c}$ is a binary indic
 
 \subsection{Feature selection}
 
-For feature selection, \citeonline{Lorena2022} employs a method called \emph{Minimum Redundancy Maximum Relevance} (MRMR), a criterion that gradually reduces the effect of feature redundancy as more features are selected. There is a trade-off between minimizing the number of redundant features and keeping relevant features, this method rejects redundant features at first but tolerates redundancy as more informative features are added. The mathematical model for MRMR is in equation \ref{eq:MRMR}:
+For feature selection, \citeonline{Lorena2022} employs a method called \emph{Minimum Redundancy Maximum Relevance} (MRMR), a criterion that gradually reduces the effect of feature redundancy as more features are selected. There is a trade-off between minimizing the number of redundant features and keeping relevant features, this method rejects redundant features at first but tolerates redundancy as more informative features are added. The mathematical model for MRMR is in Equation \ref{eq:MRMR}:
 
 \begin{equation} \label{eq:MRMR}
 	J(\mathbf{f}_k) = MI(\mathbf{f}_k; \mathbf{y}_j) - \frac{1}{|\mathcal{S}_j|} \sum_{\mathbf{f}_i \in \mathcal{S}_j} MI(\mathbf{f}_k; \mathbf{f}_i),
 \end{equation}
 
-where $J(\mathbf{f}_k)$ is a score for the $k$-th feature vector $\mathbf{f}_k$, $ MI(\mathbf{f}_k; \mathbf{y}_j)$ is the mutual information between the feature vector and the response variable for the $j$-th algorithm and $\mathcal{S}_j$ is the set of selected features for the $j$-th algorithm. $\mathcal{S}_j$ is initially empty and the first feature chosen is the one with maximum mutual information between the feature vector and the response variable $\mathbf{y}_j$. Features are selected based on their score in subsequent rounds until there are a desired number of features chosen $n_f = |\mathcal{S}_j|$.
+where $J(\mathbf{f}_k)$ is a score for the $k$-th feature vector $\mathbf{f}_k$, $ MI(\mathbf{f}_k; \mathbf{y}_j)$ is the mutual information between the feature vector and the response variable for the $j$-th algorithm and $\mathcal{S}_j$ is the set of selected features for the $j$-th algorithm. $\mathcal{S}_j$ is initially empty and the first feature chosen is the one with maximum mutual information between the feature vector and the response variable $\mathbf{y}_j$. Features are selected based on their score in subsequent rounds until a desired number of features are chosen $n_f = |\mathcal{S}_j|$.
 
 \subsection{IS representation and footprints}
 
 Given the now constructed meta-dataset $\mathcal{M}$ after feature selection and performance assessments, the 2-D IS can be constructed. \citeonline{Lorena2022} added a rotation to the IS so that bad instances are placed towards the upper left of the IS, while good instances are placed towards the bottom right.
 
-All of this section is implemented in the Python library PyHard \cite{Lorena2022}. This work will use this implementation for reproducing this methodology.
+All of this section is implemented in the Python library PyHard \cite{Lorena2022}. This work will use this implementation to reproduce this methodology.

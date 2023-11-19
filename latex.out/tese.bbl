@@ -16,6 +16,11 @@ ISBN 978-3-030-12767-1.
 Available at: $
   $https:\-/\-/doi\-.org\-/10\-.1007\-/978-3-030-12767-1\underline{\ }5$ $.}
 
+\bibitem[Agarap 2019]{agarap2019deep}
+\abntrefinfo{Agarap}{Agarap}{2019}
+{AGARAP, A.~F. \textbf{Deep Learning using Rectified Linear Units (ReLU)}.
+  2019.}
+
 \bibitem[Bengio \textit{et al.} 2013]{RepLearning}
 \abntrefinfo{Bengio \textit{et al.}}{Bengio \textit{et al.}}{2013}
 {BENGIO, Y.; COURVILLE, A.; VINCENT, P. Representation learning: A review and
@@ -56,12 +61,6 @@ Available at: $ $https:\-/\-/doi\-.org\-/10\-.48550\-/arXiv\-.1412\-.6980$ $.}
   techniques for cat vs dog image classification.
 \textbf{International Journal of Computer Engineering and Technology}, 12 2020.
 Available at: $ $https:\-/\-/papers\-.ssrn\-.com\-/abstract=4413724$ $.}
-
-\bibitem[Mckinney 2011]{pandas}
-\abntrefinfo{Mckinney}{Mckinney}{2011}
-{MCKINNEY, W. pandas: a foundational python library for data analysis and
-  statistics.
-\textbf{Python High Performance Science Computer}, 01 2011.}
 
 \bibitem[Mu{\~{n}}oz \textit{et al.} 2018]{Munoz2018}
 \abntrefinfo{Mu{\~{n}}oz \textit{et al.}}{Mu{\~{n}}oz \textit{et al.}}{2018}

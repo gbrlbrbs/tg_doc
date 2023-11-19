@@ -10,7 +10,7 @@ Figure \ref{fig:is_original} shows the original instance space with the paramete
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{Cap5/is_original.png}
+    \includegraphics[width=0.8\textwidth]{Cap5/is_original}
     \caption{Original instance space}
     \label{fig:is_original}
 \end{figure}
@@ -21,17 +21,26 @@ The first experiment is a simple decoder-encoder with 3 layers, with a list of l
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{Cap5/loss_exp1}
+    \includegraphics[width=0.7\textwidth]{Cap5/loss_exp1}
     \caption{Experiment 1 training epoch loss}
     \label{fig:exp1}
 \end{figure}
 
-The loss has reduced nicely over the training epochs. Figure \ref{fig:is_exp1} shows the instance space with the generated points. The instance space has changed dramatically, but the generated points are not in the position we generated them. 
+The loss has reduced nicely over the training epochs. Figure \ref{fig:is_gen_points1} shows the original instance space and the points generated in it.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.55\textwidth]{Cap5/is_exp1.png}
-    \caption{Instance space of experiment 1}
+    \includegraphics[width=0.8\textwidth]{Cap5/is_exp1}
+    \caption{Instance space with generated points of experiment 1}
+    \label{fig:is_gen_points1}
+\end{figure}
+
+Figure \ref{fig:is_exp1} shows the instance space with the points calculated from the generated meta-features. The points are not in the position we expected.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Cap5/all_coords1}
+    \caption{Instance space after calculating the position of the generated meta-features of the points generated in experiment 1}
     \label{fig:is_exp1}
 \end{figure}
 
@@ -39,16 +48,16 @@ Figure \ref{fig:scatter_exp1} shows an scatterplot of the calculated instance sp
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{Cap5/scatterplot1}
+    \includegraphics[width=0.7\textwidth]{Cap5/scatterplot1}
     \caption{Scatterplot of experiment 1}
     \label{fig:scatter_exp1}
 \end{figure}
 
-The calculated IS values are bunched in lines, uncorrelated with the original values. This is a sign that the model is not working as intended. Figure \ref{fig:scatter_enc_exp1} shows the same scatterplot but for the calculated points against the points returned by the encoder, which are also uncorrelated.
+The calculated IS values are uncorrelated with the original values. This is a sign that the model is not working as intended. Figure \ref{fig:scatter_enc_exp1} shows the same scatterplot but for the calculated points against the points returned by the encoder, which are also uncorrelated.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{Cap5/scatterplot_enc1}
+    \includegraphics[width=0.7\textwidth]{Cap5/scatterplot_enc1}
     \caption{Scatterplot of experiment 1 encoder}
     \label{fig:scatter_enc_exp1}
 \end{figure}
@@ -59,32 +68,42 @@ In this experiment, we have two more layers and the output features are the list
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{Cap5/loss_exp2}
+    \includegraphics[width=0.7\textwidth]{Cap5/loss_exp2}
     \caption{Experiment 2 training epoch loss}
     \label{fig:exp2}
 \end{figure}
 
-The loss has reduced nicely over the training epochs as well. Figure \ref{fig:is_exp2} shows the instance space with the generated points. The instance space has again changed dramatically, with Figure \ref{fig:scatter_exp2} showing another scatterplot of the dimensions.
+The loss has reduced nicely over the training epochs as well. Figure \ref{fig:is_gen_points2} shows the instance space with the generated points. 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.55\textwidth]{Cap5/is_exp2.png}
+    \includegraphics[width=0.8\textwidth]{Cap5/is_exp2}
+    \caption{Instance space with generated points of experiment 2}
+    \label{fig:is_gen_points2}
+\end{figure}
+
+
+Figure \ref{fig:is_exp2} shows the instance space with the calculated points from the generated meta-features, with Figure \ref{fig:scatter_exp2} showing another scatterplot of the dimensions.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Cap5/all_coords2.eps}
     \caption{Instance space of experiment 2}
     \label{fig:is_exp2}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{Cap5/scatterplot2}
+    \includegraphics[width=0.7\textwidth]{Cap5/scatterplot2}
     \caption{Scatterplot of experiment 2}
     \label{fig:scatter_exp2}
 \end{figure}
 
-The calculated IS values are again bunched in lines, uncorrelated with the original values. Figure \ref{fig:scatter_enc_exp2} shows the scatterplot for the points returned by the encoder. Again, they are uncorrelated.
+The calculated IS values are again uncorrelated with the original values. Figure \ref{fig:scatter_enc_exp2} shows the scatterplot for the points returned by the encoder. Again, they are uncorrelated.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{Cap5/scatterplot_enc2}
+    \includegraphics[width=0.7\textwidth]{Cap5/scatterplot_enc2}
     \caption{Scatterplot of experiment 2 encoder}
     \label{fig:scatter_enc_exp2}
 \end{figure}
@@ -95,23 +114,33 @@ In this experiment we have again deepened the network, with 8 layers and list of
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{Cap5/loss_exp3}
+    \includegraphics[width=0.7\textwidth]{Cap5/loss_exp3}
     \caption{Experiment 3 training epoch loss}
     \label{fig:exp3}
 \end{figure}
 
-The loss has again reduced nicely over the training epochs. Figure \ref{fig:is_exp3} shows the instance space with the generated points. The instance space has again changed dramatically, with Figure \ref{fig:scatter_exp3} showing another scatterplot of the dimensions.
+The loss has again reduced nicely over the training epochs. Figure \ref{fig:is_gen_points3} shows the instance space with the generated points.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.55\textwidth]{Cap5/is_exp3.png}
+    \includegraphics[width=0.8\textwidth]{Cap5/is_exp3}
+    \caption{Instance space with generated points of experiment 3}
+    \label{fig:is_gen_points3}
+\end{figure}
+
+
+Figure \ref{fig:is_exp3} shows the instance space with the calculated points from the generated meta-features, with Figure \ref{fig:scatter_exp3} showing another scatterplot of the dimensions.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Cap5/all_coords3}
     \caption{Instance space of experiment 3}
     \label{fig:is_exp3}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{Cap5/scatterplot3}
+    \includegraphics[width=0.7\textwidth]{Cap5/scatterplot3}
     \caption{Scatterplot of experiment 3}
     \label{fig:scatter_exp3}
 \end{figure}
@@ -120,7 +149,7 @@ Again, most points are uncorrelated with the original values, bunched up in line
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{Cap5/scatterplot_enc3}
+    \includegraphics[width=0.7\textwidth]{Cap5/scatterplot_enc3}
     \caption{Scatterplot of experiment 3 encoder}
     \label{fig:scatter_enc_exp3}
 \end{figure}

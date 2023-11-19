@@ -29,45 +29,24 @@ In this work, we will be using data for COVID hospitalizations in the city of SÃ
     \item \texttt{Hospitalization}: If the patient was hospitalized or not;
 \end{enumerate}
 
-\section{Instance Space generation}
+From this data we already have an instance space, with corresponding meta-features and projection matrix.
 
-For the IS generation, we will use the PyHard \cite{Lorena2022} library. The library has some examples of the application. We will use a redued version of the configuration, with less hardness measures and algorithms for computational reasons for the hardware defined in Section \ref{sec:env}. The measures used are:
-
-\begin{enumerate}
-    \item \texttt{DCP}: Disjunct class percentage;
-    \item \texttt{F1}: Fraction of features in overlapping areas;
-    \item \texttt{TD\_P}: Tree depth using pruned decision trees;
-    \item \texttt{TD\_U}: Tree depth using unpruned decision trees;
-    \item \texttt{CL}: Class likelihood;
-    \item \texttt{CLD}: Class likelihood difference;
-    \item \texttt{LSC}: Local set cardinality;
-    \item \texttt{LSR}: Local set radius;
-    \item \texttt{H}: Harmfulness;
-    \item \texttt{U}: Usefulness;
-\end{enumerate}
-
-The algorithms used are:
-
-\begin{enumerate}
-    \item Linear Support Vector Classifier;
-    \item Random forest;
-    \item Logistic regression;
-    \item Bagging;
-\end{enumerate}
-
-With the original data we generate its IS, resulting in coordinates $(z_1, z_2)$ for each observation. This is the data being fed to the decoder for training.
 
 \section{Decoder-Encoder creation and loss function}
 
-The implementation of the decoder-encoder model is straightforward. Using the PyTorch \cite{paszke2019pytorch} framework we can define classes that function as neural network models. It has methods for backpropagation and has multiple optimizers implemented. We will be using the Adam optimizer \cite{kingma2017adam} for training.
+The implementation of the decoder-encoder model is straightforward. Using the PyTorch \cite{paszke2019pytorch} framework we can define classes that function as neural network models. It has methods for backpropagation and has multiple optimizers implemented. 
 
-The loss function of the model will need to factor the need of the decoder to generate data that is similar to the original data and the need of the encoder to generate a IS that is similar to the original IS. For this, we will create a loss function for the decoder that needs to factor both continuous and categorical variables and one for the encoder for only the continuous values of $\mathbf{z}$. We will be using for the decoder the sum of the mean squared error (MSE) for the continuous variables and the cross-entropy for the categorical variables. For the encoder, we will be using the MSE. The final loss of the model will be the sum of the losses of the decoder and the encoder.
+The decoder model will decode the normalized instance space values into the normalized meta-features, while the encoder will encode the normalized meta-features into the normalized instance space values. The decoder will have the same number of layers as the encoder, but with the number of output features in each layer being the reverse of the encoder. The activation function for each layer, except the final layer, will be the ReLU function \cite{agarap2019deep}.
 
-The training of the model will be done in batches of 250 observations. We will also log the epoch losses in TensorBoard.
+We will be using the Adam optimizer \cite{kingma2017adam} for training. The loss function will be the mean squared error, since all the meta-features are continuous. The training of the model will be done in batches of 250 observations. We will also log the epoch losses in TensorBoard.
 
 \section{Data generation and re-evaluation of the generated data}
 
-For data generation, we will define a region of the IS where we will sample points. Those points will then be normalized under the mean and standard deviation of the original IS and passed into the trained decoder to go from the instance space into the data space. We will then add the generated data into the original data to generate a new IS through PyHard. We will then check if the generated points in the new IS are close to the original generated points.
+For data generation, we will define a region of the IS where we will sample points. Those points will then be normalized under the mean and standard deviation of the original IS and passed into the trained decoder to go from the instance space into the data space.
+
+\section{Instance Space generation}
+
+For the IS generation, we will use the projection matrix and meta-features from the original IS. The meta-features generated will be multiplied by the projection matrix to generate the IS coordinates for each observation. We will then use the coordinates from the matrix multiplication to generate the IS.
 
 \section{Implementation of this methodology}
 
