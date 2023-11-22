@@ -26,8 +26,8 @@
 \contentsline {chapter}{\numberline {4}Methodology}{26}{chapter.4}
 \contentsline {section}{\numberline {4.1}Environment}{26}{section.4.1}
 \contentsline {section}{\numberline {4.2}Data}{26}{section.4.2}
-\contentsline {section}{\numberline {4.3}Decoder-Encoder creation and loss function}{27}{section.4.3}
-\contentsline {section}{\numberline {4.4}Data generation and re-evaluation of the generated data}{28}{section.4.4}
+\contentsline {section}{\numberline {4.3}Decoder-Encoder creation, loss function and training}{27}{section.4.3}
+\contentsline {section}{\numberline {4.4}Data generation}{28}{section.4.4}
 \contentsline {section}{\numberline {4.5}Instance Space generation}{28}{section.4.5}
 \contentsline {section}{\numberline {4.6}Implementation of this methodology}{28}{section.4.6}
 \contentsline {chapter}{\numberline {5}Results}{29}{chapter.5}

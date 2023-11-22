@@ -6,7 +6,7 @@ In the code, we define an experiment with a YAML configuration file. The file de
 
 \subsection{Original Instance Space and region of data generation}
 
-Figure \ref{fig:is_original} shows the original instance space with the parameters defined in Chapter \ref{ch:methodology}. The colorbar in the figure is the instance hardness of each point in the instance space. We will be generating data in the region defined by a rectangle with vertices $(-2.5, -1.0)$ and $(-1.5, 0.0)$.
+Figure \ref{fig:is_original} shows the original instance space with the parameters defined in Chapter \ref{ch:methodology}. We will be generating data in the region defined by a rectangle with vertices $(-2.0, -1.0)$ and $(-1.0, 0.0)$.
 
 \begin{figure}[H]
     \centering
@@ -17,7 +17,7 @@ Figure \ref{fig:is_original} shows the original instance space with the paramete
 
 \subsection{Experiment 1}
 
-The first experiment is a simple decoder-encoder with 3 layers, with a list of layer output features being $[16, 8, 4]$. The parameters for the optmizer are a learning rate of 0.001 and a weight decay of 0.001, being trained for 50 epochs. The training epoch loss results from TensorBoard are shown in Figure \ref{fig:exp1}.
+The first experiment is a simple encoder-decoder with 3 layers, with a list of layer output features being $[16, 8, 4]$. The parameters for the optmizer are a learning rate of 0.001 and a weight decay of 0.001, being trained for 50 epochs. The training epoch loss results from TensorBoard are shown in Figure \ref{fig:exp1}.
 
 \begin{figure}[H]
     \centering
@@ -37,7 +37,7 @@ The loss has reduced nicely over the training epochs. Figure \ref{fig:is_gen_poi
 
 Figure \ref{fig:is_exp1} shows the instance space with the points calculated from the generated meta-features. The points are not in the position we expected.
 
-\begin{figure}[H]
+\begin{figure}
     \centering
     \includegraphics[width=0.7\textwidth]{Cap5/all_coords1.png}
     \caption{Instance space after calculating the position of the generated meta-features of the points generated in experiment 1}
@@ -145,7 +145,7 @@ Figure \ref{fig:is_exp3} shows the instance space with the calculated points fro
     \label{fig:scatter_exp3}
 \end{figure}
 
-Again, most points are uncorrelated with the original values, bunched up in lines. A curious result has been the points bunched up near $(3, 1)$. Figure \ref{fig:scatter_enc_exp3} shows the scatterplot for the points returned by the encoder, which are also uncorrelated.
+Again, most points are uncorrelated with the original values, bunched up in lines. Figure \ref{fig:scatter_enc_exp3} shows the scatterplot for the points returned by the encoder, which are also uncorrelated.
 
 \begin{figure}[H]
     \centering

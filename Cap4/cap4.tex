@@ -31,8 +31,7 @@ In this work, we will be using data for COVID hospitalizations in the city of SÃ
 
 From this data we already have an instance space, with corresponding meta-features and projection matrix.
 
-
-\section{Decoder-Encoder creation and loss function}
+\section{Decoder-Encoder creation, loss function and training}
 
 The implementation of the decoder-encoder model is straightforward. Using the PyTorch \cite{paszke2019pytorch} framework we can define classes that function as neural network models. It has methods for backpropagation and has multiple optimizers implemented. 
 
@@ -40,9 +39,9 @@ The decoder model will decode the normalized instance space values into the norm
 
 We will be using the Adam optimizer \cite{kingma2017adam} for training. The loss function will be the mean squared error, since all the meta-features are continuous. The training of the model will be done in batches of 250 observations. We will also log the epoch losses in TensorBoard.
 
-\section{Data generation and re-evaluation of the generated data}
+\section{Data generation}
 
-For data generation, we will define a region of the IS where we will sample points. Those points will then be normalized under the mean and standard deviation of the original IS and passed into the trained decoder to go from the instance space into the data space.
+For data generation, we will define a region of the IS where we will sample points. Those points will then be normalized under the mean and standard deviation of the original IS and passed into the trained decoder to go from the instance space into the meta-features space.
 
 \section{Instance Space generation}
 
